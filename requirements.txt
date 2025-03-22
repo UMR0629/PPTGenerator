@@ -1,1 +1,2 @@
 python-pptx==1.0.2
+anytree==2.12.1
