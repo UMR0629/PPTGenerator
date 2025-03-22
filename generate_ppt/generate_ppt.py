@@ -1,0 +1,226 @@
+from pptx import Presentation
+from pptx.util import Inches, Pt
+from pptx.enum.text import PP_ALIGN, MSO_ANCHOR
+from pptx.dml.color import RGBColor
+from PIL import Image
+
+
+class Generate_ppt:
+    def __init__(self, ppt_path):
+        self.ppt_path = ppt_path
+        self.prs_old = Presentation(ppt_path)
+        self.prs_new = self.prs_old
+        self.slide_layout = self.prs_new.slide_layouts
+
+    def add_cover(self, title_text, author_text, date_text):
+        slide = self.prs_new.slides.add_slide(self.slide_layout[0])
+        content = slide.placeholders[0]
+
+        content.text = title_text
+
+        try:
+            slide.placeholders[11].text = author_text
+            slide.placeholders[10].text = date_text
+        except IndexError:
+            print("占位符 10 或 11 不存在，跳过赋值")
+
+    def add_menu_4(self, image_path, menu_items):
+        slide = self.prs_new.slides.add_slide(self.slide_layout[6])  # 选择布局索引6
+        placeholder = slide.placeholders[10]  # 获取占位符
+
+        placeholder.insert_picture(image_path)  # 插入图片
+
+        # 添加目录项
+        if not menu_items:
+            # 如果目录项为空，则使用默认目录项
+            menu_items = ["演示文稿目录1", "演示文稿目录2", "演示文稿目录3", "演示文稿目录4"]
+        else:
+            # 如果目录项超过4个，截取前4个
+            if len(menu_items) > 4:
+                print("目录项超过4个，只取前4个")
+                menu_items = menu_items[:4]
+
+        # 遍历目录项，并为每个目录项创建文本框
+        for i, text in enumerate(menu_items):
+            # 设置文本框的位置和大小
+            left, top, width, height = Inches(7.2), Inches(1.5 + i * 1.2), Inches(5), Inches(0.8)
+
+            # 添加一个文本框到幻灯片中，设置位置和大小
+            box = slide.shapes.add_textbox(left, top, width, height)
+
+            # 设置文本框背景为白色
+            box.fill.solid()  # 填充颜色
+            box.fill.fore_color.rgb = RGBColor(255, 255, 255)  # 背景色为白色
+
+            # 获取文本框的文本框架（TextFrame），用于设置文本属性
+            text_frame = box.text_frame
+            text_frame.clear()  # 清空任何已有的文本内容
+
+            # 设置文本框中的垂直对齐方式为居中
+            text_frame.vertical_anchor = MSO_ANCHOR.MIDDLE  # 垂直居中
+
+            # 获取第一个段落，设置该段落的对齐方式为水平居中
+            p = text_frame.paragraphs[0]
+            p.alignment = PP_ALIGN.CENTER  # 水平居中
+
+            # 设置该段落的文字样式
+            run = p.add_run()  # 为段落添加一个文本运行
+            run.text = text  # 设置文本为目录项的名称
+            run.font.size = Pt(24)  # 设置字体大小为24磅
+            run.font.bold = True  # 设置字体为粗体
+            run.font.color.rgb = RGBColor(68, 84, 106)  # 设置字体颜色为黑色
+
+            # 添加编号框（左侧显示编号）
+            num_box = slide.shapes.add_textbox(left - Inches(1), top, Inches(0.8), height)  # 设置编号框的位置和大小
+            num_text_frame = num_box.text_frame  # 获取编号框的文本框架
+            num_text_frame.clear()  # 清空任何已有的文本内容
+
+            # 设置编号框中的垂直对齐方式为居中
+            num_text_frame.vertical_anchor = MSO_ANCHOR.MIDDLE
+
+            # 设置编号框中的文本段落对齐方式为居中
+            p = num_text_frame.paragraphs[0]
+            p.alignment = PP_ALIGN.CENTER  # 水平居中
+
+            # 设置该段落的编号文本
+            run = p.add_run()
+            run.text = str(i + 1)  # 编号从1开始
+            run.font.size = Pt(28)  # 设置编号字体大小为28磅
+            run.font.bold = True  # 设置编号为粗体
+            run.font.color.rgb = RGBColor(255, 255, 255)  # 设置编号的字体颜色为白色
+
+            # 设置编号框背景颜色为深色
+            num_box.fill.solid()  # 填充编号框颜色
+            num_box.fill.fore_color.rgb = RGBColor(54, 69, 79)  # 设置背景色为深色（灰蓝色）
+
+            # 设置编号框的边框颜色为透明
+            num_box.line.fill.background()  # 设置编号框边框为透明
+
+    def add_menu_6(self, image_path, menu_items):
+        slide = self.prs_new.slides.add_slide(self.slide_layout[7])
+        placeholder = slide.placeholders[10]
+
+        placeholder.insert_picture(image_path)
+
+        if not menu_items:
+            menu_items = ["目录1", "目录2", "目录3", "目录4", "目录5", "目录6"]
+        else:
+            if len(menu_items) > 6:
+                print("目录项超过6个，只取前6个")
+                menu_items = menu_items[:6]
+
+        # 遍历目录项，并为每个目录项创建文本框
+        for i, text in enumerate(menu_items):
+            # 设置文本框的位置和大小
+            if i < 3:
+                left, top, width, height = Inches(1.4), Inches(3.2 + i * 1.2), Inches(5), Inches(0.8)
+            else:
+                left, top, width, height = Inches(8.0), Inches(3.2 + (i - 3) * 1.2), Inches(5), Inches(0.8)
+
+            # 添加一个文本框到幻灯片中，设置位置和大小
+            box = slide.shapes.add_textbox(left, top, width, height)
+
+            # 设置文本框背景为白色
+            box.fill.solid()  # 填充颜色
+            box.fill.fore_color.rgb = RGBColor(255, 255, 255)  # 背景色为白色
+
+            # 获取文本框的文本框架（TextFrame），用于设置文本属性
+            text_frame = box.text_frame
+            text_frame.clear()  # 清空任何已有的文本内容
+
+            # 设置文本框中的垂直对齐方式为居中
+            text_frame.vertical_anchor = MSO_ANCHOR.MIDDLE  # 垂直居中
+
+            # 获取第一个段落，设置该段落的对齐方式为水平居中
+            p = text_frame.paragraphs[0]
+            p.alignment = PP_ALIGN.CENTER  # 水平居中
+
+            # 设置该段落的文字样式
+            run = p.add_run()  # 为段落添加一个文本运行
+            run.text = text  # 设置文本为目录项的名称
+            run.font.size = Pt(24)  # 设置字体大小为24磅
+            run.font.bold = True  # 设置字体为粗体
+            run.font.color.rgb = RGBColor(68, 84, 106)  # 设置字体颜色为黑色
+
+            # 添加编号框（左侧显示编号）
+            num_box = slide.shapes.add_textbox(left - Inches(1), top, Inches(0.8), height)  # 设置编号框的位置和大小
+            num_text_frame = num_box.text_frame  # 获取编号框的文本框架
+            num_text_frame.clear()  # 清空任何已有的文本内容
+
+            # 设置编号框中的垂直对齐方式为居中
+            num_text_frame.vertical_anchor = MSO_ANCHOR.MIDDLE
+
+            # 设置编号框中的文本段落对齐方式为居中
+            p = num_text_frame.paragraphs[0]
+            p.alignment = PP_ALIGN.CENTER  # 水平居中
+
+            # 设置该段落的编号文本
+            run = p.add_run()
+            run.text = str(i + 1)  # 编号从1开始
+            run.font.size = Pt(28)  # 设置编号字体大小为28磅
+            run.font.bold = True  # 设置编号为粗体
+            run.font.color.rgb = RGBColor(255, 255, 255)  # 设置编号的字体颜色为白色
+
+            # 设置编号框背景颜色为深色
+            num_box.fill.solid()  # 填充编号框颜色
+            num_box.fill.fore_color.rgb = RGBColor(54, 69, 79)  # 设置背景色为深色（灰蓝色）
+
+            # 设置编号框的边框颜色为透明
+            num_box.line.fill.background()  # 设置编号框边框为透明
+
+    def add_all_text(self, title, text):
+        slide = self.prs_new.slides.add_slide(self.slide_layout[8])
+        slide.placeholders[0].text = title
+        slide.placeholders[10].text = text
+
+    from pptx.util import Inches
+    from PIL import Image
+
+    def add_text_image(self, title, text, image_path):
+        text_len = len(text)
+        print(f"文本长度：{text_len}")
+        # 创建新的幻灯片
+        slide = self.prs_new.slides.add_slide(self.slide_layout[8])
+
+        # 设置标题
+        slide.placeholders[0].text = title
+
+        # 设置文本的占位符
+        text_placeholder = slide.placeholders[10]
+        text_placeholder.text = text
+
+        # 设置文本框的位置和大小
+        text_height = 0.5 * (text_len // 15 + 1)
+        text_top = 1 + 0.5 * (6 - text_height)
+        print(f"文本框高度：{text_height}，文本框顶部距离：{text_top}")
+        text_placeholder.left = Inches(0.5)
+        text_placeholder.top = Inches(text_top)
+        text_placeholder.width = Inches(6)
+        text_placeholder.height = Inches(text_height)
+
+        # 获取图片的大小
+        with Image.open(image_path) as img:
+            img_width, img_height = img.size
+
+        # 计算PPT页面的宽度和最大图片宽度（PPT整体宽度的一半）
+        img_width_alter = 600
+
+        # 按照宽度调整图片比例
+
+        scale_factor = img_width_alter / img_width
+        img_width = img_width_alter
+        img_height = int(img_height * scale_factor)  # 按比例调整高度
+
+        # 计算图片的位置：使其位于PPT的右侧
+
+        p_height =  (8 - img_height / 96) / 2
+        p_width = 6.5  + (6.5 - img_width / 96) / 2
+        left = Inches(p_width)  # 图片距离左侧的距离
+        top = Inches(p_height)  # 图片距离顶部的距离
+
+        # 插入图片
+        slide.shapes.add_picture(image_path, left, top, width=Inches(img_width / 96), height=Inches(img_height / 96))
+
+    def save_ppt(self, output_path):
+        self.prs_new.save(output_path)
+        print(f"PPT 已成功保存到 {output_path}")
