@@ -173,9 +173,6 @@ class Generate_ppt:
         slide.placeholders[0].text = title
         slide.placeholders[10].text = text
 
-    from pptx.util import Inches
-    from PIL import Image
-
     def add_text_image(self, title, text, image_path):
         text_len = len(text)
         print(f"文本长度：{text_len}")
