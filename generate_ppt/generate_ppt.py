@@ -394,6 +394,93 @@ class Generate_ppt:
         # 插入图片
         slide.shapes.add_picture(image_path, left, top, width=Inches(img_width / 96), height=Inches(img_height / 96))
 
+    # 添加文本和图片页（图片*2）
+    def add_text_double_image(self, title, text, image_path_1, image_path_2):
+        text_len = len(text)
+        print(f"文本长度：{text_len}")
+        # 创建新的幻灯片
+        slide = self.prs_new.slides.add_slide(self.slide_layout[8])
+
+        # 设置标题
+        slide.placeholders[0].text = title
+
+        # 设置文本的占位符
+        text_placeholder = slide.placeholders[10]
+        text_placeholder.text = text
+
+        # 设置文本框的位置和大小
+        text_height = 0.5 * (text_len // 15 + 1)
+        text_top = 3.5 + 0.5 * (4 - text_height)
+        print(f"文本框高度：{text_height}，文本框顶部距离：{text_top}")
+        text_placeholder.left = Inches(0.5)
+        text_placeholder.top = Inches(text_top)
+        text_placeholder.width = Inches(6)
+        text_placeholder.height = Inches(text_height)
+
+
+        # 获取图片的大小
+        with Image.open(image_path_1) as img_1:
+            img_1_width, img_1_height = img_1.size
+
+        with Image.open(image_path_2) as img_2:
+            img_2_width, img_2_height = img_2.size
+
+        # 更扁平的图像放在左侧文本框上方，更瘦长的放在右侧
+        if img_1_width / img_1_height > img_2_width / img_2_height:
+            image_left_path = image_path_1
+            image_right_path = image_path_2
+            img_left_width = img_1_width
+            img_left_height = img_1_height
+            img_right_width = img_2_width
+            img_right_height = img_2_height
+        else:
+            image_left_path = image_path_2
+            image_right_path = image_path_1
+            img_left_width = img_2_width
+            img_left_height = img_2_height
+            img_right_width = img_1_width
+            img_right_height = img_1_height
+
+
+        # 计算PPT页面的宽度和最大图片宽度（PPT整体宽度的一半）
+        img_left_width_alter = 600
+
+        # 按照宽度调整图片比例
+
+        scale_factor_left = img_left_width_alter / img_left_width
+        img_left_width = img_left_width_alter
+        img_left_height = int(img_left_height * scale_factor_left)  # 按比例调整高度
+
+        # 计算图片的位置：使img_left位于PPT的左侧，文本框上方
+
+        p_left_height =  1 + (3 - img_left_height / 96) / 2
+        p_left_width = (6.5 - img_left_width / 96) / 2
+        left = Inches(p_left_width)  # 图片距离左侧的距离
+        top = Inches(p_left_height)  # 图片距离顶部的距离
+
+        # 插入图片
+        slide.shapes.add_picture(image_left_path, left, top, width=Inches(img_left_width / 96), height=Inches(img_left_height / 96))
+
+        # 计算PPT页面的宽度和最大图片宽度（PPT整体宽度的一半）
+        img_right_width_alter = 600
+
+        # 按照宽度调整图片比例
+
+        scale_factor_right = img_right_width_alter / img_right_width
+        img_right_width = img_right_width_alter
+        img_right_height = int(img_right_height * scale_factor_right)
+
+        # 计算图片的位置：使img_right位于PPT的右侧，文本框上方
+
+        p_right_height =  (8 - img_right_height / 96) / 2
+        p_right_width = 6.5 + (6.5 - img_right_width / 96) / 2
+        left = Inches(p_right_width)
+        top = Inches(p_right_height)
+
+        # 插入图片
+        slide.shapes.add_picture(image_right_path, left, top, width=Inches(img_right_width / 96), height=Inches(img_right_height / 96))
+
+
     # 添加图片页
     def add_all_image(self, title, image_path):
 
