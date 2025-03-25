@@ -345,6 +345,21 @@ class Generate_ppt:
     # 添加文本页
     def add_all_text(self, title, text):
         slide = self.prs_new.slides.add_slide(self.slide_layout[8])
+        text_len = len(text)
+        text_size = 25
+        if text_len >= 200 and text_len < 400:
+            text_size = int(400 / text_len * 25 * 1.1)
+            print(f"文本字体大小：{text_size}")
+
+        elif text_len >= 400 and text_len < 600:
+            text_size = int(400 / text_len * 25 * 1.5)
+            print(f"文本字体大小：{text_size}")
+
+
+        for paragraph in slide.placeholders[10].text_frame.paragraphs:
+            for run in paragraph.runs:
+                run.font.size = Pt(text_size)
+
         slide.placeholders[0].text = title
         slide.placeholders[10].text = text
 
@@ -362,8 +377,25 @@ class Generate_ppt:
         text_placeholder = slide.placeholders[10]
         text_placeholder.text = text
 
+        row_text = 15
+        text_size = 25
+        if text_len >= 200 and text_len < 400:
+            text_size = int(200 / text_len * 25 * 1.1)
+            print(f"文本字体大小：{text_size}")
+            row_text = int(text_len / 200 * 15 * 1.2)
+            print(f"文本每行字数：{row_text}")
+        elif text_len >= 400 and text_len < 600:
+            text_size = int(200 / text_len * 25 * 1.5)
+            print(f"文本字体大小：{text_size}")
+            row_text = int(text_len / 200 * 15 * 1.2)
+            print(f"文本每行字数：{row_text}")
+
+        for paragraph in text_placeholder.text_frame.paragraphs:
+            for run in paragraph.runs:
+                run.font.size = Pt(text_size)
+
         # 设置文本框的位置和大小
-        text_height = 0.5 * (text_len // 15 + 1)
+        text_height = 0.5 * (text_len // row_text + 1)
         text_top = 1 + 0.5 * (6 - text_height)
         print(f"文本框高度：{text_height}，文本框顶部距离：{text_top}")
         text_placeholder.left = Inches(0.5)
@@ -408,11 +440,29 @@ class Generate_ppt:
         text_placeholder = slide.placeholders[10]
         text_placeholder.text = text
 
+        row_text = 15
+        text_size = 25
+        if text_len >= 100 and text_len < 200:
+            text_size = int(100 / text_len * 25 * 1.1)
+            print(f"文本字体大小：{text_size}")
+            row_text = int(text_len / 100 * 15 * 1.2)
+            print(f"文本每行字数：{row_text}")
+        elif text_len >= 200 and text_len < 300:
+            text_size = int(100 / text_len * 25 * 1.5)
+            print(f"文本字体大小：{text_size}")
+            row_text = int(text_len / 100 * 15 * 1.2)
+            print(f"文本每行字数：{row_text}")
+
+
+        for paragraph in text_placeholder.text_frame.paragraphs:
+            for run in paragraph.runs:
+                run.font.size = Pt(text_size)
+
         # 设置文本框的位置和大小
-        text_height = 0.5 * (text_len // 15 + 1)
-        text_top = 3.5 + 0.5 * (4 - text_height)
+        text_height = 0.5 * (text_len // row_text + 1)
+        text_top = 3.7 + 0.5 * (4 - text_height)
         print(f"文本框高度：{text_height}，文本框顶部距离：{text_top}")
-        text_placeholder.left = Inches(0.5)
+        text_placeholder.left = Inches(0.3)
         text_placeholder.top = Inches(text_top)
         text_placeholder.width = Inches(6)
         text_placeholder.height = Inches(text_height)
@@ -479,7 +529,6 @@ class Generate_ppt:
 
         # 插入图片
         slide.shapes.add_picture(image_right_path, left, top, width=Inches(img_right_width / 96), height=Inches(img_right_height / 96))
-
 
     # 添加图片页
     def add_all_image(self, title, image_path):
