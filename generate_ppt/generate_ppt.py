@@ -569,6 +569,12 @@ class Generate_ppt:
         # 插入图片
         slide.shapes.add_picture(image_path, left, top, width=Inches(img_width / 96), height=Inches(img_height / 96))
 
+    # 添加感谢页
+    def add_thanks(self, text="感谢您的观看"):
+        slide = self.prs_new.slides.add_slide(self.slide_layout[13])
+
+        slide.placeholders[0].text = text
+
     # 保存PPT
     def save_ppt(self, output_path):
         self.prs_new.save(output_path)
