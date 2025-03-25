@@ -25,6 +25,95 @@ class Generate_ppt:
         except IndexError:
             print("占位符 10 或 11 不存在，跳过赋值")
 
+    # 添加目录页
+    def add_menu(self, image_path, menu_items_number, menu_items):
+        if menu_items_number == 3:
+            self.add_menu_3(image_path, menu_items)
+        elif menu_items_number == 4:
+            self.add_menu_4(image_path, menu_items)
+        elif menu_items_number == 5:
+            self.add_menu_5(image_path, menu_items)
+        elif menu_items_number == 6:
+            self.add_menu_6(image_path, menu_items)
+        else:
+            print("目录项数量错误，目前仅支持3-6个目录项")
+
+    # 添加目录页（3个目录项）
+    def add_menu_3(self, image_path, menu_items):
+        slide = self.prs_new.slides.add_slide(self.slide_layout[6])  # 选择布局索引6
+        placeholder = slide.placeholders[10]  # 获取占位符
+
+        placeholder.insert_picture(image_path)  # 插入图片
+
+        # 添加目录项
+        if not menu_items:
+            # 如果目录项为空，则使用默认目录项
+            menu_items = ["演示文稿目录1", "演示文稿目录2", "演示文稿目录3"]
+        else:
+            # 如果目录项超过4个，截取前4个
+            if len(menu_items) > 3:
+                print("目录项超过3个，只取前3个")
+                menu_items = menu_items[:3]
+            elif len(menu_items) < 3:
+                print("目录项不足3个，使用默认目录项")
+                menu_items = ["演示文稿目录1", "演示文稿目录2", "演示文稿目录3"]
+
+        # 遍历目录项，并为每个目录项创建文本框
+        for i, text in enumerate(menu_items):
+            # 设置文本框的位置和大小
+            left, top, width, height = Inches(7.2), Inches(2 + i * 1.2), Inches(5), Inches(0.8)
+
+            # 添加一个文本框到幻灯片中，设置位置和大小
+            box = slide.shapes.add_textbox(left, top, width, height)
+
+            # 设置文本框背景为白色
+            box.fill.solid()  # 填充颜色
+            box.fill.fore_color.rgb = RGBColor(255, 255, 255)  # 背景色为白色
+
+            # 获取文本框的文本框架（TextFrame），用于设置文本属性
+            text_frame = box.text_frame
+            text_frame.clear()  # 清空任何已有的文本内容
+
+            # 设置文本框中的垂直对齐方式为居中
+            text_frame.vertical_anchor = MSO_ANCHOR.MIDDLE  # 垂直居中
+
+            # 获取第一个段落，设置该段落的对齐方式为水平居中
+            p = text_frame.paragraphs[0]
+            p.alignment = PP_ALIGN.CENTER  # 水平居中
+
+            # 设置该段落的文字样式
+            run = p.add_run()  # 为段落添加一个文本运行
+            run.text = text  # 设置文本为目录项的名称
+            run.font.size = Pt(24)  # 设置字体大小为24磅
+            run.font.bold = True  # 设置字体为粗体
+            run.font.color.rgb = RGBColor(68, 84, 106)  # 设置字体颜色为黑色
+
+            # 添加编号框（左侧显示编号）
+            num_box = slide.shapes.add_textbox(left - Inches(1), top, Inches(0.8), height)  # 设置编号框的位置和大小
+            num_text_frame = num_box.text_frame  # 获取编号框的文本框架
+            num_text_frame.clear()  # 清空任何已有的文本内容
+
+            # 设置编号框中的垂直对齐方式为居中
+            num_text_frame.vertical_anchor = MSO_ANCHOR.MIDDLE
+
+            # 设置编号框中的文本段落对齐方式为居中
+            p = num_text_frame.paragraphs[0]
+            p.alignment = PP_ALIGN.CENTER  # 水平居中
+
+            # 设置该段落的编号文本
+            run = p.add_run()
+            run.text = str(i + 1)  # 编号从1开始
+            run.font.size = Pt(28)  # 设置编号字体大小为28磅
+            run.font.bold = True  # 设置编号为粗体
+            run.font.color.rgb = RGBColor(255, 255, 255)  # 设置编号的字体颜色为白色
+
+            # 设置编号框背景颜色为深色
+            num_box.fill.solid()  # 填充编号框颜色
+            num_box.fill.fore_color.rgb = RGBColor(54, 69, 79)  # 设置背景色为深色（灰蓝色）
+
+            # 设置编号框的边框颜色为透明
+            num_box.line.fill.background()  # 设置编号框边框为透明
+
     # 添加目录页（4个目录项）
     def add_menu_4(self, image_path, menu_items):
         slide = self.prs_new.slides.add_slide(self.slide_layout[6])  # 选择布局索引6
@@ -41,6 +130,9 @@ class Generate_ppt:
             if len(menu_items) > 4:
                 print("目录项超过4个，只取前4个")
                 menu_items = menu_items[:4]
+            elif len(menu_items) < 4:
+                print("目录项不足4个，使用默认目录项")
+                menu_items = ["演示文稿目录1", "演示文稿目录2", "演示文稿目录3", "演示文稿目录4"]
 
         # 遍历目录项，并为每个目录项创建文本框
         for i, text in enumerate(menu_items):
@@ -114,6 +206,9 @@ class Generate_ppt:
             if len(menu_items) > 5:
                 print("目录项超过5个，只取前5个")
                 menu_items = menu_items[:5]
+            elif len(menu_items) < 5:
+                print("目录项不足5个，使用默认目录项")
+                menu_items = ["演示文稿目录1", "演示文稿目录2", "演示文稿目录3", "演示文稿目录4", "演示文稿目录5"]
 
         # 遍历目录项，并为每个目录项创建文本框
         for i, text in enumerate(menu_items):
@@ -184,6 +279,9 @@ class Generate_ppt:
             if len(menu_items) > 6:
                 print("目录项超过6个，只取前6个")
                 menu_items = menu_items[:6]
+            elif len(menu_items) < 6:
+                print("目录项不足6个，使用默认目录项")
+                menu_items = ["目录1", "目录2", "目录3", "目录4", "目录5", "目录6"]
 
         # 遍历目录项，并为每个目录项创建文本框
         for i, text in enumerate(menu_items):
