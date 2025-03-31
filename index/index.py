@@ -70,8 +70,6 @@ class SectionContent:
     def __init__(self, text=None,summary:PaperSectionSummary=None):
         # 原始text（来自pdf处理模块）
         self.text = text or ""
-        # “名称-路径”对应表（来自pdf处理模块）
-        self.image_list = []
         # summary中应当包含大模型处理过后的text要点、img路径、table路径（来自大模型处理模块）
         self.summary=summary
         
@@ -114,6 +112,8 @@ class PaperInfo:
         self.ppt_presenter = ppt_presenter
         self.ppt_date = ppt_date
         self.outline_root = Node(title, content=None)  # 根节点不存储内容
+        # “名称-路径”对应表（来自pdf处理模块）
+        self.image_list = []
 
     def add_outline_section(self, parent_title, section_title):
         """
