@@ -1,0 +1,19 @@
+The key idea of our approach is to mainly adopt
+dictionary-based mutation methods when the current input
+distance is relatively large, and byte stream-based mutation
+methods when the distance gets smaller. PREDATOR uses
+Formula | to calculate the probability to use the byte stream-
+based mutation methods, where Dx, is the input distance
+in the current round, Daoz and Dyin are the maximum and
+minimum input distances in the previous rounds, respectively.
+The probability is higher when the current distance is smaller,
+and lower when the current distance is larger. We set the
+maximum probability to 90% based on empirical observation,
+meaning that the byte stream-based mutation methods will be
+applied with a 90% probability when the current distance is 1.
+PREDATOR leverages the maximum and minimum distances
+to modulate the rate of change in the probability function,
+instead of directly employing a linear function. Specifically,
+it mostly chooses byte stream-based mutation methods when
+the current distance is sufficiently far from the maximum
+distance and sufficiently close to the minimum distance.

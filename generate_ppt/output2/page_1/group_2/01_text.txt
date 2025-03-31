@@ -1,0 +1,6 @@
+Web applications are extensively deployed in Internet
+services, powering a variety of functionalities, from online
+shopping to social networking. These applications, irre-
+spective of the underlying technology, are susceptible to
+a wide range of security threats. These threats can result
+in severe consequences, including data breaches, financial

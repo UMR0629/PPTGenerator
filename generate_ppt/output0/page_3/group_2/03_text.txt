@@ -1,0 +1,7 @@
+Note that while vulnerability information can often be
+sourced from multiple avenues, such as static analysis tools
+and databases of known CVEs, a practical proof of concept
+(PoC) to exploit these vulnerabilities frequently remain
+unavailable. Therefore, it is crucial to develop a tool capable
+of both identifying and effectively triggering these known
+vulnerabilities to validate their impact and scope.

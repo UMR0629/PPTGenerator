@@ -1,0 +1,38 @@
+Dynamic approaches [12-19, 30, 32, 33, 44, 45] are
+more relevant to our work. Witcher [16] is a grey-box fuzzer
+for web applications and the closest to our work. It uses
+code coverage feedback to guide the fuzzing process and
+customized bug oracles to detect SQL injection and command
+injection vulnerabilities. It collects initial seed inputs and tar-
+gets using a crawler to support up to 6 languages. PREDATOR
+extends Witcher by introducing an static analysis stage to
+identify potential targets and a distance feedback mechanism
+to guide the directed fuzzing process. It only focuses on PHP
+applications. The reasons are twofold: 1) PHP is the most
+popular server-side languages for web development [5], and
+2) PHP applications are more vulnerable to taint-style vulner-
+abilities [6]. However, the techniques used in PREDATOR can
+be easily extended to other languages. WebFuzz [15] uses
+static instrumentation to collect code coverage feedback and
+employs a crossover method to generate new test cases. It
+significantly enlarges the source code of the target application.
+PREDATOR does not require any modification to the target
+application. BackREST [17] is a closed-source feedback-
+driven fuzzer designed for testing RESTful APIs. It conducts
+dynamic taint analysis during runtime to support the fuzzing
+process. PREDATOR only conducts static analysis before the
+fuzzing process to avoid introducing high runtime overhead.
+At runtime, PREDATOR only collects distance feedback
+and leverages the dependent parameters to improve the
+mutation effectiveness. As a concurrent work, Atropos [18]
+employs snapshot-based techniques and runtime inference
+to detect eight types of vulnerabilities. Another recent work,
+Phuzz [19], is a modular fuzzing framework for detecting
+5 types of server-side and 2 types of client-side vulnerabilities.
+PREDATOR, based on Witcher, only detects three kinds of
+vulnerabilities. While developing more bug oracles is not our
+primary research objective, it is possible to detect additional
+types by migrating the approach of PREDATOR to any other
+fuzzing tool.
+
+TNitrartad Ta Tharea area cnffiriant Airacted finvging

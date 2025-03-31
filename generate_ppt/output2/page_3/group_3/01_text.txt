@@ -1,0 +1,6 @@
+Limitations of Existing Methods. Both static and dynamic
+analysis techniques have their limitations. Static analysis
+generates reports with many false positives [6, 10, 11, 31].
+This issue mostly stems from the fact that static analysis eval-
+uates code without executing it, leading to outcomes based on
+theoretical inferences rather than actual runtime behavior. As

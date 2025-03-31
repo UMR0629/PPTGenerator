@@ -1,0 +1,7 @@
+input corpus. We compare PREDATOR with Witcher on their
+throughputs to examine the impact of selective dynamic
+instrumentation. We run each tool for one hour on every
+entry URL of each application and take the average as the
+throughput, measured in requests per second (req/s). The
+dataset contains 10 web applications, excluding those where
+neither PREDATOR nor Witcher identified any vulnerabilities.

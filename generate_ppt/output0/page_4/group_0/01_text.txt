@@ -1,0 +1,5 @@
+effective in coverage-guided fuzzing, crawlers randomly
+extract URLs, potentially missing critical entry URLs that
+lead to vulnerable code locations and cluttering the dataset
+with irrelevant URLs. Manually identifying entry URLs is
+inefficient and does not align with our research goal.

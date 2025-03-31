@@ -1,0 +1,2 @@
+TABLE 7: The results of automated validation for new vulnerabil-
+ities.

@@ -1,0 +1,10 @@
+Distance-Guided Probabilistic Mutation. We propose a
+distance-guided probabilistic mutation method that combines
+the advantages of both dictionary-based methods [16] and
+byte stream-based mutation methods [20]. Dictionary-based
+mutation methods can help the exploration stage by changing
+the decision of a branch statement. However, for the exploita-
+tion stage, these methods may be less effective. Specifically,
+when utilizing error-based bug oracles, triggering a vulnera-
+bility may require a specific attack string, such as a single
+quote for SQL injection.

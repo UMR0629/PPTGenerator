@@ -1,0 +1,29 @@
+Inaccurate static
+analysis results caused by variable function calls can be
+supplemented during dynamic testing. PREDATOR can dy-
+namically identify paths that were not recognized during the
+static analysis phase and update the block distances accord-
+ingly. The simplified workflow is shown in Algorithm 2.
+PREDATOR places a sentinel at the beginning of each
+function. When executing a variable function, PREDATOR
+checks whether the path from the call site to the callee already
+exists. If not, PREDATOR records this path and calculates
+the block distance for the call site. Note that it is impractical
+to recalculate all the distances every time a new call edge
+is identified. Thus, we make a trade-off between the time
+overhead incurred by updating distances and the accuracy
+during the process of distance update. PREDATOR sets the
+block distance of the call site as a constant multiple of the
+block distance of the callee, where the constant is empirically
+set to 2. It continuously adopts this approach during the
+fuzzing process. Following this, the distance information
+dynamically updated allows the fuzzer to more accurately
+identify the distance between the currently executed basic
+block and the target, thereby more effectively guiding the
+fuzzing process. In §4.2.3, we present a simple example
+where the performance of the fuzzer is impacted due to a
+path not being identified, leading to some promising test
+cases not being added to the seed queue. By using this
+supplementation method at runtime, the path represented by
+the red dashed directed line in Figure 2 is identified, and the
+block distance of line 33 is updated with 8.

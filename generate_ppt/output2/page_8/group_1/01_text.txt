@@ -1,0 +1,18 @@
+utilizes the dependent parameters identified in $4.2.2 to guide
+the fuzzer in targeted mutations, thereby quickly limiting
+the search space of the exploration stage. Angora [24]
+introduced a similar technique by performing byte-level
+taint analysis on user inputs and then mutating these bytes.
+For web applications, we need to manipulate parameter
+keys and values by conducting lightweight parameter-to-
+condition analysis. At directed fuzzing stage, PREDATOR
+first logs the closest basic block to the target during the
+web application’s execution. It then mutates the dependent
+parameters of this basic block to approach the target via the
+block. Specifically, for any branch statement, PREDATOR
+identify several dependent parameters during static data-flow
+analysis. For the closest branch statement after a round of
+fuzzing, PREDATOR will utilize the dependent parameters as
+candidate parameter keys for the next round to mutate. By
+this means, PREDATOR can guide the fuzzer to fulfill the
+specific conditions and reach the target more effectively.

@@ -1,0 +1,5 @@
+while Dmaz and Dyin are no less than 1, it indicates that
+basic blocks with distance information have been executed
+in previous runs, but no such blocks were encountered in the
+current execution. Hence, this function remains valid across
+all scenarios.

@@ -1,0 +1,3 @@
+False Positives. All 6 false positives were reported during
+the XSS vulnerability detection. This is possibly due to the
+high false-positive rate of the string matching-based XSS

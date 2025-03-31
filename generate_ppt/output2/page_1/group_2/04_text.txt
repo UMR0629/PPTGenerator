@@ -1,0 +1,14 @@
+To mitigate these threats, security analysts have devel-
+oped various techniques to detect vulnerabilities in web
+applications. For instance, static analysis methods such as
+TChecker [6] and RIPS [7] can scalably screen the source
+code to identify suspicious security issues using predefined
+heuristics. Unfortunately, they often suffer from potential
+high false-positive rates, a situation that is counterproduc-
+tive [8-11]. Additionally, even state-of-the-art static analysis
+tools may not be able to fully model the dynamic features
+of PHP, which can lead to imprecise results [6].
+
+a: ee 1 11
+
+a ae

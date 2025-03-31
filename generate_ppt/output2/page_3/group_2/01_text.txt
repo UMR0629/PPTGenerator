@@ -1,0 +1,17 @@
+Directed fuzzing specially tests target code of interests. Its
+effectiveness has been demonstrated primarily in the context
+of native applications, as exemplified by the success of
+tools like AFLGo [23]. However, the application of directed
+fuzzing to web applications is relatively limited. Cefuzz [30]
+is a directed fuzzer for detecting RCE vulnerabilities in web
+applications. It first conducts static taint analysis to identify
+potential sinks. Subsequently, it instruments the source code
+to trace the execution paths. It prioritizes seeds by measuring
+the number of reachable basic blocks they pass through
+without relying on any distance metrics. Unfortunately, its
+static instrumentation method not only introduces additional
+code but also fails to correctly perform seed selection when
+the application is complex. It is ineffective when static
+analysis results are imprecise due to the dynamic features
+of interpreted languages like PHP. Moreover, it only detects
+RCE vulnerabilities, and its source code is not available.

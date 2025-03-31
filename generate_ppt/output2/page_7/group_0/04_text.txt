@@ -1,0 +1,6 @@
+If we set line 12 in Listing | as the target, PREDATOR
+will instrument lines 9, 11, and 12, as they contain the se-
+lected opcodes and are path-divergent blocks. The simplified
+bytecode of ClassA can be found in Listing 2 in the appendix.
+
+MU“7TL.. ...1....1.¢4%.. . L1. 1 J* 4... £.. TITIM 11* . 4%...

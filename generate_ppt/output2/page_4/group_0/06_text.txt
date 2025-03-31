@@ -1,0 +1,2 @@
+Listing 1: An example server-side PHP script contains both static
+and dynamic method calls.

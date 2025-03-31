@@ -1,0 +1,7 @@
+To narrow the search
+scope, we statically identify the entry scripts and their
+corresponding entry URLs essential for reaching the target
+code locations. We perform a backward analysis, starting
+from the target locations and tracing back to the entry scripts.
+
+TITTT? ， 1 *， es ee ce & _ _

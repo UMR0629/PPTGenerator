@@ -1,0 +1,26 @@
+LISUIWET SL CUMUUIK ANU Udta“llOW dildlyolos.
+
+Selective Dynamic Instrumentation. We modify the
+PHP interpreter to enable directed fuzzing. Inspired by
+Witcher [16], we utilize the VA_TRACEQ) macro, which is
+introduced in the PHP interpreter from version 7.3. This
+macro enables detailed tracing of the execution of opcodes
+within the PHP virtual machine. We modify the macro to
+report the distance of the current basic block when control-
+flow transferring opcodes are executed. When executing a
+control-flow transferring opcode, the PHP interpreter searches
+if the line number of the opcode and the file name of the
+current script exist in the recorded block distance information.
+If the current test case reaches a closer block, the interpreter
+updates its input distance by modifying the shared memory.
+After the execution of the test case, the fuzzer reads the
+distance and saves the test case if the distance is the shortest
+so far. We store the block distance information in the file
+system, which is to permanently record the distances when
+block distance supplementation happens at runtime. When
+testing the same target, we load from the file system to avoid
+re-updating the block distance information.
+
+XSS_ Detection. We further implement a simple re-
+flected XSS detector [14, 36] working with PREDATOR, as
+Witcher [16] is able to identify only SQL injection and com-

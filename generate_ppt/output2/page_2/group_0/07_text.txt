@@ -1,0 +1,15 @@
+To evaluate the effectiveness and efficiency of
+PREDATOR, we conducted a comprehensive assessment on
+both synthetic and real-world web applications, covering
+a wide range of vulnerabilities. Compared to state-of-the-
+art fuzzers, PREDATOR detected more vulnerabilities and
+triggered them up to 43.8 times faster. We demonstrated that
+each component of PREDATOR contributed to the overall
+performance. We showcased the effectiveness of PREDATOR
+in validating static analysis reports and reducing the manual
+auditing efforts. When applying PREDATOR to detect new
+vulnerabilities, we identified 26 previously unknown vulnera-
+bilities in real-world web applications, 7 of which have been
+acknowledged and patched.
+
+nae naa

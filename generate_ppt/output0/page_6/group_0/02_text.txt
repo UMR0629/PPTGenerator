@@ -1,0 +1,8 @@
+inter-procedural control flow of the application to assist in
+identifying the entry scripts. Each function along the path
+possesses zero, one, or multiple call edges linking it to its
+call sites. We meticulously track these call edges to pinpoint
+the entry functions and record the scripts in which they are
+invoked. These scripts are then marked as entry scripts. If a
+target is not within a function body, we consider the scripts
+containing the target as entry scripts.

@@ -1,0 +1,10 @@
+Securing Web Applications. In recent years, many ap-
+proaches have been proposed to secure web applications.
+Static analysis methods [6, 7, 10, 11, 39-43] scrutinize the
+source code of web applications to identify taint-style or
+second-order vulnerabilities. Recent work typically based on
+code property graph [6, 10] or abstract syntax tree [39, 40]
+to model the source code. However, these tools often suffer
+from n potential high false positive rates.
+
+mw ae eee aa ama

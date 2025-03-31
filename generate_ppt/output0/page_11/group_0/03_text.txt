@@ -1,0 +1,8 @@
+Results. The average time to exposure (u7TTE) is shown
+in Table 4. We used the Mann-Whitney U test to assess
+the statistical significance of our experimental results. In
+22 out of 25 cases, the results are statistically significant,
+with p-values less than 0.05. In the other 3 cases, both tools
+either failed to detect the vulnerability, resulting in a 24-
+hour TTE, or they triggered the vulnerabilities within similar
+timeframes in multiple trials, yielding higher p-values.

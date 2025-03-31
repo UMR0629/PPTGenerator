@@ -1,0 +1,9 @@
+Results. The results are shown in Table 5. The distance
+calculation time is negligible for most applications, except
+for OpenEMR, which has a large codebase. The cost for
+identifying entry URLs and constructing the input corpus is
+also low, except for OpenEMR and ECShop. The time spent
+on static analysis is typically less than 1 hour, demonstrating
+that it is both fast and scalable. We analyze the relative
+difference in fuzzing throughput between PREDATOR and
+Witcher. PREDATOR’s throughput relative to Witcher ranges

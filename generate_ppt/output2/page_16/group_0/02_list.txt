@@ -1,0 +1,97 @@
+[28
+
+[29
+
+[30
+
+31
+
+32
+
+33
+34
+[35
+
+[36
+
+[37
+[38
+
+39
+
+40
+
+41
+
+42
+
+43
+
+44
+
+OF tne FON LL LL SYMpOstum ON SECUFITY ANd LFiVacy (UdKLaNa), Sal
+Francisco, CA, USA, May 2022.
+
+Z. Du, Y. Li, Y. Liu, and B. Mao, ““Windranger: A directed greybox
+fuzzer driven by deviation basic blocks,” in Proceedings of the 44th
+International Conference on Software Engineering (ICSE), Pittsburgh,
+PA, USA, May 2022.
+
+H. Chen, Y. Xue, Y. Li, B. Chen, X. Xie, X. Wu, and Y. Liu, “Hawkeye:
+Towards a desired directed grey-box fuzzer,’ in Proceedings of the
+25th ACM Conference on Computer and Communications Security
+(CCS), Toronto, Canada, Oct. 2018.
+
+J. Zhao, Y. Lu, K. Zhu, Z. Chen, and H. Huang, “Cefuzz: An directed
+fuzzing framework for php rce vulnerability,’ Electronics, 2022.
+
+I. Medeiros, N. Neves, and M. Correia, “Detecting and removing web
+application vulnerabilities with static analysis and data mining,” IEEE
+Transactions on Reliability, 2015.
+
+A. Alhuzali, R. Gjomemo, B. Eshete, and V. Venkatakrishnan, “Navex:
+Precise and scalable exploit generation for dynamic web applications,”
+in Proceedings of the 27th USENIX Security Symposium (Security),
+Baltimore, MD, USA, Aug. 2018.
+
+“Wfuzz,” 2020, https://github.com/xmendez/wfuzz.
+Nikic, “Php-fuzzer,’ Aug. 2023, https://github.com/nikic/PHP-Fuzzer.
+
+M. Leithner, B. Garn, and D. E. Simos, “Hydra: Feedback-driven
+black-box exploitation of injection vulnerabilities,’ Information and
+Software Technology, 2021.
+
+Z. Jingyu, H. Hongchao, H. Shumin, and L. Huanruo, “A xss attack
+detection method based on subsequence matching algorithm,” in 202/
+IEEE International Conference on Artificial Intelligence and Industrial
+Design (AIID), 2021.
+
+M. Corporation, “Cve database,” 2024, https://cve.mitre.org/.
+
+Y. Xie and A. Aiken, “Static detection of security vulnerabilities in
+scripting languages.” in Proceedings of the 15th USENIX Security
+Symposium (Security), Vancouver, Canada, Jul. 2006.
+
+P. Li and W. Meng, “Lchecker: Detecting loose comparison bugs
+in php,” in Proceedings of the Web Conference (WWW), Ljubljana,
+Slovenia, Apr. 2021.
+
+J. Huang, Y. Li, J. Zhang, and R. Dai, “Uchecker: Automatically
+detecting php-based unrestricted file upload vulnerabilities,” in Pro-
+ceedings of the 2019 International Conference on Dependable Systems
+and Networks (DSN), Portland, OR, USA, Jun. 2019.
+
+O. Olivo, I. Dillig, and C. Lin, “Detecting and exploiting second order
+denial-of-service vulnerabilities in web applications,” in Proceedings
+of the 22nd ACM Conference on Computer and Communications
+Security (CCS), Denver, CO, USA, Oct. 2015.
+
+J. Dahse and T. Holz, “Static detection of second-order vulnerabilities
+in web applications,” in Proceedings of the 23rd USENIX Security
+Symposium (Security), San Diego, CA, USA, Aug. 2014.
+
+Y. Xie and A. Aiken, “Static detection of security vulnerabilities in
+scripting languages.” in Proceedings of the 15th USENIX Security
+Symposium (Security), Vancouver, Canada, Jul. 2006.
+
+A. Alhuzali, B. Eshete, R. Gjomemo, and V. Venkatakrishnan,

@@ -1,0 +1,13 @@
+that are closer to predefined high-risk code locations, thereby
+avoiding inefficient random state exploration. Moreover,
+PREDATOR updates the block distances at runtime to correct
+the imprecise static analysis results and enable exploring
+more promising paths. PREDATOR employs novel tailored
+mutation strategies for web applications, which are guided by
+distance and parameters. It probabilistically adopts different
+mutation strategies based on the current input distance
+to enhance effectiveness in both exploration and exploita-
+tion stages. By employing parameter-to-condition analysis,
+PREDATOR concentrates mutations on a group of parameters
+involved in condition expressions, targeting deeper areas that
+current fuzzers struggle to reach.

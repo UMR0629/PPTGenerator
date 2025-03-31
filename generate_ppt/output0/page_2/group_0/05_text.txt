@@ -1,0 +1,5 @@
+In this paper, we propose PREDATOR, an efficient di-
+rected fuzzing tool for web applications. By selectively
+instrumenting the web application at runtime, PREDATOR
+stores inter-procedural block distances without altering the
+source code. The distance feedback prioritizes in test cases

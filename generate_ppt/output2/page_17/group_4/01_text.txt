@@ -1,0 +1,9 @@
+The paper describes a system called PREDATOR, which is
+a directed fuzzing framework on PHP, to detect vulnerabilities
+using a combination of static and dynamic analysis. Building
+on prior work in fuzzing web applications, this paper
+proposes uses the output of static analysis, using prior work
+TChecker, then using this to drive a fuzzer, using prior work
+Witcher, to confirm the vulnerability. While there have been
+directed fuzzers in many contexts, this is the first directed
+web application fuzzer.

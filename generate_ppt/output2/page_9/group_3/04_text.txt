@@ -1,0 +1,23 @@
+as targets for PREDATOR. We run the crawler of Witcher
+to collect URLs of the target vulnerabilities for Witcher
+and Witcher+. We adopt the settings recommended in the
+paper [16], providing the crawler with valid credentials and
+run it for four hours. For WebFuzz, we manually browse the
+applications to collect URLs and ensure it can successfully
+access all pages and forms related to the target vulnerabilities.
+We then exclude irrelevant URLs that do not lead to the
+target vulnerable locations and assign an equal time budget
+for each of the remaining URLs. This measure allows all
+tools to focus on testing target vulnerabilities instead of
+exploring unrelated execution paths, thereby ensuring a fair
+comparison. If we consider a scenario where no irrelevant
+URLs are excluded and an equal time budget is allocated
+for each URL, several challenges would arise. A prolonged
+budget may result in excessive time spent on irrelevant URLs,
+while a budget that is too short may prevent thorough testing
+of vulnerability-related URLs. If we set the same total time
+budget for each tool for analyzing one application, the actual
+testing duration on vulnerability-related URLs may vary
+significantly across different tools. In both scenarios, these
+discrepancies would negatively impact the fairness of the
+comparison.

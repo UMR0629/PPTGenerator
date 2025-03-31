@@ -1,0 +1,7 @@
+which parameters are influential in reaching and testing
+different code paths. By analyzing data dependencies, we
+can create a targeted input corpus that effectively stimulates
+diverse application behaviors during fuzzing. Third, to gather
+distance feedback at runtime and leverage it for power
+scheduling and seed selection, we need to develop a suitable
+instrumentation mechanism.

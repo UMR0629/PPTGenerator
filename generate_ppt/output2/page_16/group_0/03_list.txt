@@ -1,0 +1,103 @@
+[45]
+
+[46]
+
+[47]
+
+[48]
+
+[49]
+[50]
+[51]
+[52]
+
+[53]
+
+[54]
+
+[55]
+[56]
+[57]
+
+[58]
+[59]
+[60]
+[61]
+
+[62]
+[63]
+[64]
+[65]
+
+[66]
+[67]
+[68]
+
+TEO1]
+
+“Chainsaw: Chained automated workflow-based exploit generation,”
+in Proceedings of the 23rd ACM Conference on Computer and
+Communications Security (CCS), Vienna, Austria, Oct. 2016.
+
+P. Li and M. Zhang, “Fuzzcache: Optimizing web application fuzzing
+through software-based data cache,” in Proceedings of the 31st ACM
+Conference on Computer and Communications Security (CCS), Salt
+Lake City, UT, USA, Oct. 2024.
+
+X. Tan, Y. Zhang, J. Lu, X. Xiong, Z. Liu, and M. Yang, “Syzdirect:
+Directed greybox fuzzing for linux kernel,” in Proceedings of the 30th
+ACM Conference on Computer and Communications Security (CCS),
+Copenhagen, Denmark, Nov. 2023.
+
+M. Fleischer, D. Das, P. Bose, W. Bai, K. Lu, M. Payer, C. Kruegel,
+and G. Vigna, “Actor: Action-guided kernel fuzzing,” in Proceedings
+of the 32nd USENIX Security Symposium (Security), Anaheim, CA,
+USA, Aug. 2023.
+
+Z. Lin, Y. Chen, Y. Wu, D. Mu, C. Yu, X. Xing, and K. Li, “Grebe:
+Unveiling exploitation potential for linux kernel bugs,” in Proceedings
+of the 43th IEEE Symposium on Security and Privacy (Oakland), San
+Francisco, CA, USA, May 2022.
+
+“bwapp,” 2024, https://github.com/Imoroz/bWAPP.
+“Dvwa,” 2024, https://github.com/digininja/DV WA.
+“Xvwa,” 2020, https://github.com/s4n7h0/xvwa.
+
+“User login management system,” 2020, https://phpgurukul.com/user-
+registration-login-and-user-management-system-with-admin-panel/.
+
+“Hospital management system,” 2019, https://phpgurukul.com/hospital-
+management-system-in-php/.
+
+“Doctor appointment booking system,” 2020, https://projectworlds.
+in/free- projects/php-projects/online-doctor- appointment-booking-
+system-php-and-mysql/.
+
+“Piwigo,” 2024, https://github.com/Piwigo/Piwigo.
+“reonfig,” 2023, https://github.com/rconfig/rconfig-v3.
+
+“openemr,” 2018, https://www.open-emr.org/wiki/index.php/
+OpenEMR_5.0.2_Linux_Installation.
+
+“Webid,” 2017, https://github.com/renlok/WeBid.
+“Joomla,” 2017, https://downloads.joomla.org/cms/joomla3/3-7-0.
+“Webchess,” 2019, https://github.com/halojoy/PHP7-Webchess.
+
+“Wordpress,” 2022, https://wordpress.org/download/releases/#branch-
+60.
+
+“Ecshop,” 2021, https://www.ecshopok.com/article-789.html.
+“Haxcms,” 2024, https://github.com/elmsln/HAXcms.
+
+“Phpvibe,” 2024, https://github.com/PHPVibe/PHPVibe.
+
+“Online shopping system,” 2022, https://github.com/PuneethReddyHC/
+online-shopping- system-advanced.
+
+“Collabtive,’ 2017, https://github.com/philippK-de/Collabtive.
+“Codiad,” 2020, https://github.com/Codiad/Codiad.
+
+“Coppermine photo gallery,’ 2021, https://github.com/coppermine-
+gallery/cpg1.6.x.
+
+“Dhnliteadmin ” 90190 httne://cithhh cam/nhni ite Admin/nla

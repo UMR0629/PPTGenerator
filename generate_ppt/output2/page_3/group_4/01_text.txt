@@ -1,0 +1,3 @@
+Directed fuzzing achieves remarkable success in native
+programs. However, applying it to web applications faces
+unique challenges. We list the primary ones below.

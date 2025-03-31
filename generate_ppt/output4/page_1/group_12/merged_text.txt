@@ -1,0 +1,71 @@
+inspired by se-
+lectFuzz [26], we propose to instrument only path-divergent
+basic block, which is the last intersection block of a
+reachable path and an unreachable one to the target. To
+achieve this, PREDATOR needs to perform basic block-level
+instrumentation. As discussed in $3, employing traditional in-
+strumentation techniques is impractical. Instead, PREDATOR
+augments the PHP interpreter to dynamically instrument only
+a small group of specific opcodes, as shown in Table |. This
+process is transparent to the target application and does not
+require any modification to the source code. It contains three
+categories of opcodes, i.e., conditional and unconditional
+jumps, function calls, and include or eval statements. These
+specific opcodes represent the starting point of a basic block.
+By instrumenting these opcodes, PREDATOR can provide
+precise and efficient monitoring of the execution flow.
+Jumps. PREDATOR detects the control-flow transfer caused
+by either a conditional or unconditional jump. At this point,
+the execution stream is at a branch statement, which is the
+starting position of a basic block. PREDATOR checks the
+file name and starting line number of this basic block to
+determine if it is a path-divergent basic block. It updates the
+input distance of the current test case if the block distance
+is shorter than the current input distance.
+Function Calls. When executing a function call opcode,
+PREDATOR detects the control flow transfer. The process of
+handling distance information is similar to that used for jump
+opcodes. Additionally, PREDATOR records the filename and
+line number of the call sites to dynamically update imprecise
+block distances, which will be detailed in §4.3.1.
+Include or Eval Statements. Executing include or eval
+statements can significantly alter the control flow of a
+TABLE 1: Selected opcodes for instrumentation.
+ZEND_INCLUDE_OR_EVAL
+Execute include or eval statements
+PHP script, as it introduces new code paths and potential
+function calls that are not present or known in static analysis.
+Additionally, the included or evaluated code can contain
+any number of function calls, conditional statements, or
+even additional include or eval statements. PREDATOR treats
+include as a jump and eval as a function call.
+If we set line 12 in Listing | as the target, PREDATOR
+will instrument lines 9, 11, and 12, as they contain the se-
+lected opcodes and are path-divergent blocks. The simplified
+bytecode of ClassA can be found in Listing 2 in the appendix.
+
+MU“7TL.. ...1....1.¢4%.. . L1. 1 J* 4... £.. TITIM 11* . 4%...
+一
+
+When calculating block distances for PHP applications，
+the distance can be inaccurate without executing the Scripts.
+Figure 2 illustrates this issue. In this example, vuln_func ()
+is the target, and the red numbers indicate the block distance
+to the target, which is calculated using SelectFuzz’s block
+distance calculation algorithm. This algorithm works on the
+inter-procedural control-flow graph (iCFG), however, there
+are paths within PHP applications that static analysis tools
+cannot identify. We observed that the path represented by
+the red dashed directed line in the figure, from line 33
+to line 19, is undetectable by static analysis tools. This
+leads to an inability to determine the distance between the
+basic block at line 33 and the target, resulting in the fuzzer
+considering it an unreachable block. When an input causes
+the application to execute line 33, the fuzzer does not add
+this input to the queue because it does not perceive the input
+as reaching a new or closer basic block. Then, the likelihood
+of executing the paths represented by all the red arrowed
+lines will decrease due to the wrong action, thereby severely
+affecting the effectiveness and efficiency of executing target
+code and triggering vulnerabilities. We will detail the solution
+to this issue in §4.3.1.
