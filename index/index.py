@@ -68,12 +68,7 @@ class SectionContent:
     """
 
     def __init__(self, text=None, references=None, equations=None,summary:PaperSectionSummary=None):
-        """
-        初始化叶子节点的内容。
-        :param text: 章节正文内容
-        :param references: 该章节引用的文献列表
-        :param equations: 该章节涉及的公式列表
-        """
+
         self.text = text or ""
         self.references = references or []
         self.equations = equations or []
