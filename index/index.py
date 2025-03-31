@@ -221,6 +221,28 @@ class PaperInfo:
         """
         return [child.name for child in self.outline_root.children]
 
+    def dfs_recursive_with_depth(self, node=None, depth=0, result=None):
+        """
+        递归进行深度优先遍历（DFS），记录节点名称和深度。
+        :param node: 当前遍历的节点（默认从根节点开始）
+        :param depth: 当前节点的深度
+        :param result: 递归存储遍历结果的列表
+        :return: 包含 (节点名称, 深度) 的列表
+        """
+        if result is None:
+            result = []
+        if node is None:
+            node = self.outline_root  # 默认从根节点开始
+
+        # 记录当前节点的名称和深度
+        result.append((node.name, depth))
+
+        # 遍历子节点，深度 +1
+        for child in node.children:
+            self.dfs_recursive_with_depth(child, depth + 1, result)
+
+        return result
+
     def generate_ppt(self):
         """
         生成ppt
@@ -232,9 +254,15 @@ class PaperInfo:
         index_num = len(index_content)
         generate_ppt.add_menu("../source/img/image22.jpg", index_num, index_content)
 
-        for node in PreOrderIter(self.outline_root):
-            if node.content:
-                if node.content.summary:
-                    generate_ppt.add_text_image(node.name, node.content.summary)
-                else:
-                    generate_ppt.add_all_text(node.name, node.content.text)
+        node_list = self.dfs_recursive_with_depth()
+        for node in node_list:
+            title = node[0]
+            depth = node[1]
+            if depth == 1:
+                generate_ppt.add_all_text(title, self.find_outline_section(title).content.text)
+            else:
+                parent_title = node_list[depth - 1][0]
+                generate_ppt.add_text_double_image(title, self.find_outline_section(title).content.text, "../source/img/image22.jpg", "../source/img/image19.jpg")
+
+        generate_ppt.add_thanks()
+        generate_ppt.save_ppt("../source/ppt_model/output.pptx")
