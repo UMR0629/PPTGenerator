@@ -67,16 +67,16 @@ class SectionContent:
     可以存储具体文本内容、引用、公式等信息。
     """
 
-    def __init__(self, text=None, references=None, equations=None,summary:PaperSectionSummary=None):
+    def __init__(self, text=None,summary:PaperSectionSummary=None):
 
         self.text = text or ""
-        self.references = references or []
-        self.equations = equations or []
+        # self.references = references or []
+        # self.equations = equations or []
         self.summary=summary
         
 
     def __repr__(self):
-        return f"SectionContent(text={self.text[:30]}..., references={len(self.references)}, equations={len(self.equations)})"
+        return f"SectionContent(text={self.text[:30]}...)"
     
     def content_extract(self,title,lang:str="zh"):
         self.summary=PaperSectionSummary(title=title)
