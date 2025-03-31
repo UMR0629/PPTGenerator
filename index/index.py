@@ -7,15 +7,67 @@
 
 
 from anytree import Node, RenderTree, PreOrderIter
+from information_extrator.result_extraction import parse_output_to_section 
+from information_extrator.extract_function import generate_presentation_summary,generate_with_feedback
+import re
 
-# 存储大纲下的具体内容（应当换成msy实现的类，这里用gpt生成的先替代一下）
+class PaperSectionSummary:
+    def __init__(
+        self,
+        section_number: int,
+        title: str,
+        key_points: list[str],
+        tables: list[int] = None,
+        figures: list[int] = None
+    ):
+        #self.section_number = section_number
+        self.title = title
+        self.key_points = key_points
+        self.tables = tables if tables is not None else []
+        self.figures = figures if figures is not None else []
+
+    @property
+    def key_point_count(self) -> int:
+        """自动计算要点数量"""
+        return len(self.key_points)
+
+    def add_table(self, table_num: int) -> None:
+        """添加关联表格"""
+        if table_num not in self.tables:
+            self.tables.append(table_num)
+
+    def add_figure(self, figure_num: int) -> None:
+        """添加关联图片""" 
+        if figure_num not in self.figures:
+            self.figures.append(figure_num)
+
+    def to_dict(self) -> dict:
+        """转换为字典格式"""
+        return {
+            "section_number": self.section_number,
+            "title": self.title,
+            "key_points": self.key_points,
+            "tables": sorted(self.tables),
+            "figures": sorted(self.figures),
+            "key_point_count": self.key_point_count
+        }
+
+    def __str__(self) -> str:
+        """友好字符串表示"""
+        return (
+            f"Section {self.section_number}: {self.title}\n"
+            f"Key Points ({self.key_point_count}):\n - " + "\n - ".join(self.key_points) + "\n"
+            f"Tables: {self.tables}\n"
+            f"Figures: {self.figures}"
+        )
+
 class SectionContent:
     """
     论文大纲叶子节点的内容类。
     可以存储具体文本内容、引用、公式等信息。
     """
 
-    def __init__(self, text=None, references=None, equations=None):
+    def __init__(self, text=None, references=None, equations=None,summary:PaperSectionSummary=None):
         """
         初始化叶子节点的内容。
         :param text: 章节正文内容
@@ -25,9 +77,20 @@ class SectionContent:
         self.text = text or ""
         self.references = references or []
         self.equations = equations or []
+        self.summary=summary
+        
 
     def __repr__(self):
         return f"SectionContent(text={self.text[:30]}..., references={len(self.references)}, equations={len(self.equations)})"
+    
+    def content_extract(self,title,lang:str="zh"):
+        self.summary=PaperSectionSummary(title=title)
+        api_output=generate_presentation_summary(self.content,lang)
+        parse_output_to_section(api_output, self.summary)
+
+    def user_feedback(self,feedback,lang:str="zh"):
+        api_output=generate_with_feedback(feedback,lang)
+        self.summary=api_output
 
 
 # 存储论文信息及其大纲的具体信息
