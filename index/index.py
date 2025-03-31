@@ -4,11 +4,11 @@
 
 ############################################
 
-
-
+import sys
+#sys.path.append("..")
 from anytree import Node, RenderTree, PreOrderIter
-from information_extrator.result_extraction import parse_output_to_section 
-from information_extrator.extract_function import generate_presentation_summary,generate_with_feedback
+from result_extraction import parse_output_to_section 
+from extract_function import generate_presentation_summary,generate_with_feedback
 import re
 
 class PaperSectionSummary:

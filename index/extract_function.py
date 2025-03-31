@@ -2,7 +2,7 @@ import os
 from openai import OpenAI
 
 client = OpenAI(
-    api_key=os.getenv("DASHSCOPE_API_KEY"),  # 替换为你的API密钥或配置环境变量
+    api_key="sk-09bb0e624026431eaf3aa118b6159df0",  # 替换为你的API密钥或配置环境变量
     base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",
 )
 

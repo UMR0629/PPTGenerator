@@ -141,4 +141,4 @@ NoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNoneNone
 '''
 
 parse_output_to_section(output_text, section)
-print(section)
+#print(section)
