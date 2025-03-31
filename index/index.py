@@ -7,22 +7,19 @@
 import sys
 #sys.path.append("..")
 from anytree import Node, RenderTree, PreOrderIter
-from result_extraction import parse_output_to_section 
 from extract_function import generate_presentation_summary,generate_with_feedback
-from generate_ppt.generate_ppt import Generate_ppt
+#from generate_ppt.generate_ppt import Generate_ppt   #这里先注释掉，因为会报错
 import re
 
 class PaperSectionSummary:
     def __init__(
         self,
-        section_number: int,
-        title: str,
+        #title: str,
         key_points: list[str],
         tables: list[int] = None,
         figures: list[int] = None
     ):
-        #self.section_number = section_number
-        self.title = title
+        #self.title = title
         self.key_points = key_points
         self.tables = tables if tables is not None else []
         self.figures = figures if figures is not None else []
@@ -45,8 +42,8 @@ class PaperSectionSummary:
     def to_dict(self) -> dict:
         """转换为字典格式"""
         return {
-            "section_number": self.section_number,
-            "title": self.title,
+            #"section_number": self.section_number,
+            #"title": self.title,
             "key_points": self.key_points,
             "tables": sorted(self.tables),
             "figures": sorted(self.figures),
@@ -56,7 +53,7 @@ class PaperSectionSummary:
     def __str__(self) -> str:
         """友好字符串表示"""
         return (
-            f"Section {self.section_number}: {self.title}\n"
+            #f"Section {self.section_number}: {self.title}\n"
             f"Key Points ({self.key_point_count}):\n - " + "\n - ".join(self.key_points) + "\n"
             f"Tables: {self.tables}\n"
             f"Figures: {self.figures}"
@@ -78,13 +75,13 @@ class SectionContent:
     def __repr__(self):
         return f"SectionContent(text={self.text[:30]}...)"
     
-    def content_extract(self,title,lang:str="zh"):
-        self.summary=PaperSectionSummary(title=title)
-        api_output=generate_presentation_summary(self.content,lang)
+    def content_extract(self,lang:str="zh"):
+        self.summary=PaperSectionSummary(key_points=[])
+        api_output=generate_presentation_summary(self.text,lang)
         parse_output_to_section(api_output, self.summary)
 
     def user_feedback(self,feedback,lang:str="zh"):
-        api_output=generate_with_feedback(feedback,lang)
+        api_output=generate_with_feedback(self.text,feedback,lang)
         self.summary=api_output
 
 
@@ -238,3 +235,68 @@ class PaperInfo:
                     generate_ppt.add_text_image(node.name, node.content.summary)
                 else:
                     generate_ppt.add_all_text(node.name, node.content.text)
+
+def parse_output_to_section(output: str, section: PaperSectionSummary) -> None:
+    """
+    从特定格式输出中提取信息并填充PaperSectionSummary实例
+    
+    输入格式示例：
+    3
+    [2,3]
+    []
+    输入开销类型与实证分析
+    ◆ 要点1...
+    ◆ 要点2...
+    ◆ 要点3...
+    Usage: ...
+    
+    :param output: 程序输出字符串
+    :param section: 需要填充的PaperSectionSummary实例
+    """
+    # 预处理输出内容
+    lines = [
+        line.strip() 
+        for line in output.split('\n') 
+        if line.strip() and not line.strip().startswith('None')
+    ]
+    
+    # 解析表格和图片编号
+    array_pattern = re.compile(r'^\[([\d,\s]*)\]$')
+    parsed_arrays = []
+    
+    for line in lines:
+        if match := array_pattern.match(line):
+            numbers = [int(n) for n in match.group(1).split(',') if n.strip()]
+            parsed_arrays.append(numbers)
+            if len(parsed_arrays) == 2:
+                break
+    
+    # 设置表格和图片（确保容错）
+    if len(parsed_arrays) >= 1:
+        section.tables = parsed_arrays[0]
+    if len(parsed_arrays) >= 2:
+        section.figures = parsed_arrays[1]
+    
+    # 提取标题（第一个非数组行）
+    title_line = None
+    for line in lines:
+        if not array_pattern.match(line) and not line.isdigit():
+            title_line = line
+            break
+    
+    if title_line:
+        section.title = title_line
+    
+    # 提取要点内容（◆开头的行）
+    section.key_points = [
+        line.strip("◆ ").strip()
+        for line in lines
+        if line.startswith('◆')
+    ]
+    
+    # 自动处理关联关系（示例中的图引用）
+    figure_refs = set()
+    for point in section.key_points:
+        if matches := re.findall(r'图(\d+)', point):
+            figure_refs.update(int(m) for m in matches)
+    section.figures = list(set(section.figures) | figure_refs)

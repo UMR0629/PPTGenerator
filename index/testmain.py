@@ -1,9 +1,10 @@
 import sys
 #sys.path.append("..")
 #from index import PaperSectionSummary,PaperInfo,SectionContent
-from index import PaperInfo
-from result_extraction import parse_output_to_section 
+from index import PaperInfo,SectionContent
+from index import parse_output_to_section 
 from extract_function import generate_presentation_summary,generate_with_feedback
+from anytree import Node, RenderTree, PreOrderIter
 tmp=PaperInfo(title="Leveraging Semantic Relations in Code and Data to Enhance Taint Analysis of Embedded Systems",authors="Jiaxu Zhao",date=2024,journal="tmp",ppt_presenter="tom",ppt_date="2025.3")
 tmp.add_outline_section("Leveraging Semantic Relations in Code and Data to Enhance Taint Analysis of Embedded Systems","Abstract")
 tmp.add_content_to_leaf("Abstract","IoT devices have significantly impacted our daily lives,and detecting vulnerabilities in embedded systems early on is critical for ensuring their security. Among the existing vulnerability detection techniques for embedded systems, static taint analysis has been proven effective in detecting severevulnerabilities, such as command injection vulnerabilities,which can cause remote code execution. Nevertheless, static taint analysis is faced with the problem of identifying sources comprehensively and accurately. This paper presents LARA, a novel static taint analysis technique to detect vulnerabilities in embedded systems. The design of LARA is inspired by an observation that pertains to semantic relations within and between the code and data of embedded software: user input entries can be categorized as URIs or keys (data), and identifying their handling code(code) and relations can help systematically and comprehensively identify the sources for taint analysis. Transforming the observation into a practical methodology poses challenges.To address these challenges, LARA employs a combination of pattern-based static analysis and large language model(LLM)-aided analysis, aiming to replicate how human experts would utilize the findings during analysis and enhance it. The patternbased static analysis simulates human experience, while the LLM-aided analysis captures the way human experts perceive code semantics. We implemented LARA and evaluated it on 203 IoT devices from 21 vendors. In general, LARA detects 556 and 602 more known vulnerabilities than SATC and KARONTE while reducing false positives by 57.0% and 54.3%. Meanwhile, with more sources and sinks from LARA, EMTAINT can detect 245 more vulnerabilities. To date, LARA has found 245 0-day vulnerabilities in 57 devices, all of which were confirmed or fixed with 162 CVE IDs assigned")
@@ -159,4 +160,10 @@ challenge, we designed LLM automatic interaction models
 and algorithms that combines pattern-based static analysis
 with LLM-aided analysis to identify more accurate sources""")
 tmp.display_outline()
-#print(tmp.find_outline_section("2.3 Findings based on the Observation").content)
+print(tmp.find_outline_section("2.3 Findings based on the Observation").content)
+for node in PreOrderIter(tmp.outline_root):
+    if isinstance(node.content, SectionContent):
+        node.content.content_extract()
+for node in PreOrderIter(tmp.outline_root):
+    if isinstance(node.content, SectionContent):
+        print(node.content.summary)
