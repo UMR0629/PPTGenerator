@@ -1,0 +1,14 @@
+Abstract—Web application vulnerabilities continue to pose a
+significant challenge. Static analysis is currently the mainstream
+approach to this issue, while dynamic analysis is not as widely
+used in comparison. However, both techniques have their
+limitations. While current static analysis tools are plagued
+by high false-positive rates, necessitating fine-grained analysis
+and substantial expertise, it is also the case that dynamic
+analysis tools are underdeveloped. Current fuzzing-based tools
+are often limited by inefficiency in exploring deeper code
+locations. Moreover, state-of-the-art grey-box fuzzers often
+struggle to capture effective parameters from user interfaces,
+thereby failing t to ) explore th the e input space efficiently.
+
+下 上

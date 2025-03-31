@@ -1,0 +1,6 @@
+The three variables, Pr Dmaz, and Dmin, can exhibit
+only three possible states in practice. Initially, all are set to
+-1, indicating that no basic blocks have been executed. At
+runtime, all three values are greater than or equal to | when
+at least one path-divergent basic block has been executed,
+and the current run also encounters such blocks. If Dey, is -1

@@ -1,0 +1,3 @@
+currently, the stored XSS vulnerability in Collabtive was not
+triggered. The other 6 vulnerabilities that PREDATOR failed
+to validate were not triggered within the time limit.

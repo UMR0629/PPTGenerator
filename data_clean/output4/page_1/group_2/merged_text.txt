@@ -1,0 +1,3 @@
+In this section, we provide high-level overview of web
+application fuzzing ($2.1) and directed fuzzing for web ap-
+plications (§2.2), followed by the research motivation (§2.3).

@@ -1,0 +1,14 @@
+to trigger vulnerabilities in all 10 runs. PREDATOReg further
+improved the performance due to the addition of selective
+dynamic instrumentation, notably in cases 1, 8, and 10. For
+two cases 7 and 11, we observed an increase in 7TE after
+enabling block distance supplementation in PREDATOReds，
+attributable to its runtime overhead. The supplementation
+incurs extra overhead as it involves tracking call sites with
+unknown callee functions and determining whether the
+callees can reach the target. PREDATORedsp managed to
+reduce the time cost in most cases, as it mainly adopts
+dictionary-based mutation methods in exploration stage and
+byte stream-based mutation methods in exploitation stage.
+Upon enabling the dependent parameter-sensitive mutation,
+PREDATOR improves significantly in cases 6, 11, and 13.

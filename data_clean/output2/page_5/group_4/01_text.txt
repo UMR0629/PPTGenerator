@@ -1,0 +1,6 @@
+We need to achieve three main tasks using static analysis
+techniques. First, we analyze control dependencies to extract
+entry URLs for the specified targets and compute block-
+level distances. Second, we assess data dependencies to
+construct the input corpus. This step involves identifying how
+data flows through the application, which helps determine

@@ -1,0 +1,13 @@
+One distinguishing aspect of web fuzzing, compared to
+other fuzzing domains, is the necessity to analyze the URLs
+associated with the application’s different functionalities
+and the structured parameters included in these URLs.
+PREDATOR extracts URLs and builds input corpus from
+source code through lightweight static analysis, differing
+from the commonly employed crawling method. However, the
+static analysis method cannot handle dynamically generated
+URLs. One possible approach is to integrate static analysis
+with a crawler. The results from the crawler can facilitate
+the exploitation of easily accessible vulnerabilities, while
+static analysis provides more detailed insights into exploring
+deeper execution paths.

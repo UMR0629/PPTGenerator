@@ -1,0 +1,23 @@
+improving it to maintain fairness in comparison with Witcher.
+This is one of the reasons why PREDATOR underperformed
+Atropos in detecting SQLi vulnerabilities in bWAPP. The
+remaining 3 vulnerabilities could not be triggered by our
+current prototype due to the presence of CAPTCHAs and the
+requirement of specific User Agent (UA) header values. For
+a fair comparison with Atropos, we did not remove hidden
+CSRF tokens in DVWA. As Witcher and PREDATOR cannot
+handle hidden tokens, they failed to trigger any vulnerabilities
+in DVWA. The vulnerabilities undetected in OpenEMR could
+be identified by concurrently fuzzing with multiple cores or
+increasing the time budget. Moreover, we discovered that
+PREDATOR was unable to detect any vulnerabilities within
+WordPress, Piwigo and Joomla due to the failure of entry
+URL identification. For example, they dynamically includes
+server-side files based on the values of query strings, which
+are impractical to identify using static analysis methods.
+During the XSS vulnerability detection, we noted that the
+absence of injected payloads in the source code of some
+pages prevented the matching of the attack string. As a
+result, PREDATOR failed to detect the vulnerabilities. This
+is an implementation limitation of the matching-based XSS
+detection method.

@@ -1,0 +1,31 @@
+We further assess the capability of PREDATOR in validat-
+ing static analysis reports. We use the set of vulnerabilities
+reported by TChecker [6] as the ground truth, and then
+perform automatic validation using PREDATOR. We set
+the locations reported by TChecker as the targets. Some
+applications evaluated by TChecker are excluded, and we
+provide detailed explanations in Table 8 in the appendix.
+上 是
+
+Table 6 summarizes the number of vulnerabilities re-
+ported by TChecker, validated by PREDATOR, and not
+validated by PREDATOR. PREDATOR successfully validated
+65 out of 84 vulnerabilities (77.38%) reported by TChecker.
+
+False Negatives. We analyze the reasons behind the false
+negatives. In Codiad, 5 targets are non-functional because
+they rely on the official Marketplace, which has been offline
+long ago. If we exclude the 5 targets in Codiad, the ratio
+of validated vulnerabilities increases to 82.28%. WebChess
+contains multiple vulnerabilities within the same function.
+When the first vulnerability was encountered, a segmentation
+fault signal was sent to AFL. AFL then believed that the
+application just crashed, and did not test subsequent code
+to validate the 3 remaining vulnerabilities. In WeBid, one
+target requires a valid database name, which is difficult
+for the fuzzer to generate randomly. In the case of Joomla,
+PREDATOR could not extract the corresponding entry URLs.
+Since PREDATOR detects only reflected XSS vulnerabilities
+TABLE 6: The results of static analysis report validaticurrently, the stored XSS vulnerability in Collabtive was not
+triggered. The other 6 vulnerabilities that PREDATOR failed
+to validate were not triggered within the time limit.

@@ -1,0 +1,51 @@
+detection method. This risk of false positives arises whenever
+an application outputs user input on a page. Addressing this
+issue could involve utilizing a JavaScript engine to render
+the responses.
+Uta. EUUCICMCYy, Yye 1UruIer COMIPare FREVDALON WIT
+Witcher on the efficiency. The comparison was exclusively
+made with Witcher because PREDATOR is implemented atop
+Witcher, and it significantly differs from the other tools.
+Additionally, Cefuzz neither has available source code nor an
+evaluation of time to exposure in its paper, thus we are unable
+to compare PREDATOR with it. While we acknowledge that
+comparing PREDATOR, a directed fuzzer, to Witcher may
+seem unfair, it is important to note that our intention is not
+to criticize Witcher. Rather, our goal is to emphasize the
+advantages of directed fuzzing for web applications. We
+select vulnerabilities in real-world applications that could be
+successfully triggered and allocate a 24-hour time budget
+for each one and run the experiment ten times. Moreover,
+to enhance fairness as much as possible, we provide both
+tools with the same input corpus and entry URLs, and set
+the initial seeds to be empty.
+Results. The average time to exposure (u7TTE) is shown
+in Table 4. We used the Mann-Whitney U test to assess
+the statistical significance of our experimental results. In
+22 out of 25 cases, the results are statistically significant,
+with p-values less than 0.05. In the other 3 cases, both tools
+either failed to detect the vulnerability, resulting in a 24-
+hour TTE, or they triggered the vulnerabilities within similar
+timeframes in multiple trials, yielding higher p-values.
+PREDATOR outperformed Witcher in 21 out of 25 cases
+(highlighted in bold in the table), with p-values less than 0.05.
+PREDATOR demonstrated shorter wTTE and successfully
+triggered more vulnerabilities in ten attempts. Specifically,
+both PREDATOR and Witcher triggered the vulnerability
+CVE-2020-29283 in all ten attempts, with PREDATOR
+achieving a ITE that was 43.8 times shorter. We observed
+that Witcher’s 7TE is marginally lower when detecting
+CVE-2020-15713. This can be attributed to the simplicity of
+the target vulnerability. Both tools triggered it in seconds, but
+the throughput of PREDATOR was relatively lower. Note that
+in this experiment we provided Witcher with the entry URLs
+and input corpus obtained by PREDATOR. Consequently,
+Witcher triggered some vulnerabilities that could not be
+identified when using its crawler in Table 3. However, the
+input corpus, derived from analyzing the target script, yielded
+a greater number of potential parameters than those obtained
+using a crawler, thereby expanding the search space. Witcher
+was unable to efficiently identify which parameters could
+be used to reach the target locations. In contrast, due to
+PREDATOR’s directed fuzzing mechanism, it can quickly
+identify promising parameter keys and values.

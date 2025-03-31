@@ -1,0 +1,7 @@
+Comparison with Atropos. The performances of PREDATOR
+and Atropos regarding bWAPP and XVWA show marginal
+differences. Discrepancy is primarily observed when eval-
+uating DVWA. This is due to the inherent limitation of
+Witcher on which PREDATOR depends—it cannot carry hid-
+den random CSRF tokens, rendering PREDATOR ineffective
+in testing DVWA. In contrast, Atropos operates on a snapshot-

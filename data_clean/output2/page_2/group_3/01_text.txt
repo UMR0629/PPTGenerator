@@ -1,0 +1,4 @@
+Fuzzing has been extensively applied to detect vulnera-
+bilities in a wide range of software systems, including web
+applications. They can generally be categorized based on
+the information they rely on, falling into two main groups:

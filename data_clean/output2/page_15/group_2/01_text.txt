@@ -1,0 +1,15 @@
+In this paper, we present PREDATOR, an efficient directed
+fuzzer for web applications. To solve the challenges of
+applying directed fuzzing to web applications, PREDATOR
+introduces several novel techniques to enable and augment
+the directed fuzzing process, especially the block distance
+supplementation and the mutation strategies tailored for
+web applications. In the evaluation, PREDATOR shows ef-
+fectiveness and efficiency in detecting vulnerabilities in
+both synthetic and real-world web applications. Moreover,
+it finds 26 previously unknown vulnerabilities in real-world
+applications and 7 of them are acknowledged and patched
+with 6 new CVE IDs assigned. We believe that PREDATOR
+can foster research in the field of web application security
+and contribute to the development of more sophisticated
+directed fuzzers for web vulnerability detection.

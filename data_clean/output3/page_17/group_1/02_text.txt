@@ -1,0 +1,4 @@
+Listing 2: The simplified bytecode of ClassA in Listing 1. line
+refers to the line number in the source code that corresponds to
+the given bytecode, and the line number on the far left denotes the
+line number of the bytecode itself.

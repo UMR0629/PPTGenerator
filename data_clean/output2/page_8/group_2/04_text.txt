@@ -1,0 +1,14 @@
+fe-upaauns me DIOCK Aistance IMvOrmMAaton.
+
+XSS_ Detection. We further implement a simple re-
+flected XSS detector [14, 36] working with PREDATOR, as
+Witcher [16] is able to identify only SQL injection and com-
+mand injection vulnerabilities. PREDATOR injects a crafted
+payload into the target web application and checks whether
+the payload is reflected in the response. Technically, we
+could employ a JavaScript engine to execute the response for
+more accurate detection, similar to what Black Widow [12]
+does. However, doing so would significantly impair the
+efficiency of the dynamic validation phase, especially for
+triggering other types of vulnerabilities. We do not emphasize
+this component as our contribution and we only aim to

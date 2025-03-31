@@ -1,0 +1,16 @@
+4.4.95. selective Dynamic instrumentation. inspired by se-
+lectFuzz [26], we propose to instrument only path-divergent
+basic block, which is the last intersection block of a
+reachable path and an unreachable one to the target. To
+achieve this, PREDATOR needs to perform basic block-level
+instrumentation. As discussed in $3, employing traditional in-
+strumentation techniques is impractical. Instead, PREDATOR
+augments the PHP interpreter to dynamically instrument only
+a small group of specific opcodes, as shown in Table |. This
+process is transparent to the target application and does not
+require any modification to the source code. It contains three
+categories of opcodes, i.e., conditional and unconditional
+jumps, function calls, and include or eval statements. These
+specific opcodes represent the starting point of a basic block.
+By instrumenting these opcodes, PREDATOR can provide
+precise and efficient monitoring of the execution flow.

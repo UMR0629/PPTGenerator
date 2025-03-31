@@ -1,0 +1,13 @@
+Comparison with YWebdruzzZ ine performance of
+PREDATOR is slightly better than that of WebFuzz. We
+noticed that WebFuzz occasionally got stuck on certain
+pages, preventing further progress. For instance, when testing
+Hospital Management System, despite providing valid login
+credentials, WebFuzz consistently attempted to visit inacces-
+sible pages. This likely represents a design or implementation
+flaw, leading it to waste considerable time exploring irrelevant
+paths. When testing other applications, its performance
+was satisfactory yet remained marginally inferior to that
+of PREDATOR.
+
+False Negatives. We analyze the reasons behind the

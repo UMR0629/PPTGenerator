@@ -1,0 +1,37 @@
+We evaluate the scalability of PREDATOR
+by measuring the static analysis time and the throughput of
+directed fuzzing. The static analysis time consists of two
+parts: the time spent on the distance calculation and the
+time spent on identifying entry URLs and constructing the
+TABLE 4: The results of average time to exposure (u7TTE)
+comparison. Each application is denoted by an ID, with the specific
+correspondence available in Table 3. T:O. indicates that in all ten
+attempts, the vulnerability is not triggered within the time budget.
+In other cases, a timeout results in a time to exposure of 24 hours.
+Runs denotes the number of successfully triggered attempts. We
+mark items where PREDATOR shows superior performance and the
+p-value is below 0.05 in bold.
+input corpus. We compare PREDATOR with Witcher on their
+throughputs to examine the impact of selective dynamic
+instrumentation. We run each tool for one hour on every
+entry URL of each application and take the average as the
+throughput, measured in requests per second (req/s). The
+dataset contains 10 web applications, excluding those where
+neither PREDATOR nor Witcher identified any vulnerabilities.
+Results. The results are shown in Table 5. The distance
+calculation time is negligible for most applications, except
+for OpenEMR, which has a large codebase. The cost for
+identifying entry URLs and constructing the input corpus is
+also low, except for OpenEMR and ECShop. The time spent
+on static analysis is typically less than 1 hour, demonstrating
+that it is both fast and scalable. We analyze the relative
+difference in fuzzing throughput between PREDATOR and
+Witcher. PREDATOR’s throughput relative to Witcher ranges
+TABLE 5: The results of static analysis time and fuzzing through-
+put.
+from 63.82% to 145.03%, where PREDATOR performs better
+in half cases. Overall, PREDATOR achieves an average
+throughput of 80.07 req/s, while Witcher achieves 78.39 req/s,
+differing by 2.14%. This indicates that the additional over-
+head introduced by our selective dynamic instrumentation is
+low in practice.

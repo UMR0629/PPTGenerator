@@ -1,0 +1,24 @@
+一
+
+When calculating block distances for PHP applications，
+the distance can be inaccurate without executing the Scripts.
+Figure 2 illustrates this issue. In this example, vuln_func ()
+is the target, and the red numbers indicate the block distance
+to the target, which is calculated using SelectFuzz’s block
+distance calculation algorithm. This algorithm works on the
+inter-procedural control-flow graph (iCFG), however, there
+are paths within PHP applications that static analysis tools
+cannot identify. We observed that the path represented by
+the red dashed directed line in the figure, from line 33
+to line 19, is undetectable by static analysis tools. This
+leads to an inability to determine the distance between the
+basic block at line 33 and the target, resulting in the fuzzer
+considering it an unreachable block. When an input causes
+the application to execute line 33, the fuzzer does not add
+this input to the queue because it does not perceive the input
+as reaching a new or closer basic block. Then, the likelihood
+of executing the paths represented by all the red arrowed
+lines will decrease due to the wrong action, thereby severely
+affecting the effectiveness and efficiency of executing target
+code and triggering vulnerabilities. We will detail the solution
+to this issue in §4.3.1.

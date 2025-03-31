@@ -1,0 +1,18 @@
+The overall architecture of PREDATOR is illustrated
+in Figure |. PREDATOR primarily consists of two stages: the
+static analysis stage and the directed fuzzing stage. During
+the static analysis stage, PREDATOR takes the source code
+of the web applications and existing static analysis reports
+that provide fuzzing targets as inputs. To enable directed
+fuzzing, it analyzes the potential vulnerable targets reported,
+identifies the entry URLs, constructs the input corpus, and
+performs distance calculations. During the directed fuzzing
+stage, PREDATOR utilizes selective dynamic instrumentation
+to provide basic block-level distance feedback for choosing
+promising seed inputs. It introduces two novel mechanisms
+to augment the directed fuzzing process for web applica-
+tions. First, it dynamically supplements the block distance
+information, thereby enhancing the effectiveness of distance
+feedback. Second, the mutation strategies based on distance
+and parameters improve the efficiency of the exploration and
+exploitation phases.

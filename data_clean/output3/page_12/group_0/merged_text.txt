@@ -1,0 +1,8 @@
+TABLE 5: The results of static analysis time and fuzzing through-
+put.
+from 63.82% to 145.03%, where PREDATOR performs better
+in half cases. Overall, PREDATOR achieves an average
+throughput of 80.07 req/s, while Witcher achieves 78.39 req/s,
+differing by 2.14%. This indicates that the additional over-
+head introduced by our selective dynamic instrumentation is
+low in practice.

@@ -1,0 +1,58 @@
+utilizes the dependent parameters identified in $4.2.2 to guide
+the fuzzer in targeted mutations, thereby quickly limiting
+the search space of the exploration stage. Angora [24]
+introduced a similar technique by performing byte-level
+taint analysis on user inputs and then mutating these bytes.
+For web applications, we need to manipulate parameter
+keys and values by conducting lightweight parameter-to-
+condition analysis. At directed fuzzing stage, PREDATOR
+first logs the closest basic block to the target during the
+web application’s execution. It then mutates the dependent
+parameters of this basic block to approach the target via the
+block. Specifically, for any branch statement, PREDATOR
+identify several dependent parameters during static data-flow
+analysis. For the closest branch statement after a round of
+fuzzing, PREDATOR will utilize the dependent parameters as
+candidate parameter keys for the next round to mutate. By
+this means, PREDATOR can guide the fuzzer to fulfill the
+specific conditions and reach the target more effectively.
+Distance-Guided Probabilistic Mutation. We propose a
+distance-guided probabilistic mutation method that combines
+the advantages of both dictionary-based methods [16] and
+byte stream-based mutation methods [20]. Dictionary-based
+mutation methods can help the exploration stage by changing
+the decision of a branch statement. However, for the exploita-
+tion stage, these methods may be less effective. Specifically,
+when utilizing error-based bug oracles, triggering a vulnera-
+bility may require a specific attack string, such as a single
+quote for SQL injection.
+The key idea of our approach is to mainly adopt
+dictionary-based mutation methods when the current input
+distance is relatively large, and byte stream-based mutation
+methods when the distance gets smaller. PREDATOR uses
+Formula | to calculate the probability to use the byte stream-
+based mutation methods, where Dx, is the input distance
+in the current round, Daoz and Dyin are the maximum and
+minimum input distances in the previous rounds, respectively.
+The probability is higher when the current distance is smaller,
+and lower when the current distance is larger. We set the
+maximum probability to 90% based on empirical observation,
+meaning that the byte stream-based mutation methods will be
+applied with a 90% probability when the current distance is 1.
+PREDATOR leverages the maximum and minimum distances
+to modulate the rate of change in the probability function,
+instead of directly employing a linear function. Specifically,
+it mostly chooses byte stream-based mutation methods when
+the current distance is sufficiently far from the maximum
+distance and sufficiently close to the minimum distance.
+The three variables, Pr Dmaz, and Dmin, can exhibit
+only three possible states in practice. Initially, all are set to
+-1, indicating that no basic blocks have been executed. At
+runtime, all three values are greater than or equal to | when
+at least one path-divergent basic block has been executed,
+and the current run also encounters such blocks. If Dey, is -1
+while Dmaz and Dyin are no less than 1, it indicates that
+basic blocks with distance information have been executed
+in previous runs, but no such blocks were encountered in the
+current execution. Hence, this function remains valid across
+all scenarios.

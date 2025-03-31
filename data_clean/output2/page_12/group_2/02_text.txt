@@ -1,0 +1,13 @@
+-_
+
+Results. The results are shown in Figure 3. Different colored
+bars represent the w7TE required by the corresponding
+configuration. A timeout results in a time to exposure of
+1 hour. We investigated the performance across 6 different
+configurations. The baseline prototype PREDATOR» used
+Witcher’s crawler for extracting entry URLs and parameters.
+However, it consistently failed to extract any valid entry
+URL, thus was unable to trigger any vulnerabilities. With the
+implementation of entry URL identification and targeted input
+corpus construction, PREDATOR, successfully detected 8 out
+of the 13 vulnerabilities. In the remaining 5 cases it failed

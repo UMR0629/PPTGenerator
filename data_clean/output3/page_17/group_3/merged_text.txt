@@ -1,0 +1,4 @@
+The following meta-review was prepared by the program
+committee for the 2025 IEEE Symposium on Security and
+Privacy (S&P) as part of the review process as detailed in
+the call for papers.

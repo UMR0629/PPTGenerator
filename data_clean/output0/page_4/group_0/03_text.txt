@@ -1,0 +1,23 @@
+Challenge 2: Instrumenting Web Applications and Gather-
+ing Distance Feedback. Instrumenting web applications for
+directed fuzzing is non-trivial. Existing coverage-guided tools
+primarily employ two methods: static instrumentation by
+modifying source code [15, 30, 34], and dynamic instrumenta-
+tion during runtime [16]. Current static instrumentation meth-
+ods cannot insert necessary hooks without altering the source
+code, which risks enlarging the codebase and even changing
+the application’s behavior unintentionally [15]. Moreover,
+dynamic languages like PHP may require adjustments to
+block distances at runtime due to potential inaccuracies in
+static analysis results. Given that the distance information is
+embedded within the source code, any required adjustments
+necessitate re-instrumenting the entire application, which
+is excessively time-consuming. Dynamic instrumentation
+involves instrumenting bytecode during program execution.
+Witcher [16] leverages the line number and opcode of the
+current and prior bytecode instructions to update the code
+coverage. On the one hand, it may be expensive to instrument
+every bytecode instruction. On the other hand, directed
+fuzzing requires computing and maintaining the distance
+of each basic block, which bytecode-level instrumentation
+cannot fully address.

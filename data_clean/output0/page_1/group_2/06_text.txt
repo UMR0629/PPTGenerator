@@ -1,0 +1,5 @@
+Despite the advantages, dynamic methods also exhibit
+significant limitations, primarily due to the intricate archi-
+tecture and state-dependent nature of modern web appli-
+cations [21, 22]. Modern web applications often involve
+complex user interactions and maintain rich stateful behaviors

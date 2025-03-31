@@ -1,0 +1,5 @@
+False Negatives. We analyze the reasons behind the
+false negatives. In bWAPP, 6 SQLi vulnerabilities were not
+detected, 3 of which were due to the lack of oracle for sqlite.
+This could be easily addressed by detecting the correspond-
+ing error feedback messages. However, we refrained from

@@ -1,0 +1,4 @@
+detection method. This risk of false positives arises whenever
+an application outputs user input on a page. Addressing this
+issue could involve utilizing a JavaScript engine to render
+the responses.

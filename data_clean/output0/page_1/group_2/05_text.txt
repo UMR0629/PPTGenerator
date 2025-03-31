@@ -1,0 +1,18 @@
+Dynamic analysis methods, such as black-box scan-
+ning [12-14] and grey-box fuzzing [15-19], aim to identify
+vulnerabilities by executing the application and observing
+its behavior. Witcher [16] leverages AFL [20] to detect SQL
+injection and command injection vulnerabilities for web
+applications in multiple languages. By converting semantic
+errors into segmentation fault signals detectable by AFL
+through customized bug oracles, it enhances the effectiveness
+of detecting injection vulnerabilities. Concurrent to our work,
+Atropos [18] employs a snapshot-based, feedback-driven
+fuzzing method tailored for PHP-based web applications. It
+introduces a feedback mechanism to automatically infer the
+key-value structure at runtime. Dynamic analysis methods
+typically have lower false-positive rates compared to static
+analysis methods as they can observe the actual behavior of
+
+the application, rather than relying on heuristics.
+Tyr nenittn than andltrnntancenan ANmnawin mn, 4 了 alan Arwvhihki-t

@@ -1,0 +1,4 @@
+target application. Additionally, PREDATOR introduces novel
+methods to enhance directed fuzzing for web applications,
+which encompass block distance supplementation, mutation
+strategies guided by dependent parameters and distance.

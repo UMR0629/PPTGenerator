@@ -1,0 +1,84 @@
+effective in coverage-guided fuzzing, crawlers randomly
+extract URLs, potentially missing critical entry URLs that
+lead to vulnerable code locations and cluttering the dataset
+with irrelevant URLs. Manually identifying entry URLs is
+inefficient and does not align with our research goal.
+Triggering specific vulnerabilities necessitates manipu-
+lating both parameter keys and values [35]. Fuzzers often
+struggle when lacking the necessary parameters to target
+vulnerabilities. Crawlers extract request parameters from the
+user interface but lack insight into the application’s internal
+logic. Such superficial information fails to assist directed
+fuzzers in triggering deeper vulnerabilities.
+Challenge 2: Instrumenting Web Applications and Gather-
+ing Distance Feedback. Instrumenting web applications for
+directed fuzzing is non-trivial. Existing coverage-guided tools
+primarily employ two methods: static instrumentation by
+modifying source code [15, 30, 34], and dynamic instrumenta-
+tion during runtime [16]. Current static instrumentation meth-
+ods cannot insert necessary hooks without altering the source
+code, which risks enlarging the codebase and even changing
+the application’s behavior unintentionally [15]. Moreover,
+dynamic languages like PHP may require adjustments to
+block distances at runtime due to potential inaccuracies in
+static analysis results. Given that the distance information is
+embedded within the source code, any required adjustments
+necessitate re-instrumenting the entire application, which
+is excessively time-consuming. Dynamic instrumentation
+involves instrumenting bytecode during program execution.
+Witcher [16] leverages the line number and opcode of the
+current and prior bytecode instructions to update the code
+coverage. On the one hand, it may be expensive to instrument
+every bytecode instruction. On the other hand, directed
+fuzzing requires computing and maintaining the distance
+of each basic block, which bytecode-level instrumentation
+cannot fully address.
+In addition to instrumenting the web application code,
+another common approach involves instrumenting the PHP
+interpreter, which is written in C, and testing with a fuzzer
+for native programs [20]. By analyzing the coverage of the
+interpreter’s code, it may implicitly reflect the coverage
+of the target web application. However, this method is
+impractical for directed fuzzing purposes. First, it results in
+a significant amount of noise. Even if we run a simple PHP
+script containing a few lines of code, the interpreter would
+execute a large number of instructions. Second, instrumenting
+the interpreter collects execution traces for the interpreter
+but leaves the fuzzer unaware of the actual execution flow
+of the web application’s code. When performing directed
+fuzzing, the fuzzer requires accurate distance feedback from
+the target application, not the interpreter.
+Challenge 3: Addressing Dynamic Natures of Interpreted
+Languages. Directed fuzzing typically requires preparatory
+work based on static analysis. For instance, tools utilizing a
+distance metric need to initially calculate and assign distances
+to basic blocks based on the control flow of the target
+application [23, 26]. During dynamic testing, they collect
+distance feedback and conduct power scheduling, prioritizing
+in seeds that are closer to the target. However, static analysis
+tools often struggle to effectively model dynamic features
+of interpreted languages like PHP. Inaccurate modeling of
+dynamic features by static analysis tools can lead to imprecise
+or erroneous distance calculations.
+We provide an example in Listing | based on common
+practices in real-world PHP applications to better illustrate
+this challenge. There are two main concerns: 1) Some static
+analysis tools designed for PHP use method names for match-
+ing and constructing call edges [6, 10]. In scenarios where
+the target application contains multiple classes with methods
+sharing the same name, e.g., fooQ in Listing |, these tools
+fail to construct an accurate call graph (CG). In this context,
+some paths can hardly be accurately identified. However,
+these overlooked paths can be reachable to the target lo-
+cation. In the example, we can only identify the execution
+path $ClassA::foo() using these static analysis tools, but
+remain unaware of the second path $ClassB->foo(), even
+if the second path can trigger the vulnerability more easily.
+2) The code dynamically invokes methods based on variable
+values ($cName and $mName), making it challenging for static
+analysis tools to accurately infer all possible execution paths.
+This feature is also known as variable function calls, which
+are common in PHP applications. For example, current static
+analysis tools cannot derive the call edge from line 33 to
+line 18. When attempting to calculate distances, the results
+can be imprecise or even erroneous.
