@@ -112,7 +112,7 @@ class PaperInfo:
         self.journal = journal
         self.ppt_presenter = ppt_presenter
         self.ppt_date = ppt_date
-        self.outline_root = Node("Paper Outline", content=None)  # 根节点不存储内容
+        self.outline_root = Node(title, content=None)  # 根节点不存储内容
 
     def add_outline_section(self, parent_title, section_title):
         """

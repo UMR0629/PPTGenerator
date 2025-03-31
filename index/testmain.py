@@ -1,6 +1,7 @@
 import sys
 #sys.path.append("..")
-from index import PaperSectionSummary,PaperInfo,SectionContent
+#from index import PaperSectionSummary,PaperInfo,SectionContent
+from index import PaperInfo
 from result_extraction import parse_output_to_section 
 from extract_function import generate_presentation_summary,generate_with_feedback
 tmp=PaperInfo(title="Leveraging Semantic Relations in Code and Data to Enhance Taint Analysis of Embedded Systems",authors="Jiaxu Zhao",date=2024,journal="tmp",ppt_presenter="tom",ppt_date="2025.3")
@@ -20,7 +21,7 @@ observation into a novel static taint analysis technique called LARA. LARA can c
 its performance in vulnerability detection, source identification and sink identification. The results show that LARA can significantly outperform the state-of-the-art IoT static taint analysis techniques by detecting more vulnerabilities with fewer false positives. • We discovered 245 0-day vulnerabilities in 57 devices from 13 vendors. To date, all have been confirmed or
 fixed and 162 CVE IDs have been assigned. We make the raw data, detailed information and source code of LARA available on the LARA-Site: https://sites.google.com/view/lara-data.""")
 tmp.add_outline_section("Leveraging Semantic Relations in Code and Data to Enhance Taint Analysis of Embedded Systems","2 Motivating Example")
-tmp.add_outline_section("Motivating Example","2.1 Threat Model")
+tmp.add_outline_section("2 Motivating Example","2.1 Threat Model")
 tmp.add_content_to_leaf("2.1 Threat Model","""In this paper, we focus on attacks against WEB services in
 embedded systems. The threat model assumes that the attacker can obtain the corresponding firmware from the vendor
 website and access the target over a local (LAN) or wide area
