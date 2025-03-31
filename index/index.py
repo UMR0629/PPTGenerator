@@ -68,10 +68,9 @@ class SectionContent:
     """
 
     def __init__(self, text=None,summary:PaperSectionSummary=None):
-
+        # 原始text（来自pdf处理模块）
         self.text = text or ""
-        # self.references = references or []
-        # self.equations = equations or []
+        # summary中应当包含大模型处理过后的text要点、img路径、table路径（来自大模型处理模块）
         self.summary=summary
         
 
