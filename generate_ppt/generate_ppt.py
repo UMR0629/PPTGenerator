@@ -575,6 +575,8 @@ class Generate_ppt:
 
         slide.placeholders[0].text = text
 
+
+
     # 保存PPT
     def save_ppt(self, output_path):
         self.prs_new.save(output_path)

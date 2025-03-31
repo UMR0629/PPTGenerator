@@ -9,6 +9,7 @@ import sys
 from anytree import Node, RenderTree, PreOrderIter
 from result_extraction import parse_output_to_section 
 from extract_function import generate_presentation_summary,generate_with_feedback
+from generate_ppt.generate_ppt import Generate_ppt
 import re
 
 class PaperSectionSummary:
@@ -212,3 +213,28 @@ class PaperInfo:
         :return: 包含 (节点名称, 内容) 的列表
         """
         return [(node.name, node.content) for node in PreOrderIter(self.outline_root)]
+
+    def find_root_children(self):
+        """
+        查找所有根目录（Paper Outline）的直接子节点名称，并按照顺序返回列表。
+        :return: 根节点的子节点名称列表
+        """
+        return [child.name for child in self.outline_root.children]
+
+    def generate_ppt(self):
+        """
+        生成ppt
+        """
+        ppt_path = "../source/ppt_model/1.百廿红-李一.pptx"
+        generate_ppt = Generate_ppt(ppt_path)
+        generate_ppt.add_cover(self.title, self.authors, self.date)
+        index_content = self.find_root_children()
+        index_num = len(index_content)
+        generate_ppt.add_menu("../source/img/image22.jpg", index_num, index_content)
+
+        for node in PreOrderIter(self.outline_root):
+            if node.content:
+                if node.content.summary:
+                    generate_ppt.add_text_image(node.name, node.content.summary)
+                else:
+                    generate_ppt.add_all_text(node.name, node.content.text)
