@@ -158,4 +158,4 @@ challenge, we designed LLM automatic interaction models
 and algorithms that combines pattern-based static analysis
 with LLM-aided analysis to identify more accurate sources""")
 tmp.display_outline()
-print(tmp.find_outline_section("2.3 Findings based on the Observation").content)
+#print(tmp.find_outline_section("2.3 Findings based on the Observation").content)
