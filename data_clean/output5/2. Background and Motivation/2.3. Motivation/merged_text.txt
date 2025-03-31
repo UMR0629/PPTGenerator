@@ -1,0 +1,44 @@
+Limitations of Existing Methods. Both static and dynamic
+analysis techniques have their limitations. Static analysis
+generates reports with many false positives [6, 10, 11, 31].
+This issue mostly stems from the fact that static analysis eval-
+uates code without executing it, leading to outcomes based on
+theoretical inferences rather than actual runtime behavior. As
+a result, the tool might label code as vulnerable when certain
+conditions for a vulnerability to be triggered may never
+materialize at runtime. Furthermore, dynamic languages
+such as PHP introduce complexities in their features and
+execution behaviors, which static analysis tools often struggle
+to precisely model [31]. These issues necessitate extensive
+manual review and validation, which becomes a bottleneck
+in the efficiency of static analysis tools. Dynamic analysis
+tools for web applications primarily utilize coverage-guided
+strategies. They implement random exploration techniques,
+aiming to traverse through various execution paths in search
+of potential security vulnerabilities. However, this approach
+faces limitations due to the intrinsic uneven distribution of
+vulnerabilities within an application, with most vulnerabilities
+often residing in specific, critical functions. This approach
+makes random exploration inefficient, as it does not focus on
+code segments with higher likelihood of containing vulner-
+abilities. Moreover, deep vulnerabilities require navigating
+through complex execution paths, which existing coverage-
+guided fuzzing might not effectively address.
+
+RAT_ ey ，，，_ _ 1"* 1 _ 、 1 1 *1* Oe ，  _ ~ 1 _
+Note that while vulnerability information can often be
+sourced from multiple avenues, such as static analysis tools
+and databases of known CVEs, a practical proof of concept
+(PoC) to exploit these vulnerabilities frequently remain
+unavailable. Therefore, it is crucial to develop a tool capable
+of both identifying and effectively triggering these known
+vulnerabilities to validate their impact and scope.
+A Promising Approach to Bridge the Gap. Utilizing
+directed fuzzing for automated static analysis report valida-
+tion shows great promise in web application vulnerability
+detection. By leveraging directed fuzzing, we can mitigate the
+extensive manual review and validation workload, primarily
+induced by the high false-positive rates of static analysis. This
+is particularly beneficial for dynamic programming languages
+like PHP, where the intricacies and dynamic features pose
+modeling challenges for static analysis.

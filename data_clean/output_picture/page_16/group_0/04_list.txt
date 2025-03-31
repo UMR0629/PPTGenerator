@@ -1,0 +1,48 @@
+[45]
+
+[46]
+
+[47]
+
+[48]
+
+[49]
+[50]
+[51]
+[52]
+
+[53]
+
+tartare ttt tee iam een — bee
+in Proceedings of the 23rd ACM Conference on Computer and
+Communications Security (CCS), Vienna, Austria, Oct. 2016.
+
+P. Li and M. Zhang, “Fuzzcache: Optimizing web application fuzzing
+through software-based data cache,” in Proceedings of the 31st ACM
+Conference on Computer and Communications Security (CCS), Salt
+Lake City, UT, USA, Oct. 2024.
+
+X. Tan, Y. Zhang, J. Lu, X. Xiong, Z. Liu, and M. Yang, “Syzdirect:
+Directed greybox fuzzing for linux kernel,” in Proceedings of the 30th
+ACM Conference on Computer and Communications Security (CCS),
+Copenhagen, Denmark, Nov. 2023.
+
+M. Fleischer, D. Das, P. Bose, W. Bai, K. Lu, M. Payer, C. Kruegel,
+and G. Vigna, “Actor: Action-guided kernel fuzzing,” in Proceedings
+of the 32nd USENIX Security Symposium (Security), Anaheim, CA,
+USA, Aug. 2023.
+
+Z. Lin, Y. Chen, Y. Wu, D. Mu, C. Yu, X. Xing, and K. Li, “Grebe:
+Unveiling exploitation potential for linux kernel bugs,” in Proceedings
+of the 43th IEEE Symposium on Security and Privacy (Oakland), San
+Francisco, CA, USA, May 2022.
+
+“bwapp,” 2024, https://github.com/Imoroz/bWAPP.
+“Dvwa,” 2024, https://github.com/digininja/DV WA.
+“Xvwa,” 2020, https://github.com/s4n7h0/xvwa.
+
+“User login management system,” 2020, https://phpgurukul.com/user-
+registration-login-and-user-management-system-with-admin-panel/.
+
+“Hospital management system,” 2019, https://phpgurukul.com/hospital-
+management-system-in-php/.

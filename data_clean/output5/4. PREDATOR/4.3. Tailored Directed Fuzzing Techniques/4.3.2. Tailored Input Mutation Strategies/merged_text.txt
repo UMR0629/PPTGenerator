@@ -1,0 +1,6 @@
+Since existing
+mutation strategies designed for native programs do not
+guarantee effectiveness when testing web applications, we
+present new ones specifically tailored for web applications,
+namely dependent parameter-sensitive mutation and distance-
+guided probabilistic mutation.

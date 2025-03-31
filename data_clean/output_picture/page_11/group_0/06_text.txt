@@ -1,0 +1,8 @@
+TABLE 4: The results of average time to exposure (u7TTE)
+comparison. Each application is denoted by an ID, with the specific
+correspondence available in Table 3. T:O. indicates that in all ten
+attempts, the vulnerability is not triggered within the time budget.
+In other cases, a timeout results in a time to exposure of 24 hours.
+Runs denotes the number of successfully triggered attempts. We
+mark items where PREDATOR shows superior performance and the
+p-value is below 0.05 in bold.

@@ -1,0 +1,1036 @@
+INFO - ==================================================
+INFO - 开始处理图片重命名
+INFO - 输入目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output_picture
+INFO - 输出目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output_picture0
+INFO - ==================================================
+INFO - 开始处理目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output_picture
+INFO - 现在处理 group 目录: group_0
+INFO - 处理 PNG 文件: 02_table.png
+INFO - 在 TXT 文件 01_text.txt 中找到 PNG 文件名称 TABLE 2
+INFO - 复制并重命名 PNG 文件 02_table.png 为 TABLE2.png
+INFO - 复制并重命名 TXT 文件 01_text.txt 为 TABLE2.txt
+INFO - 处理 PNG 文件: 04_table.png
+INFO - 在 TXT 文件 03_text.txt 中找到 PNG 文件名称 TABLE 3
+INFO - 复制并重命名 PNG 文件 04_table.png 为 TABLE3.png
+INFO - 复制并重命名 TXT 文件 03_text.txt 为 TABLE3.txt
+INFO - 现在处理 group 目录: group_0
+INFO - 处理 PNG 文件: 07_table.png
+INFO - 在 TXT 文件 06_text.txt 中找到 PNG 文件名称 TABLE 4
+INFO - 复制并重命名 PNG 文件 07_table.png 为 TABLE4.png
+INFO - 复制并重命名 TXT 文件 06_text.txt 为 TABLE4.txt
+INFO - 现在处理 group 目录: group_0
+INFO - 处理 PNG 文件: 02_table.png
+INFO - 在 TXT 文件 01_text.txt 中找到 PNG 文件名称 TABLE 5
+INFO - 复制并重命名 PNG 文件 02_table.png 为 TABLE5.png
+INFO - 复制并重命名 TXT 文件 01_text.txt 为 TABLE5.txt
+INFO - 现在处理 group 目录: group_0
+INFO - 处理 PNG 文件: 01_figure.png
+INFO - 在 TXT 文件 02_text.txt 中找到 PNG 文件名称 Figure 3
+INFO - 复制并重命名 PNG 文件 01_figure.png 为 Figure3.png
+INFO - 复制并重命名 TXT 文件 02_text.txt 为 Figure3.txt
+INFO - 现在处理 group 目录: group_0
+INFO - 处理 PNG 文件: 01_list.png
+INFO - 处理 PNG 文件: 02_list.png
+INFO - 处理 PNG 文件: 03_list.png
+INFO - 处理 PNG 文件: 04_list.png
+INFO - 现在处理 group 目录: group_0
+INFO - 处理 PNG 文件: 08_list.png
+INFO - 现在处理 group 目录: group_0
+INFO - 现在处理 group 目录: group_0
+INFO - 处理 PNG 文件: 01_figure.png
+INFO - 在 TXT 文件 02_text.txt 中找到 PNG 文件名称 Figure 1
+INFO - 复制并重命名 PNG 文件 01_figure.png 为 Figure1.png
+INFO - 复制并重命名 TXT 文件 02_text.txt 为 Figure1.txt
+INFO - 现在处理 group 目录: group_0
+INFO - 处理 PNG 文件: 01_figure.png
+INFO - 现在处理 group 目录: group_0
+INFO - 处理 PNG 文件: 01_figure.png
+INFO - 在 TXT 文件 02_text.txt 中找到 PNG 文件名称 Figure 2
+INFO - 复制并重命名 PNG 文件 01_figure.png 为 Figure2.png
+INFO - 复制并重命名 TXT 文件 02_text.txt 为 Figure2.txt
+INFO - 现在处理 group 目录: group_1
+INFO - 处理 PNG 文件: 01_table.png
+INFO - 现在处理 group 目录: group_2
+INFO - 处理 PNG 文件: 05_table.png
+INFO - 在 TXT 文件 04_text.txt 中找到 PNG 文件名称 TABLE 7
+INFO - 复制并重命名 PNG 文件 05_table.png 为 TABLE7.png
+INFO - 复制并重命名 TXT 文件 04_text.txt 为 TABLE7.txt
+INFO - 现在处理 group 目录: group_2
+INFO - 处理 PNG 文件: 02_table.png
+INFO - 在 TXT 文件 01_text.txt 中找到 PNG 文件名称 TABLE 8
+INFO - 复制并重命名 PNG 文件 02_table.png 为 TABLE8.png
+INFO - 复制并重命名 TXT 文件 01_text.txt 为 TABLE8.txt
+INFO - 现在处理 group 目录: group_2
+INFO - 处理 PNG 文件: 06_list.png
+INFO - 现在处理 group 目录: group_2
+INFO - 处理 PNG 文件: 02_list.png
+INFO - 现在处理 group 目录: group_3
+INFO - 处理 PNG 文件: 04_table.png
+INFO - 在 TXT 文件 03_text.txt 中找到 PNG 文件名称 TABLE 6
+INFO - 复制并重命名 PNG 文件 04_table.png 为 TABLE6.png
+INFO - 复制并重命名 TXT 文件 03_text.txt 为 TABLE6.txt
+INFO - 现在处理 group 目录: group_3
+INFO - 处理 PNG 文件: 06_table.png
+INFO - 在 TXT 文件 05_text.txt 中找到 PNG 文件名称 TABLE 1
+INFO - 复制并重命名 PNG 文件 06_table.png 为 TABLE1.png
+INFO - 复制并重命名 TXT 文件 05_text.txt 为 TABLE1.txt
+INFO - 现在处理 group 目录: group_4
+INFO - 处理 PNG 文件: 01_list.png
+INFO - 处理 PNG 文件: 02_list.png
+INFO - 处理 PNG 文件: 03_list.png
+INFO - 现在处理 group 目录: group_5
+INFO - 处理 PNG 文件: 01_list.png
+INFO - 处理 PNG 文件: 02_list.png
+INFO - 处理完成！输出目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output_picture0
+INFO - 处理成功完成！
+INFO - ==================================================
+INFO - 开始处理图片重命名
+INFO - 输入目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output_picture
+INFO - 输出目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output_picture0
+INFO - ==================================================
+INFO - 开始处理目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output_picture
+INFO - 正在处理页面目录: page_2
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 08_list.png
+INFO - 正在处理页面目录: page_4
+INFO - 正在处理组目录: group_0
+INFO - 正在处理页面目录: page_5
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 01_figure.png
+INFO - 在 TXT 文件 02_text.txt 中找到 PNG 文件名称 Figure 1
+INFO - 复制并重命名 PNG 文件 01_figure.png 为 Figure1.png
+INFO - 复制并重命名 TXT 文件 02_text.txt 为 Figure1.txt
+INFO - 正在处理页面目录: page_6
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 01_figure.png
+INFO - 正在处理组目录: group_3
+INFO - 处理 PNG 文件: 06_table.png
+INFO - 在 TXT 文件 05_text.txt 中找到 PNG 文件名称 TABLE 1
+INFO - 复制并重命名 PNG 文件 06_table.png 为 TABLE1.png
+INFO - 复制并重命名 TXT 文件 05_text.txt 为 TABLE1.txt
+INFO - 正在处理页面目录: page_7
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 01_figure.png
+INFO - 在 TXT 文件 02_text.txt 中找到 PNG 文件名称 Figure 2
+INFO - 复制并重命名 PNG 文件 01_figure.png 为 Figure2.png
+INFO - 复制并重命名 TXT 文件 02_text.txt 为 Figure2.txt
+INFO - 正在处理组目录: group_2
+INFO - 处理 PNG 文件: 06_list.png
+INFO - 正在处理页面目录: page_9
+INFO - 正在处理组目录: group_2
+INFO - 处理 PNG 文件: 02_list.png
+INFO - 正在处理页面目录: page_10
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 02_table.png
+INFO - 在 TXT 文件 01_text.txt 中找到 PNG 文件名称 TABLE 2
+INFO - 复制并重命名 PNG 文件 02_table.png 为 TABLE2.png
+INFO - 复制并重命名 TXT 文件 01_text.txt 为 TABLE2.txt
+INFO - 处理 PNG 文件: 04_table.png
+INFO - 在 TXT 文件 03_text.txt 中找到 PNG 文件名称 TABLE 3
+INFO - 复制并重命名 PNG 文件 04_table.png 为 TABLE3.png
+INFO - 复制并重命名 TXT 文件 03_text.txt 为 TABLE3.txt
+INFO - 正在处理页面目录: page_11
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 07_table.png
+INFO - 在 TXT 文件 06_text.txt 中找到 PNG 文件名称 TABLE 4
+INFO - 复制并重命名 PNG 文件 07_table.png 为 TABLE4.png
+INFO - 复制并重命名 TXT 文件 06_text.txt 为 TABLE4.txt
+INFO - 正在处理页面目录: page_12
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 02_table.png
+INFO - 在 TXT 文件 01_text.txt 中找到 PNG 文件名称 TABLE 5
+INFO - 复制并重命名 PNG 文件 02_table.png 为 TABLE5.png
+INFO - 复制并重命名 TXT 文件 01_text.txt 为 TABLE5.txt
+INFO - 正在处理组目录: group_3
+INFO - 处理 PNG 文件: 04_table.png
+INFO - 在 TXT 文件 03_text.txt 中找到 PNG 文件名称 TABLE 6
+INFO - 复制并重命名 PNG 文件 04_table.png 为 TABLE6.png
+INFO - 复制并重命名 TXT 文件 03_text.txt 为 TABLE6.txt
+INFO - 正在处理页面目录: page_13
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 01_figure.png
+INFO - 在 TXT 文件 02_text.txt 中找到 PNG 文件名称 Figure 3
+INFO - 复制并重命名 PNG 文件 01_figure.png 为 Figure3.png
+INFO - 复制并重命名 TXT 文件 02_text.txt 为 Figure3.txt
+INFO - 正在处理组目录: group_2
+INFO - 处理 PNG 文件: 05_table.png
+INFO - 在 TXT 文件 04_text.txt 中找到 PNG 文件名称 TABLE 7
+INFO - 复制并重命名 PNG 文件 05_table.png 为 TABLE7.png
+INFO - 复制并重命名 TXT 文件 04_text.txt 为 TABLE7.txt
+INFO - 正在处理页面目录: page_15
+INFO - 正在处理组目录: group_4
+INFO - 处理 PNG 文件: 01_list.png
+INFO - 处理 PNG 文件: 02_list.png
+INFO - 处理 PNG 文件: 03_list.png
+INFO - 正在处理页面目录: page_16
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 01_list.png
+INFO - 处理 PNG 文件: 02_list.png
+INFO - 处理 PNG 文件: 03_list.png
+INFO - 处理 PNG 文件: 04_list.png
+INFO - 正在处理页面目录: page_17
+INFO - 正在处理组目录: group_1
+INFO - 处理 PNG 文件: 01_table.png
+INFO - 正在处理组目录: group_2
+INFO - 处理 PNG 文件: 02_table.png
+INFO - 在 TXT 文件 01_text.txt 中找到 PNG 文件名称 TABLE 8
+INFO - 复制并重命名 PNG 文件 02_table.png 为 TABLE8.png
+INFO - 复制并重命名 TXT 文件 01_text.txt 为 TABLE8.txt
+INFO - 正在处理组目录: group_5
+INFO - 处理 PNG 文件: 01_list.png
+INFO - 处理 PNG 文件: 02_list.png
+INFO - 处理完成！输出目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output_picture0
+INFO - 处理成功完成！
+INFO - ==================================================
+INFO - 开始处理图片重命名
+INFO - 输入目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output_picture
+INFO - 输出目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output_picture0
+INFO - ==================================================
+INFO - 开始处理目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output_picture
+INFO - 正在处理页面目录: page_2
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 08_list.png
+INFO - 正在处理页面目录: page_4
+INFO - 正在处理组目录: group_0
+INFO - 正在处理页面目录: page_5
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 01_figure.png
+INFO - 在 TXT 文件 02_text.txt 中找到 PNG 文件名称 Figure 1
+INFO - 复制并重命名 PNG 文件 01_figure.png 为 Figure1.png
+INFO - 复制 TXT 文件 02_text.txt 到 Figure1.txt
+CRITICAL - 程序运行时出错: name 'processed_png_files' is not defined
+Traceback (most recent call last):
+  File "D:\teamwork\teamwork1\PPTGenerator\data_clean\picture_classify2.py", line 132, in main
+    renamer.run()
+  File "D:\teamwork\teamwork1\PPTGenerator\data_clean\picture_classify2.py", line 113, in run
+    self.process_pages()
+  File "D:\teamwork\teamwork1\PPTGenerator\data_clean\picture_classify2.py", line 31, in process_pages
+    self.process_groups(page_dir)
+  File "D:\teamwork\teamwork1\PPTGenerator\data_clean\picture_classify2.py", line 41, in process_groups
+    self.process_group(group_dir)
+  File "D:\teamwork\teamwork1\PPTGenerator\data_clean\picture_classify2.py", line 89, in process_group
+    processed_png_files.add(png_file)  # 将已处理的 PNG 文件加入集合
+    ^^^^^^^^^^^^^^^^^^^
+NameError: name 'processed_png_files' is not defined. Did you mean: 'processed_txt_files'?
+INFO - ==================================================
+INFO - 开始处理图片重命名
+INFO - 输入目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output_picture
+INFO - 输出目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output_picture0
+INFO - ==================================================
+INFO - 开始处理目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output_picture
+INFO - 正在处理页面目录: page_2
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 08_list.png
+INFO - 正在处理页面目录: page_4
+INFO - 正在处理组目录: group_0
+INFO - 正在处理页面目录: page_5
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 01_figure.png
+INFO - 在 TXT 文件 02_text.txt 中找到 PNG 文件名称 Figure 1
+INFO - 复制并重命名 PNG 文件 01_figure.png 为 Figure1.png
+INFO - 复制并重命名 TXT 文件 02_text.txt 为 Figure1.txt
+INFO - 正在处理页面目录: page_6
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 01_figure.png
+INFO - 正在处理组目录: group_3
+INFO - 处理 PNG 文件: 06_table.png
+INFO - 在 TXT 文件 05_text.txt 中找到 PNG 文件名称 TABLE 1
+INFO - 复制并重命名 PNG 文件 06_table.png 为 TABLE1.png
+INFO - 复制并重命名 TXT 文件 05_text.txt 为 TABLE1.txt
+INFO - 正在处理页面目录: page_7
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 01_figure.png
+INFO - 在 TXT 文件 02_text.txt 中找到 PNG 文件名称 Figure 2
+INFO - 复制并重命名 PNG 文件 01_figure.png 为 Figure2.png
+INFO - 复制并重命名 TXT 文件 02_text.txt 为 Figure2.txt
+INFO - 正在处理组目录: group_2
+INFO - 处理 PNG 文件: 06_list.png
+INFO - 正在处理页面目录: page_9
+INFO - 正在处理组目录: group_2
+INFO - 处理 PNG 文件: 02_list.png
+INFO - 正在处理页面目录: page_10
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 02_table.png
+INFO - 在 TXT 文件 01_text.txt 中找到 PNG 文件名称 TABLE 2
+INFO - 复制并重命名 PNG 文件 02_table.png 为 TABLE2.png
+INFO - 复制并重命名 TXT 文件 01_text.txt 为 TABLE2.txt
+INFO - 处理 PNG 文件: 04_table.png
+INFO - 在 TXT 文件 03_text.txt 中找到 PNG 文件名称 TABLE 3
+INFO - 复制并重命名 PNG 文件 04_table.png 为 TABLE3.png
+INFO - 复制并重命名 TXT 文件 03_text.txt 为 TABLE3.txt
+INFO - 正在处理页面目录: page_11
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 07_table.png
+INFO - 在 TXT 文件 06_text.txt 中找到 PNG 文件名称 TABLE 4
+INFO - 复制并重命名 PNG 文件 07_table.png 为 TABLE4.png
+INFO - 复制并重命名 TXT 文件 06_text.txt 为 TABLE4.txt
+INFO - 正在处理页面目录: page_12
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 02_table.png
+INFO - 在 TXT 文件 01_text.txt 中找到 PNG 文件名称 TABLE 5
+INFO - 复制并重命名 PNG 文件 02_table.png 为 TABLE5.png
+INFO - 复制并重命名 TXT 文件 01_text.txt 为 TABLE5.txt
+INFO - 正在处理组目录: group_3
+INFO - 处理 PNG 文件: 04_table.png
+INFO - 在 TXT 文件 03_text.txt 中找到 PNG 文件名称 TABLE 6
+INFO - 复制并重命名 PNG 文件 04_table.png 为 TABLE6.png
+INFO - 复制并重命名 TXT 文件 03_text.txt 为 TABLE6.txt
+INFO - 正在处理页面目录: page_13
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 01_figure.png
+INFO - 在 TXT 文件 02_text.txt 中找到 PNG 文件名称 Figure 3
+INFO - 复制并重命名 PNG 文件 01_figure.png 为 Figure3.png
+INFO - 复制并重命名 TXT 文件 02_text.txt 为 Figure3.txt
+INFO - 正在处理组目录: group_2
+INFO - 处理 PNG 文件: 05_table.png
+INFO - 在 TXT 文件 04_text.txt 中找到 PNG 文件名称 TABLE 7
+INFO - 复制并重命名 PNG 文件 05_table.png 为 TABLE7.png
+INFO - 复制并重命名 TXT 文件 04_text.txt 为 TABLE7.txt
+INFO - 正在处理页面目录: page_15
+INFO - 正在处理组目录: group_4
+INFO - 处理 PNG 文件: 01_list.png
+INFO - 处理 PNG 文件: 02_list.png
+INFO - 处理 PNG 文件: 03_list.png
+INFO - 正在处理页面目录: page_16
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 01_list.png
+INFO - 处理 PNG 文件: 02_list.png
+INFO - 处理 PNG 文件: 03_list.png
+INFO - 处理 PNG 文件: 04_list.png
+INFO - 正在处理页面目录: page_17
+INFO - 正在处理组目录: group_1
+INFO - 处理 PNG 文件: 01_table.png
+INFO - 正在处理组目录: group_2
+INFO - 处理 PNG 文件: 02_table.png
+INFO - 在 TXT 文件 01_text.txt 中找到 PNG 文件名称 TABLE 8
+INFO - 复制并重命名 PNG 文件 02_table.png 为 TABLE8.png
+INFO - 复制并重命名 TXT 文件 01_text.txt 为 TABLE8.txt
+INFO - 正在处理组目录: group_5
+INFO - 处理 PNG 文件: 01_list.png
+INFO - 处理 PNG 文件: 02_list.png
+INFO - 处理完成！输出目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output_picture0
+INFO - 处理成功完成！
+INFO - ==================================================
+INFO - 开始处理图片重命名
+INFO - 输入目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output_picture
+INFO - 输出目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output_picture0
+INFO - ==================================================
+INFO - 开始处理目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output_picture
+INFO - 正在处理页面目录: page_2
+INFO - 正在处理组目录: group_0
+INFO - 处理 TXT 文件: 08_list.txt
+INFO - 正在处理页面目录: page_4
+INFO - 正在处理组目录: group_0
+INFO - 处理 TXT 文件: 06_text.txt
+INFO - 正在处理页面目录: page_5
+INFO - 正在处理组目录: group_0
+INFO - 处理 TXT 文件: 02_text.txt
+WARNING - 未找到匹配的 PNG 文件: figure1.png
+INFO - 正在处理页面目录: page_6
+INFO - 正在处理组目录: group_0
+INFO - 正在处理组目录: group_3
+INFO - 处理 TXT 文件: 05_text.txt
+WARNING - 未找到匹配的 PNG 文件: table1.png
+INFO - 正在处理页面目录: page_7
+INFO - 正在处理组目录: group_0
+INFO - 处理 TXT 文件: 02_text.txt
+WARNING - 未找到匹配的 PNG 文件: figure2.png
+INFO - 正在处理组目录: group_2
+INFO - 处理 TXT 文件: 06_list.txt
+INFO - 正在处理页面目录: page_9
+INFO - 正在处理组目录: group_2
+INFO - 处理 TXT 文件: 02_list.txt
+INFO - 正在处理页面目录: page_10
+INFO - 正在处理组目录: group_0
+INFO - 处理 TXT 文件: 01_text.txt
+WARNING - 未找到匹配的 PNG 文件: table2.png
+INFO - 处理 TXT 文件: 03_text.txt
+WARNING - 未找到匹配的 PNG 文件: table3.png
+INFO - 正在处理页面目录: page_11
+INFO - 正在处理组目录: group_0
+INFO - 处理 TXT 文件: 06_text.txt
+WARNING - 未找到匹配的 PNG 文件: table4.png
+WARNING - 未找到匹配的 PNG 文件: table3.png
+INFO - 正在处理页面目录: page_12
+INFO - 正在处理组目录: group_0
+INFO - 处理 TXT 文件: 01_text.txt
+WARNING - 未找到匹配的 PNG 文件: table5.png
+INFO - 正在处理组目录: group_3
+INFO - 处理 TXT 文件: 03_text.txt
+WARNING - 未找到匹配的 PNG 文件: table6.png
+INFO - 正在处理页面目录: page_13
+INFO - 正在处理组目录: group_0
+INFO - 处理 TXT 文件: 02_text.txt
+WARNING - 未找到匹配的 PNG 文件: figure3.png
+INFO - 处理 TXT 文件: 03_text.txt
+WARNING - 未找到匹配的 PNG 文件: figure3.png
+INFO - 正在处理组目录: group_2
+INFO - 处理 TXT 文件: 04_text.txt
+WARNING - 未找到匹配的 PNG 文件: table7.png
+INFO - 正在处理页面目录: page_15
+INFO - 正在处理组目录: group_4
+INFO - 处理 TXT 文件: 01_list.txt
+INFO - 处理 TXT 文件: 02_list.txt
+INFO - 处理 TXT 文件: 03_list.txt
+INFO - 正在处理页面目录: page_16
+INFO - 正在处理组目录: group_0
+INFO - 处理 TXT 文件: 01_list.txt
+INFO - 处理 TXT 文件: 02_list.txt
+INFO - 处理 TXT 文件: 03_list.txt
+INFO - 处理 TXT 文件: 04_list.txt
+INFO - 正在处理页面目录: page_17
+INFO - 正在处理组目录: group_1
+INFO - 处理 TXT 文件: 02_text.txt
+INFO - 正在处理组目录: group_2
+INFO - 处理 TXT 文件: 01_text.txt
+WARNING - 未找到匹配的 PNG 文件: table8.png
+INFO - 正在处理组目录: group_5
+INFO - 处理 TXT 文件: 01_list.txt
+INFO - 处理 TXT 文件: 02_list.txt
+INFO - 处理完成！输出目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output_picture0
+INFO - 处理成功完成！
+INFO - ==================================================
+INFO - 开始处理图片重命名
+INFO - 输入目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output_picture
+INFO - 输出目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output_picture0
+INFO - ==================================================
+INFO - 开始处理目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output_picture
+INFO - 正在处理页面目录: page_2
+INFO - 正在处理组目录: group_0
+INFO - 处理 TXT 文件: 08_list.txt
+INFO - 正在处理页面目录: page_4
+INFO - 正在处理组目录: group_0
+INFO - 处理 TXT 文件: 06_text.txt
+INFO - 正在处理页面目录: page_5
+INFO - 正在处理组目录: group_0
+INFO - 处理 TXT 文件: 02_text.txt
+WARNING - 未找到匹配的 PNG 文件: figure1.png
+INFO - 正在处理页面目录: page_6
+INFO - 正在处理组目录: group_0
+INFO - 正在处理组目录: group_3
+INFO - 处理 TXT 文件: 05_text.txt
+WARNING - 未找到匹配的 PNG 文件: table1.png
+INFO - 正在处理页面目录: page_7
+INFO - 正在处理组目录: group_0
+INFO - 处理 TXT 文件: 02_text.txt
+WARNING - 未找到匹配的 PNG 文件: figure2.png
+INFO - 正在处理组目录: group_2
+INFO - 处理 TXT 文件: 06_list.txt
+INFO - 正在处理页面目录: page_9
+INFO - 正在处理组目录: group_2
+INFO - 处理 TXT 文件: 02_list.txt
+INFO - 正在处理页面目录: page_10
+INFO - 正在处理组目录: group_0
+INFO - 处理 TXT 文件: 01_text.txt
+WARNING - 未找到匹配的 PNG 文件: table2.png
+INFO - 处理 TXT 文件: 03_text.txt
+WARNING - 未找到匹配的 PNG 文件: table3.png
+INFO - 正在处理页面目录: page_11
+INFO - 正在处理组目录: group_0
+INFO - 处理 TXT 文件: 06_text.txt
+WARNING - 未找到匹配的 PNG 文件: table4.png
+WARNING - 未找到匹配的 PNG 文件: table3.png
+INFO - 正在处理页面目录: page_12
+INFO - 正在处理组目录: group_0
+INFO - 处理 TXT 文件: 01_text.txt
+WARNING - 未找到匹配的 PNG 文件: table5.png
+INFO - 正在处理组目录: group_3
+INFO - 处理 TXT 文件: 03_text.txt
+WARNING - 未找到匹配的 PNG 文件: table6.png
+INFO - 正在处理页面目录: page_13
+INFO - 正在处理组目录: group_0
+INFO - 处理 TXT 文件: 02_text.txt
+WARNING - 未找到匹配的 PNG 文件: figure3.png
+INFO - 处理 TXT 文件: 03_text.txt
+WARNING - 未找到匹配的 PNG 文件: figure3.png
+INFO - 正在处理组目录: group_2
+INFO - 处理 TXT 文件: 04_text.txt
+WARNING - 未找到匹配的 PNG 文件: table7.png
+INFO - 正在处理页面目录: page_15
+INFO - 正在处理组目录: group_4
+INFO - 处理 TXT 文件: 01_list.txt
+INFO - 处理 TXT 文件: 02_list.txt
+INFO - 处理 TXT 文件: 03_list.txt
+INFO - 正在处理页面目录: page_16
+INFO - 正在处理组目录: group_0
+INFO - 处理 TXT 文件: 01_list.txt
+INFO - 处理 TXT 文件: 02_list.txt
+INFO - 处理 TXT 文件: 03_list.txt
+INFO - 处理 TXT 文件: 04_list.txt
+INFO - 正在处理页面目录: page_17
+INFO - 正在处理组目录: group_1
+INFO - 处理 TXT 文件: 02_text.txt
+INFO - 正在处理组目录: group_2
+INFO - 处理 TXT 文件: 01_text.txt
+WARNING - 未找到匹配的 PNG 文件: table8.png
+INFO - 正在处理组目录: group_5
+INFO - 处理 TXT 文件: 01_list.txt
+INFO - 处理 TXT 文件: 02_list.txt
+INFO - 处理完成！输出目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output_picture0
+INFO - 处理成功完成！
+INFO - ==================================================
+INFO - 开始处理图片重命名
+INFO - 输入目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output_picture
+INFO - 输出目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output_picture0
+INFO - ==================================================
+INFO - 开始处理目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output_picture
+INFO - 正在处理页面目录: page_2
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 08_list.png
+INFO - 正在处理页面目录: page_4
+INFO - 正在处理组目录: group_0
+INFO - 正在处理页面目录: page_5
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 01_figure.png
+INFO - 在 TXT 文件 02_text.txt 中找到 PNG 文件名称 Figure 1
+INFO - 复制并重命名 PNG 文件 01_figure.png 为 Figure1.png
+INFO - 复制并重命名 TXT 文件 02_text.txt 为 Figure1.txt
+INFO - 正在处理页面目录: page_6
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 01_figure.png
+INFO - 正在处理组目录: group_3
+INFO - 处理 PNG 文件: 06_table.png
+INFO - 在 TXT 文件 05_text.txt 中找到 PNG 文件名称 TABLE 1
+INFO - 复制并重命名 PNG 文件 06_table.png 为 TABLE1.png
+INFO - 复制并重命名 TXT 文件 05_text.txt 为 TABLE1.txt
+INFO - 正在处理页面目录: page_7
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 01_figure.png
+INFO - 在 TXT 文件 02_text.txt 中找到 PNG 文件名称 Figure 2
+INFO - 复制并重命名 PNG 文件 01_figure.png 为 Figure2.png
+INFO - 复制并重命名 TXT 文件 02_text.txt 为 Figure2.txt
+INFO - 正在处理组目录: group_2
+INFO - 处理 PNG 文件: 06_list.png
+INFO - 正在处理页面目录: page_9
+INFO - 正在处理组目录: group_2
+INFO - 处理 PNG 文件: 02_list.png
+INFO - 正在处理页面目录: page_10
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 02_table.png
+INFO - 在 TXT 文件 01_text.txt 中找到 PNG 文件名称 TABLE 2
+INFO - 复制并重命名 PNG 文件 02_table.png 为 TABLE2.png
+INFO - 复制并重命名 TXT 文件 01_text.txt 为 TABLE2.txt
+INFO - 处理 PNG 文件: 04_table.png
+INFO - 在 TXT 文件 03_text.txt 中找到 PNG 文件名称 TABLE 3
+INFO - 复制并重命名 PNG 文件 04_table.png 为 TABLE3.png
+INFO - 复制并重命名 TXT 文件 03_text.txt 为 TABLE3.txt
+INFO - 正在处理页面目录: page_11
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 07_table.png
+INFO - 在 TXT 文件 06_text.txt 中找到 PNG 文件名称 TABLE 4
+INFO - 复制并重命名 PNG 文件 07_table.png 为 TABLE4.png
+INFO - 复制并重命名 TXT 文件 06_text.txt 为 TABLE4.txt
+INFO - 正在处理页面目录: page_12
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 02_table.png
+INFO - 在 TXT 文件 01_text.txt 中找到 PNG 文件名称 TABLE 5
+INFO - 复制并重命名 PNG 文件 02_table.png 为 TABLE5.png
+INFO - 复制并重命名 TXT 文件 01_text.txt 为 TABLE5.txt
+INFO - 正在处理组目录: group_3
+INFO - 处理 PNG 文件: 04_table.png
+INFO - 在 TXT 文件 03_text.txt 中找到 PNG 文件名称 TABLE 6
+INFO - 复制并重命名 PNG 文件 04_table.png 为 TABLE6.png
+INFO - 复制并重命名 TXT 文件 03_text.txt 为 TABLE6.txt
+INFO - 正在处理页面目录: page_13
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 01_figure.png
+INFO - 在 TXT 文件 02_text.txt 中找到 PNG 文件名称 Figure 3
+INFO - 复制并重命名 PNG 文件 01_figure.png 为 Figure3.png
+INFO - 复制并重命名 TXT 文件 02_text.txt 为 Figure3.txt
+INFO - 正在处理组目录: group_2
+INFO - 处理 PNG 文件: 05_table.png
+INFO - 在 TXT 文件 04_text.txt 中找到 PNG 文件名称 TABLE 7
+INFO - 复制并重命名 PNG 文件 05_table.png 为 TABLE7.png
+INFO - 复制并重命名 TXT 文件 04_text.txt 为 TABLE7.txt
+INFO - 正在处理页面目录: page_15
+INFO - 正在处理组目录: group_4
+INFO - 处理 PNG 文件: 01_list.png
+INFO - 处理 PNG 文件: 02_list.png
+INFO - 处理 PNG 文件: 03_list.png
+INFO - 正在处理页面目录: page_16
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 01_list.png
+INFO - 处理 PNG 文件: 02_list.png
+INFO - 处理 PNG 文件: 03_list.png
+INFO - 处理 PNG 文件: 04_list.png
+INFO - 正在处理页面目录: page_17
+INFO - 正在处理组目录: group_1
+INFO - 处理 PNG 文件: 01_table.png
+INFO - 正在处理组目录: group_2
+INFO - 处理 PNG 文件: 02_table.png
+INFO - 在 TXT 文件 01_text.txt 中找到 PNG 文件名称 TABLE 8
+INFO - 复制并重命名 PNG 文件 02_table.png 为 TABLE8.png
+INFO - 复制并重命名 TXT 文件 01_text.txt 为 TABLE8.txt
+INFO - 正在处理组目录: group_5
+INFO - 处理 PNG 文件: 01_list.png
+INFO - 处理 PNG 文件: 02_list.png
+INFO - 处理完成！输出目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output_picture0
+INFO - 处理成功完成！
+INFO - ==================================================
+INFO - 开始处理图片重命名
+INFO - 输入目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output_picture
+INFO - 输出目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output_picture0
+INFO - ==================================================
+INFO - 开始处理目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output_picture
+INFO - 正在处理页面目录: page_2
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 08_list.png
+INFO - 正在处理页面目录: page_4
+INFO - 正在处理组目录: group_0
+INFO - 正在处理页面目录: page_5
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 01_figure.png
+INFO - 在 TXT 文件 02_text.txt 中找到 PNG 文件名称 Figure 1
+INFO - 复制并重命名 PNG 文件 01_figure.png 为 Figure1.png
+INFO - 复制并重命名 TXT 文件 02_text.txt 为 Figure1.txt
+INFO - 正在处理页面目录: page_6
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 01_figure.png
+INFO - 正在处理组目录: group_3
+INFO - 处理 PNG 文件: 06_table.png
+INFO - 在 TXT 文件 05_text.txt 中找到 PNG 文件名称 TABLE 1
+INFO - 复制并重命名 PNG 文件 06_table.png 为 TABLE1.png
+INFO - 复制并重命名 TXT 文件 05_text.txt 为 TABLE1.txt
+INFO - 正在处理页面目录: page_7
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 01_figure.png
+INFO - 在 TXT 文件 02_text.txt 中找到 PNG 文件名称 Figure 2
+INFO - 复制并重命名 PNG 文件 01_figure.png 为 Figure2.png
+INFO - 复制并重命名 TXT 文件 02_text.txt 为 Figure2.txt
+INFO - 正在处理组目录: group_2
+INFO - 处理 PNG 文件: 06_list.png
+INFO - 正在处理页面目录: page_9
+INFO - 正在处理组目录: group_2
+INFO - 处理 PNG 文件: 02_list.png
+INFO - 正在处理页面目录: page_10
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 02_table.png
+INFO - 在 TXT 文件 01_text.txt 中找到 PNG 文件名称 TABLE 2
+INFO - 复制并重命名 PNG 文件 02_table.png 为 TABLE2.png
+INFO - 复制并重命名 TXT 文件 01_text.txt 为 TABLE2.txt
+INFO - 处理 PNG 文件: 04_table.png
+INFO - 在 TXT 文件 03_text.txt 中找到 PNG 文件名称 TABLE 3
+INFO - 复制并重命名 PNG 文件 04_table.png 为 TABLE3.png
+INFO - 复制并重命名 TXT 文件 03_text.txt 为 TABLE3.txt
+INFO - 正在处理页面目录: page_11
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 07_table.png
+INFO - 在 TXT 文件 06_text.txt 中找到 PNG 文件名称 TABLE 4
+INFO - 复制并重命名 PNG 文件 07_table.png 为 TABLE4.png
+INFO - 复制并重命名 TXT 文件 06_text.txt 为 TABLE4.txt
+INFO - 正在处理页面目录: page_12
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 02_table.png
+INFO - 在 TXT 文件 01_text.txt 中找到 PNG 文件名称 TABLE 5
+INFO - 复制并重命名 PNG 文件 02_table.png 为 TABLE5.png
+INFO - 复制并重命名 TXT 文件 01_text.txt 为 TABLE5.txt
+INFO - 正在处理组目录: group_3
+INFO - 处理 PNG 文件: 04_table.png
+INFO - 在 TXT 文件 03_text.txt 中找到 PNG 文件名称 TABLE 6
+INFO - 复制并重命名 PNG 文件 04_table.png 为 TABLE6.png
+INFO - 复制并重命名 TXT 文件 03_text.txt 为 TABLE6.txt
+INFO - 正在处理页面目录: page_13
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 01_figure.png
+INFO - 在 TXT 文件 02_text.txt 中找到 PNG 文件名称 Figure 3
+INFO - 复制并重命名 PNG 文件 01_figure.png 为 Figure3.png
+INFO - 复制并重命名 TXT 文件 02_text.txt 为 Figure3.txt
+INFO - 正在处理组目录: group_2
+INFO - 处理 PNG 文件: 05_table.png
+INFO - 在 TXT 文件 04_text.txt 中找到 PNG 文件名称 TABLE 7
+INFO - 复制并重命名 PNG 文件 05_table.png 为 TABLE7.png
+INFO - 复制并重命名 TXT 文件 04_text.txt 为 TABLE7.txt
+INFO - 正在处理页面目录: page_15
+INFO - 正在处理组目录: group_4
+INFO - 处理 PNG 文件: 01_list.png
+INFO - 处理 PNG 文件: 02_list.png
+INFO - 处理 PNG 文件: 03_list.png
+INFO - 正在处理页面目录: page_16
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 01_list.png
+INFO - 处理 PNG 文件: 02_list.png
+INFO - 处理 PNG 文件: 03_list.png
+INFO - 处理 PNG 文件: 04_list.png
+INFO - 正在处理页面目录: page_17
+INFO - 正在处理组目录: group_1
+INFO - 处理 PNG 文件: 01_table.png
+INFO - 正在处理组目录: group_2
+INFO - 处理 PNG 文件: 02_table.png
+INFO - 在 TXT 文件 01_text.txt 中找到 PNG 文件名称 TABLE 8
+INFO - 复制并重命名 PNG 文件 02_table.png 为 TABLE8.png
+INFO - 复制并重命名 TXT 文件 01_text.txt 为 TABLE8.txt
+INFO - 正在处理组目录: group_5
+INFO - 处理 PNG 文件: 01_list.png
+INFO - 处理 PNG 文件: 02_list.png
+INFO - 处理完成！输出目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output_picture0
+INFO - 处理成功完成！
+INFO - ==================================================
+INFO - 开始处理图片重命名
+INFO - 输入目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output_picture
+INFO - 输出目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output_picture0
+INFO - ==================================================
+INFO - 开始处理目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output_picture
+INFO - 正在处理页面目录: page_2
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 08_list.png
+INFO - 正在处理页面目录: page_4
+INFO - 正在处理组目录: group_0
+INFO - 正在处理页面目录: page_5
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 01_figure.png
+INFO - 在 TXT 文件 02_text.txt 中找到 PNG 文件名称 Figure 1
+INFO - 复制并重命名 PNG 文件 01_figure.png 为 Figure1.png
+INFO - 复制并重命名 TXT 文件 02_text.txt 为 Figure1.txt
+INFO - 正在处理页面目录: page_6
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 01_figure.png
+INFO - 正在处理组目录: group_3
+INFO - 处理 PNG 文件: 06_table.png
+INFO - 在 TXT 文件 05_text.txt 中找到 PNG 文件名称 TABLE 1
+INFO - 复制并重命名 PNG 文件 06_table.png 为 TABLE1.png
+INFO - 复制并重命名 TXT 文件 05_text.txt 为 TABLE1.txt
+INFO - 正在处理页面目录: page_7
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 01_figure.png
+INFO - 在 TXT 文件 02_text.txt 中找到 PNG 文件名称 Figure 2
+INFO - 复制并重命名 PNG 文件 01_figure.png 为 Figure2.png
+INFO - 复制并重命名 TXT 文件 02_text.txt 为 Figure2.txt
+INFO - 正在处理组目录: group_2
+INFO - 处理 PNG 文件: 06_list.png
+INFO - 正在处理页面目录: page_9
+INFO - 正在处理组目录: group_2
+INFO - 处理 PNG 文件: 02_list.png
+INFO - 正在处理页面目录: page_10
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 02_table.png
+INFO - 在 TXT 文件 01_text.txt 中找到 PNG 文件名称 TABLE 2
+INFO - 复制并重命名 PNG 文件 02_table.png 为 TABLE2.png
+INFO - 复制并重命名 TXT 文件 01_text.txt 为 TABLE2.txt
+INFO - 处理 PNG 文件: 04_table.png
+INFO - 在 TXT 文件 03_text.txt 中找到 PNG 文件名称 TABLE 3
+INFO - 复制并重命名 PNG 文件 04_table.png 为 TABLE3.png
+INFO - 复制并重命名 TXT 文件 03_text.txt 为 TABLE3.txt
+INFO - 正在处理页面目录: page_11
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 07_table.png
+INFO - 在 TXT 文件 06_text.txt 中找到 PNG 文件名称 TABLE 4
+INFO - 复制并重命名 PNG 文件 07_table.png 为 TABLE4.png
+INFO - 复制并重命名 TXT 文件 06_text.txt 为 TABLE4.txt
+INFO - 正在处理页面目录: page_12
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 02_table.png
+INFO - 在 TXT 文件 01_text.txt 中找到 PNG 文件名称 TABLE 5
+INFO - 复制并重命名 PNG 文件 02_table.png 为 TABLE5.png
+INFO - 复制并重命名 TXT 文件 01_text.txt 为 TABLE5.txt
+INFO - 正在处理组目录: group_3
+INFO - 处理 PNG 文件: 04_table.png
+INFO - 在 TXT 文件 03_text.txt 中找到 PNG 文件名称 TABLE 6
+INFO - 复制并重命名 PNG 文件 04_table.png 为 TABLE6.png
+INFO - 复制并重命名 TXT 文件 03_text.txt 为 TABLE6.txt
+INFO - 正在处理页面目录: page_13
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 01_figure.png
+INFO - 在 TXT 文件 02_text.txt 中找到 PNG 文件名称 Figure 3
+INFO - 复制并重命名 PNG 文件 01_figure.png 为 Figure3.png
+INFO - 复制并重命名 TXT 文件 02_text.txt 为 Figure3.txt
+INFO - 正在处理组目录: group_2
+INFO - 处理 PNG 文件: 05_table.png
+INFO - 在 TXT 文件 04_text.txt 中找到 PNG 文件名称 TABLE 7
+INFO - 复制并重命名 PNG 文件 05_table.png 为 TABLE7.png
+INFO - 复制并重命名 TXT 文件 04_text.txt 为 TABLE7.txt
+INFO - 正在处理页面目录: page_15
+INFO - 正在处理组目录: group_4
+INFO - 处理 PNG 文件: 01_list.png
+INFO - 处理 PNG 文件: 02_list.png
+INFO - 处理 PNG 文件: 03_list.png
+INFO - 正在处理页面目录: page_16
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 01_list.png
+INFO - 处理 PNG 文件: 02_list.png
+INFO - 处理 PNG 文件: 03_list.png
+INFO - 处理 PNG 文件: 04_list.png
+INFO - 正在处理页面目录: page_17
+INFO - 正在处理组目录: group_1
+INFO - 处理 PNG 文件: 01_table.png
+INFO - 正在处理组目录: group_2
+INFO - 处理 PNG 文件: 02_table.png
+INFO - 在 TXT 文件 01_text.txt 中找到 PNG 文件名称 TABLE 8
+INFO - 复制并重命名 PNG 文件 02_table.png 为 TABLE8.png
+INFO - 复制并重命名 TXT 文件 01_text.txt 为 TABLE8.txt
+INFO - 正在处理组目录: group_5
+INFO - 处理 PNG 文件: 01_list.png
+INFO - 处理 PNG 文件: 02_list.png
+INFO - 处理完成！输出目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output_picture0
+INFO - 处理成功完成！
+INFO - ==================================================
+INFO - 开始处理图片重命名
+INFO - 输入目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output_picture
+INFO - 输出目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output_picture0
+INFO - ==================================================
+INFO - 开始处理目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output_picture
+INFO - 正在处理页面目录: page_2
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 08_list.png
+INFO - 正在处理页面目录: page_4
+INFO - 正在处理组目录: group_0
+INFO - 正在处理页面目录: page_5
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 01_figure.png
+INFO - 在 TXT 文件 02_text.txt 中找到 PNG 文件名称 Figure 1
+INFO - 复制并重命名 TXT 文件 02_text.txt 为 Figure1.txt
+INFO - 正在处理页面目录: page_6
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 01_figure.png
+INFO - 正在处理组目录: group_3
+INFO - 处理 PNG 文件: 06_table.png
+INFO - 在 TXT 文件 05_text.txt 中找到 PNG 文件名称 TABLE 1
+INFO - 复制并重命名 TXT 文件 05_text.txt 为 TABLE1.txt
+INFO - 正在处理页面目录: page_7
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 01_figure.png
+INFO - 在 TXT 文件 02_text.txt 中找到 PNG 文件名称 Figure 2
+INFO - 复制并重命名 TXT 文件 02_text.txt 为 Figure2.txt
+INFO - 正在处理组目录: group_2
+INFO - 处理 PNG 文件: 06_list.png
+INFO - 正在处理页面目录: page_9
+INFO - 正在处理组目录: group_2
+INFO - 处理 PNG 文件: 02_list.png
+INFO - 正在处理页面目录: page_10
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 02_table.png
+INFO - 在 TXT 文件 01_text.txt 中找到 PNG 文件名称 TABLE 2
+INFO - 复制并重命名 TXT 文件 01_text.txt 为 TABLE2.txt
+INFO - 处理 PNG 文件: 04_table.png
+INFO - 在 TXT 文件 03_text.txt 中找到 PNG 文件名称 TABLE 3
+INFO - 复制并重命名 TXT 文件 03_text.txt 为 TABLE3.txt
+INFO - 正在处理页面目录: page_11
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 07_table.png
+INFO - 在 TXT 文件 06_text.txt 中找到 PNG 文件名称 TABLE 4
+INFO - 复制并重命名 TXT 文件 06_text.txt 为 TABLE4.txt
+INFO - 正在处理页面目录: page_12
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 02_table.png
+INFO - 在 TXT 文件 01_text.txt 中找到 PNG 文件名称 TABLE 5
+INFO - 复制并重命名 TXT 文件 01_text.txt 为 TABLE5.txt
+INFO - 正在处理组目录: group_3
+INFO - 处理 PNG 文件: 04_table.png
+INFO - 在 TXT 文件 03_text.txt 中找到 PNG 文件名称 TABLE 6
+INFO - 复制并重命名 TXT 文件 03_text.txt 为 TABLE6.txt
+INFO - 正在处理页面目录: page_13
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 01_figure.png
+INFO - 在 TXT 文件 02_text.txt 中找到 PNG 文件名称 Figure 3
+INFO - 复制并重命名 TXT 文件 02_text.txt 为 Figure3.txt
+INFO - 正在处理组目录: group_2
+INFO - 处理 PNG 文件: 05_table.png
+INFO - 在 TXT 文件 04_text.txt 中找到 PNG 文件名称 TABLE 7
+INFO - 复制并重命名 TXT 文件 04_text.txt 为 TABLE7.txt
+INFO - 正在处理页面目录: page_15
+INFO - 正在处理组目录: group_4
+INFO - 处理 PNG 文件: 01_list.png
+INFO - 处理 PNG 文件: 02_list.png
+INFO - 处理 PNG 文件: 03_list.png
+INFO - 正在处理页面目录: page_16
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 01_list.png
+INFO - 处理 PNG 文件: 02_list.png
+INFO - 处理 PNG 文件: 03_list.png
+INFO - 处理 PNG 文件: 04_list.png
+INFO - 正在处理页面目录: page_17
+INFO - 正在处理组目录: group_1
+INFO - 处理 PNG 文件: 01_table.png
+INFO - 正在处理组目录: group_2
+INFO - 处理 PNG 文件: 02_table.png
+INFO - 在 TXT 文件 01_text.txt 中找到 PNG 文件名称 TABLE 8
+INFO - 复制并重命名 TXT 文件 01_text.txt 为 TABLE8.txt
+INFO - 正在处理组目录: group_5
+INFO - 处理 PNG 文件: 01_list.png
+INFO - 处理 PNG 文件: 02_list.png
+INFO - 处理完成！输出目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output_picture0
+INFO - 处理成功完成！
+INFO - ==================================================
+INFO - 开始处理图片重命名
+INFO - 输入目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output_picture
+INFO - 输出目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output_picture0
+INFO - ==================================================
+INFO - 开始处理目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output_picture
+INFO - 正在处理页面目录: page_2
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 08_list.png
+INFO - 正在处理页面目录: page_4
+INFO - 正在处理组目录: group_0
+INFO - 正在处理页面目录: page_5
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 01_figure.png
+INFO - 在 TXT 文件 02_text.txt 中找到 PNG 文件名称 Figure 1
+INFO - 复制并重命名 TXT 文件 02_text.txt 为 Figure1.txt
+INFO - 正在处理页面目录: page_6
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 01_figure.png
+INFO - 正在处理组目录: group_3
+INFO - 处理 PNG 文件: 06_table.png
+INFO - 在 TXT 文件 05_text.txt 中找到 PNG 文件名称 TABLE 1
+INFO - 复制并重命名 TXT 文件 05_text.txt 为 TABLE1.txt
+INFO - 正在处理页面目录: page_7
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 01_figure.png
+INFO - 在 TXT 文件 02_text.txt 中找到 PNG 文件名称 Figure 2
+INFO - 复制并重命名 TXT 文件 02_text.txt 为 Figure2.txt
+INFO - 正在处理组目录: group_2
+INFO - 处理 PNG 文件: 06_list.png
+INFO - 正在处理页面目录: page_9
+INFO - 正在处理组目录: group_2
+INFO - 处理 PNG 文件: 02_list.png
+INFO - 正在处理页面目录: page_10
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 02_table.png
+INFO - 在 TXT 文件 01_text.txt 中找到 PNG 文件名称 TABLE 2
+INFO - 复制并重命名 TXT 文件 01_text.txt 为 TABLE2.txt
+INFO - 处理 PNG 文件: 04_table.png
+INFO - 在 TXT 文件 03_text.txt 中找到 PNG 文件名称 TABLE 3
+INFO - 复制并重命名 TXT 文件 03_text.txt 为 TABLE3.txt
+INFO - 正在处理页面目录: page_11
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 07_table.png
+INFO - 在 TXT 文件 06_text.txt 中找到 PNG 文件名称 TABLE 4
+INFO - 复制并重命名 TXT 文件 06_text.txt 为 TABLE4.txt
+INFO - 正在处理页面目录: page_12
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 02_table.png
+INFO - 在 TXT 文件 01_text.txt 中找到 PNG 文件名称 TABLE 5
+INFO - 复制并重命名 TXT 文件 01_text.txt 为 TABLE5.txt
+INFO - 正在处理组目录: group_3
+INFO - 处理 PNG 文件: 04_table.png
+INFO - 在 TXT 文件 03_text.txt 中找到 PNG 文件名称 TABLE 6
+INFO - 复制并重命名 TXT 文件 03_text.txt 为 TABLE6.txt
+INFO - 正在处理页面目录: page_13
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 01_figure.png
+INFO - 在 TXT 文件 02_text.txt 中找到 PNG 文件名称 Figure 3
+INFO - 复制并重命名 TXT 文件 02_text.txt 为 Figure3.txt
+INFO - 正在处理组目录: group_2
+INFO - 处理 PNG 文件: 05_table.png
+INFO - 在 TXT 文件 04_text.txt 中找到 PNG 文件名称 TABLE 7
+INFO - 复制并重命名 TXT 文件 04_text.txt 为 TABLE7.txt
+INFO - 正在处理页面目录: page_15
+INFO - 正在处理组目录: group_4
+INFO - 处理 PNG 文件: 01_list.png
+INFO - 处理 PNG 文件: 02_list.png
+INFO - 处理 PNG 文件: 03_list.png
+INFO - 正在处理页面目录: page_16
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 01_list.png
+INFO - 处理 PNG 文件: 02_list.png
+INFO - 处理 PNG 文件: 03_list.png
+INFO - 处理 PNG 文件: 04_list.png
+INFO - 正在处理页面目录: page_17
+INFO - 正在处理组目录: group_1
+INFO - 处理 PNG 文件: 01_table.png
+INFO - 正在处理组目录: group_2
+INFO - 处理 PNG 文件: 02_table.png
+INFO - 在 TXT 文件 01_text.txt 中找到 PNG 文件名称 TABLE 8
+INFO - 复制并重命名 TXT 文件 01_text.txt 为 TABLE8.txt
+INFO - 正在处理组目录: group_5
+INFO - 处理 PNG 文件: 01_list.png
+INFO - 处理 PNG 文件: 02_list.png
+INFO - 处理完成！输出目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output_picture0
+INFO - 处理成功完成！
+INFO - ==================================================
+INFO - 开始处理图片重命名
+INFO - 输入目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output_picture
+INFO - 输出目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output_picture0
+INFO - ==================================================
+INFO - 开始处理目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output_picture
+INFO - 正在处理页面目录: page_2
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 08_list.png
+INFO - 正在处理页面目录: page_4
+INFO - 正在处理组目录: group_0
+INFO - 正在处理页面目录: page_5
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 01_figure.png
+INFO - 在 TXT 文件 02_text.txt 中找到 PNG 文件名称 Figure 1
+INFO - 复制并重命名 PNG 文件 01_figure.png 为 Figure1.png
+INFO - 复制并重命名 TXT 文件 02_text.txt 为 Figure1.txt
+INFO - 正在处理页面目录: page_6
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 01_figure.png
+INFO - 正在处理组目录: group_3
+INFO - 处理 PNG 文件: 06_table.png
+INFO - 在 TXT 文件 05_text.txt 中找到 PNG 文件名称 TABLE 1
+INFO - 复制并重命名 PNG 文件 06_table.png 为 TABLE1.png
+INFO - 复制并重命名 TXT 文件 05_text.txt 为 TABLE1.txt
+INFO - 正在处理页面目录: page_7
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 01_figure.png
+INFO - 在 TXT 文件 02_text.txt 中找到 PNG 文件名称 Figure 2
+INFO - 复制并重命名 PNG 文件 01_figure.png 为 Figure2.png
+INFO - 复制并重命名 TXT 文件 02_text.txt 为 Figure2.txt
+INFO - 正在处理组目录: group_2
+INFO - 处理 PNG 文件: 06_list.png
+INFO - 正在处理页面目录: page_9
+INFO - 正在处理组目录: group_2
+INFO - 处理 PNG 文件: 02_list.png
+INFO - 正在处理页面目录: page_10
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 02_table.png
+INFO - 在 TXT 文件 01_text.txt 中找到 PNG 文件名称 TABLE 2
+INFO - 复制并重命名 PNG 文件 02_table.png 为 TABLE2.png
+INFO - 复制并重命名 TXT 文件 01_text.txt 为 TABLE2.txt
+INFO - 处理 PNG 文件: 04_table.png
+INFO - 在 TXT 文件 03_text.txt 中找到 PNG 文件名称 TABLE 3
+INFO - 复制并重命名 PNG 文件 04_table.png 为 TABLE3.png
+INFO - 复制并重命名 TXT 文件 03_text.txt 为 TABLE3.txt
+INFO - 正在处理页面目录: page_11
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 07_table.png
+INFO - 在 TXT 文件 06_text.txt 中找到 PNG 文件名称 TABLE 4
+INFO - 复制并重命名 PNG 文件 07_table.png 为 TABLE4.png
+INFO - 复制并重命名 TXT 文件 06_text.txt 为 TABLE4.txt
+INFO - 正在处理页面目录: page_12
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 02_table.png
+INFO - 在 TXT 文件 01_text.txt 中找到 PNG 文件名称 TABLE 5
+INFO - 复制并重命名 PNG 文件 02_table.png 为 TABLE5.png
+INFO - 复制并重命名 TXT 文件 01_text.txt 为 TABLE5.txt
+INFO - 正在处理组目录: group_3
+INFO - 处理 PNG 文件: 04_table.png
+INFO - 在 TXT 文件 03_text.txt 中找到 PNG 文件名称 TABLE 6
+INFO - 复制并重命名 PNG 文件 04_table.png 为 TABLE6.png
+INFO - 复制并重命名 TXT 文件 03_text.txt 为 TABLE6.txt
+INFO - 正在处理页面目录: page_13
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 01_figure.png
+INFO - 在 TXT 文件 02_text.txt 中找到 PNG 文件名称 Figure 3
+INFO - 复制并重命名 PNG 文件 01_figure.png 为 Figure3.png
+INFO - 复制并重命名 TXT 文件 02_text.txt 为 Figure3.txt
+INFO - 正在处理组目录: group_2
+INFO - 处理 PNG 文件: 05_table.png
+INFO - 在 TXT 文件 04_text.txt 中找到 PNG 文件名称 TABLE 7
+INFO - 复制并重命名 PNG 文件 05_table.png 为 TABLE7.png
+INFO - 复制并重命名 TXT 文件 04_text.txt 为 TABLE7.txt
+INFO - 正在处理页面目录: page_15
+INFO - 正在处理组目录: group_4
+INFO - 处理 PNG 文件: 01_list.png
+INFO - 处理 PNG 文件: 02_list.png
+INFO - 处理 PNG 文件: 03_list.png
+INFO - 正在处理页面目录: page_16
+INFO - 正在处理组目录: group_0
+INFO - 处理 PNG 文件: 01_list.png
+INFO - 处理 PNG 文件: 02_list.png
+INFO - 处理 PNG 文件: 03_list.png
+INFO - 处理 PNG 文件: 04_list.png
+INFO - 正在处理页面目录: page_17
+INFO - 正在处理组目录: group_1
+INFO - 处理 PNG 文件: 01_table.png
+INFO - 正在处理组目录: group_2
+INFO - 处理 PNG 文件: 02_table.png
+INFO - 在 TXT 文件 01_text.txt 中找到 PNG 文件名称 TABLE 8
+INFO - 复制并重命名 PNG 文件 02_table.png 为 TABLE8.png
+INFO - 复制并重命名 TXT 文件 01_text.txt 为 TABLE8.txt
+INFO - 正在处理组目录: group_5
+INFO - 处理 PNG 文件: 01_list.png
+INFO - 处理 PNG 文件: 02_list.png
+INFO - 处理完成！输出目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output_picture0
+INFO - 处理成功完成！

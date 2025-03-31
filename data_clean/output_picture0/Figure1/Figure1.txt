@@ -1,0 +1,2 @@
+Overall architecture of PREDATOR. Seven additional components are introduced. The blue components are essential for enabling
+directed fuzzing, while the green components enhance its performance.

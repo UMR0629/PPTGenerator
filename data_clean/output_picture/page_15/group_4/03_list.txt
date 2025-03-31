@@ -1,0 +1,52 @@
+[20]
+
+[21]
+
+[22]
+
+[23]
+
+[24]
+
+[25]
+
+[26]
+
+[27]
+
+Computer and Communications security (ASIACC)), New York, NY,
+USA, Apr. 2024.
+
+M. Zalewski, “American fuzzy lop,” 2021, https://github.com/google/
+AFL.
+
+S. Artzi, A. Kiezun, J. Dolby, F. Tip, D. Dig, A. Paradkar, and M. D.
+Ernst, “Finding bugs in web applications using dynamic test generation
+and explicit-state model checking,” IEEE Transactions on Software
+Engineering, 2010.
+
+C. E. Silva and J. C. Campos, “Combining static and dynamic analysis
+for the reverse engineering of web applications,” in Proceedings of the
+5th ACM SIGCHI symposium on Engineering interactive computing
+systems, 2013.
+
+M. Bohme, V.-T. Pham, M.-D. Nguyen, and A. Roychoudhury, “Di-
+rected greybox fuzzing,” in Proceedings of the 24th ACM Conference
+on Computer and Communications Security (CCS), Dallas, TX, USA,
+Oct.-Nov. 2017.
+
+P. Chen and H. Chen, “Angora: Efficient fuzzing by principled search,”
+in Proceedings of the 39th IEEE Symposium on Security and Privacy
+(Oakland), San Francisco, CA, USA, May 2018.
+
+G. Lee, W. Shim, and B. Lee, “Constraint-guided directed greybox
+fuzzing,” in Proceedings of the 30th USENIX Security Symposium
+(Security), Virtual Event, Aug. 2021.
+
+C. Luo, W. Meng, and P. Li, “Selectfuzz: Efficient directed fuzzing
+with selective path exploration,” in Proceedings of the 44th IEEE
+Symposium on Security and Privacy (Oakland), San Francisco, CA,
+USA, May 2023.
+
+H. Huang, Y. Guo, Q. Shi, P. Yao, R. Wu, and C. Zhang, “Beacon:
+Directed grey-box fuzzing with provable path pruning,” in Proceedings

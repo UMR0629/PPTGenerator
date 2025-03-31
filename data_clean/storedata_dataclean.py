@@ -101,8 +101,8 @@ def process_page(page_dir, output_dir, page_index):
 def main():
     # 定义输入输出路径
     base_dir = Path(__file__).parent.parent
-    input_dir = base_dir / 'generate_ppt' / 'output2'
-    output0_dir = base_dir / 'generate_ppt' / 'output0'
+    input_dir = base_dir / 'data_clean' / 'output2'
+    output0_dir = base_dir / 'data_clean' / 'output0'
     
     print(f"输入目录: {input_dir}")
     print(f"输出目录: {output0_dir}")

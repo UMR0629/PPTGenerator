@@ -1,0 +1,20 @@
+Algorithm 2: Block distance supplementation.
+
+1 Input :A list of functions F’, Distance dictionary D
+
+2 Output: Updated distance dictionary D’
+3 Init : Insert a sentinel at the start of each function in F’
+4D')¢D
+
+5 foreach func in F do
+6 if sentinel_detected(callSite, func) then
+7 if !path_exists(callSite, func) then
+
+8 record_path(callSite, func)
+
+9 D' & D' U{ func: Const x D'|funcl}
+10 end
+
+11 end
+
+12 end
