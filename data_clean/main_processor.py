@@ -31,7 +31,7 @@ def run_script(script_name):
             print(f"❌ 执行失败: {script_name}\n无法解码的错误输出")
         return False
 
-def main():
+def main_data_process():
     print("=== 开始处理数据 ===")
     
     steps = [
@@ -73,4 +73,4 @@ def main():
         print("❌ storedata.py 未成功返回论文信息。")
 
 if __name__ == "__main__":
-    main()
+    main_data_process()
