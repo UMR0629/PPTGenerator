@@ -11,6 +11,7 @@ from extract_function import generate_presentation_summary,generate_with_feedbac
 from generate_ppt.generate_ppt import Generate_ppt   #这里先注释掉，因为会报错
 import re
 
+
 class PaperSectionSummary:
     def __init__(
         self,
@@ -270,6 +271,7 @@ class PaperInfo:
 
         generate_ppt.add_thanks()
         generate_ppt.save_ppt("../source/ppt_model/output.pptx")
+
 
 
 def parse_output_to_section(output: str, section: PaperSectionSummary) -> None:
