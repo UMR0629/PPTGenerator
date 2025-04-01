@@ -1,7 +1,7 @@
 import sqlite3
 from typing import List, Dict, Any
 import json
-from index import PaperInfo, Node, SectionContent, PaperSectionSummary
+from index_module import PaperInfo, Node, SectionContent, PaperSectionSummary
 
 
 class PaperInfoDB:

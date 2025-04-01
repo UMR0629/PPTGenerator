@@ -19,8 +19,8 @@ project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(project_root)
 
 from anytree import Node, RenderTree, PreOrderIter
-from .extract_function import generate_presentation_summary, generate_with_feedback
-# from generate_ppt.generate_ppt import Generate_ppt  # 暂时注释掉
+from extract_function import generate_presentation_summary, generate_with_feedback
+from generate_ppt.generate_ppt import Generate_ppt  # 暂时注释掉
 import re
 
 class PaperSectionSummary:
@@ -122,7 +122,7 @@ class PaperInfo:
         self.ppt_presenter = ppt_presenter
         self.ppt_date = ppt_date
         # 根节点使用论文标题（而非目录名）
-        self.outline_root = Node("论文标题", content=None)  # 临时占位，实际内容在后续填充
+        self.outline_root = Node(title, content=None)  # 临时占位，实际内容在后续填充
         # “名称-路径”对应表（来自pdf处理模块）
         self.image_list = []
 

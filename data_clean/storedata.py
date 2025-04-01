@@ -7,7 +7,7 @@ from datetime import datetime
 project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(project_root)
 
-from index.index import PaperInfo, SectionContent
+from index.index_module import PaperInfo, SectionContent
 from anytree import Node, PreOrderIter
 
 def collect_images(paper_info, output_picture0_dir):
