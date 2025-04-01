@@ -23,13 +23,20 @@ from extract_function import generate_presentation_summary, generate_with_feedba
 from generate_ppt.generate_ppt import Generate_ppt  # 暂时注释掉
 import re
 
+class TableorFigure:
+    """给summary中的图片或者表格新建一个类，用以存储是否显示和存储路径"""
+    def __init__(self,number,enable=0,path=None):
+        self.number=number
+        self.enable=enable
+        self.path=path
+
 class PaperSectionSummary:
     def __init__(
         self,
         #title: str,
         key_points: list[str],
-        tables: list[int] = None,
-        figures: list[int] = None
+        tables: list[TableorFigure] = None,
+        figures: list[TableorFigure] = None
     ):
         #self.title = title
         self.key_points = key_points
@@ -43,13 +50,16 @@ class PaperSectionSummary:
 
     def add_table(self, table_num: int) -> None:
         """添加关联表格"""
-        if table_num not in self.tables:
-            self.tables.append(table_num)
+        if not any(table.number == table_num for table in self.tables):
+            # 创建新的表格对象（默认enable=0，path=None）
+            new_table = TableorFigure(number=table_num)
+            self.tables.append(new_table)
 
     def add_figure(self, figure_num: int) -> None:
         """添加关联图片""" 
-        if figure_num not in self.figures:
-            self.figures.append(figure_num)
+        if not any(figure.number == figure_num for figure in self.figures):
+            new_figure = TableorFigure(number=figure_num)
+            self.figures.append(new_figure)
 
     def to_dict(self) -> dict:
         """转换为字典格式"""
@@ -71,6 +81,8 @@ class PaperSectionSummary:
             f"Figures: {self.figures}"
         )
 
+
+    
 class SectionContent:
     """
     论文大纲叶子节点的内容类。
@@ -81,7 +93,7 @@ class SectionContent:
         # 原始text（来自pdf处理模块）
         self.text = text or ""
         # summary中应当包含大模型处理过后的text要点、img路径、table路径（来自大模型处理模块）
-        self.summary=summary or []
+        self.summary=summary if summary is not None else []
 
     def add_summary(self, summary: PaperSectionSummary):
         """添加单个summary到列表中"""
