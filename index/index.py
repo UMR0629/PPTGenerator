@@ -8,7 +8,7 @@ import sys
 #sys.path.append("..")
 from anytree import Node, RenderTree, PreOrderIter
 from extract_function import generate_presentation_summary,generate_with_feedback
-#from generate_ppt.generate_ppt import Generate_ppt   #这里先注释掉，因为会报错
+from generate_ppt.generate_ppt import Generate_ppt   #这里先注释掉，因为会报错
 import re
 
 class PaperSectionSummary:
@@ -250,19 +250,24 @@ class PaperInfo:
         index_content = self.find_root_children()
         index_num = len(index_content)
         generate_ppt.add_menu("../source/img/image22.jpg", index_num, index_content)
+        main_title_count = 0
 
         node_list = self.dfs_recursive_with_depth()
         for node in node_list:
             title = node[0]
             depth = node[1]
             if depth == 1:
-                generate_ppt.add_all_text(title, self.find_outline_section(title).content.text)
+                main_title_count += 1
+                generate_ppt.add_main_title(title,main_title_count)
             else:
-                parent_title = node_list[depth - 1][0]
-                generate_ppt.add_text_double_image(title, self.find_outline_section(title).content.text, "../source/img/image22.jpg", "../source/img/image19.jpg")
+                content_node = self.find_outline_section(title)
+
+
 
         generate_ppt.add_thanks()
         generate_ppt.save_ppt("../source/ppt_model/output.pptx")
+
+
 def parse_output_to_section(output: str, section: PaperSectionSummary) -> None:
     """
     从特定格式输出中提取信息并填充PaperSectionSummary实例

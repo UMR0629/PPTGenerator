@@ -342,6 +342,34 @@ class Generate_ppt:
             # 设置编号框的边框颜色为透明
             num_box.line.fill.background()  # 设置编号框边框为透明
 
+    # 添加大标题页
+    def add_main_title(self, title_text, title_num):
+        slide = self.prs_new.slides.add_slide(self.slide_layout[11])
+
+        content = slide.placeholders[0]  # 获取占位符
+        content.text = ""  # 先清空原有文本
+
+        # 获取 TextFrame
+        text_frame = content.text_frame
+        text_frame.clear()  # 清空可能存在的段落
+
+        # 添加段落并设置文本
+        p = text_frame.paragraphs[0]
+        p.text = title_text
+        #p.font.size = Pt(44)  # 调整字体大小
+        p.font.bold = True  # 加粗
+        p.font.color.rgb = RGBColor(192, 0, 0)  # 设为红色
+
+
+        # 添加大号背景数字
+        bg_text = slide.shapes.add_textbox(Inches(1), Inches(2.7), Inches(10), Inches(3))
+        bg_p = bg_text.text_frame.add_paragraph()
+        bg_p.text = title_num
+        bg_p.font.size = Pt(275)
+        bg_p.font.bold = True
+        bg_p.font.color.rgb = RGBColor(255, 192, 192)  # 设为淡红色
+        bg_p.alignment = PP_ALIGN.LEFT
+
     # 添加文本页
     def add_all_text(self, title, text):
         slide = self.prs_new.slides.add_slide(self.slide_layout[8])
