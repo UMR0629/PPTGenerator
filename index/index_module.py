@@ -87,12 +87,12 @@ class SectionContent:
     def __repr__(self):
         return f"SectionContent(text={self.text[:30]}...)"
     
-    def content_extract(self,lang:str="zh"):
+    def content_extract(self,lang:str="zh"):     #对每个叶子结点遍历调用，使用大模型提取信息
         self.summary=PaperSectionSummary(key_points=[])
         api_output=generate_presentation_summary(self.text,lang)
         parse_output_to_section(api_output, self.summary)
 
-    def user_feedback(self,feedback,lang:str="zh"):
+    def user_feedback(self,feedback,lang:str="zh"):   #在用户对大模型有反馈信息时调用
         api_output=generate_with_feedback(self.text,feedback,lang)
         self.summary=api_output
 

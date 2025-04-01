@@ -1,8 +1,8 @@
 import sys
 #sys.path.append("..")
 #from index import PaperSectionSummary,PaperInfo,SectionContent
-from index import PaperInfo,SectionContent
-from index import parse_output_to_section 
+from index_module import PaperInfo,SectionContent
+from index_module import parse_output_to_section 
 from extract_function import generate_presentation_summary,generate_with_feedback
 from anytree import Node, RenderTree, PreOrderIter
 from save_tree import PaperInfoDB
