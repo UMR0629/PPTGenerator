@@ -258,10 +258,14 @@ class PaperInfo:
             depth = node[1]
             if depth == 1:
                 main_title_count += 1
-                generate_ppt.add_main_title(title,main_title_count)
+                generate_ppt.add_main_title(title,str(main_title_count))
             else:
                 content_node = self.find_outline_section(title)
-
+                tables = content_node.content.summary.tables
+                figures = content_node.content.summary.figures
+                img_num = len(tables) + len(figures)
+                if img_num == 0:
+                    generate_ppt.add_all_text(self,content_node.content.summary.keypoints[0])
 
 
         generate_ppt.add_thanks()
