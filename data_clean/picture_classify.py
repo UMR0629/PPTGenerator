@@ -94,9 +94,13 @@ class PictureProcessor:
 
 def main():
     try:
-        base_dir = Path(__file__).parent.parent
-        output2_dir = base_dir / 'data_clean' / 'output2'
-        output_picture_dir = base_dir / 'data_clean' / 'output_picture'
+        # base_dir = Path(__file__).parent.parent
+        # output2_dir = base_dir / 'data_clean' / 'output2'
+        # output_picture_dir = base_dir / 'data_clean' / 'output_picture'
+                # 修正后
+        base_dir = Path(__file__).parent
+        output2_dir = base_dir / 'output2'           # 输入目录
+        output_picture_dir = base_dir / 'output_picture'  # 输出目录
         
         logger.info("="*50)
         logger.info(f"开始处理图片分类")

@@ -1,5 +1,6 @@
 import os
 import sys
+from pathlib import Path
 from datetime import datetime
 
 # 添加项目根目录到Python路径
@@ -175,9 +176,15 @@ def add_content_to_sections(paper_info, output5_dir):
 
 if __name__ == "__main__":
     # 使用相对路径时自动转换为基于脚本位置的绝对路径
-    base_dir = os.path.dirname(os.path.abspath(__file__))
-    output5_dir = os.path.join(base_dir, "output5")
-    output_picture0_dir = os.path.join(base_dir, "output_picture0")
-    
+    # base_dir = os.path.dirname(os.path.abspath(__file__))
+    # output5_dir = os.path.join(base_dir, "output5")
+    # output_picture0_dir = os.path.join(base_dir, "output_picture0")
+
+    base_dir = Path(__file__).parent
+    output5_dir = base_dir / "output5"
+    output_picture0_dir = base_dir / "output_picture0"
+
+
     paper_info = store_paper_data(output5_dir, output_picture0_dir)
-    paper_info.display_outline()
+    if paper_info:
+        paper_info.display_outline()

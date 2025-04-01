@@ -200,11 +200,16 @@ def merge_pages(input_dir, output_dir):
         print(f"复制组 {group} 到 {target_group_dir}")
 def main():
     # 定义输入输出路径
-    base_dir = Path(__file__).parent.parent
-    input_dir = base_dir / 'data_clean' / 'output0'
-    output3_dir = base_dir / 'data_clean' / 'output3'
-    output4_dir = base_dir / 'data_clean' / 'output4'
-    
+    # base_dir = Path(__file__).parent.parent
+    # input_dir = base_dir / 'data_clean' / 'output0'
+    # output3_dir = base_dir / 'data_clean' / 'output3'
+    # output4_dir = base_dir / 'data_clean' / 'output4'
+        # 修正后
+    base_dir = Path(__file__).parent
+    input_dir = base_dir / 'output0'
+    output3_dir = base_dir / 'output3'  # 中间结果
+    output4_dir = base_dir / 'output4'  # 最终结果
+
     print(f"输入目录: {input_dir}")
     print(f"中间输出目录: {output3_dir}")
     print(f"最终输出目录: {output4_dir}")

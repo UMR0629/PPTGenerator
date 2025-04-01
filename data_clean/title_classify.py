@@ -249,10 +249,13 @@ class TitleProcessor:
 
 def main():
     try:
-        base_dir = Path(__file__).parent.parent
+        # base_dir = Path(__file__).parent.parent
+        base_dir = Path(__file__).parent
         processor = TitleProcessor(
-            output4_dir=base_dir / 'data_clean' / 'output4',
-            output5_dir=base_dir / 'data_clean' / 'output5'
+            # output4_dir=base_dir / 'data_clean' / 'output4',
+            # output5_dir=base_dir / 'data_clean' / 'output5'
+            output4_dir = base_dir / 'output4', # 输入目录
+            output5_dir = base_dir / 'output5'  # 输出目录
         )
         processor.run()
     except Exception as e:

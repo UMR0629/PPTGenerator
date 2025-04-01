@@ -122,9 +122,13 @@ class PictureRenamer:
 
 def main():
     try:
-        base_dir = Path(__file__).parent.parent
-        input_dir = base_dir / 'data_clean' / 'output_picture'
-        output_dir = base_dir / 'data_clean' / 'output_picture0'
+        # base_dir = Path(__file__).parent.parent
+        # input_dir = base_dir / 'data_clean' / 'output_picture'
+        # output_dir = base_dir / 'data_clean' / 'output_picture0'
+                # 修正后
+        base_dir = Path(__file__).parent
+        input_dir = base_dir / 'output_picture'    # 输入目录
+        output_dir = base_dir / 'output_picture0'  # 输出目录
         
         logger.info("="*50)
         logger.info(f"开始处理图片重命名")

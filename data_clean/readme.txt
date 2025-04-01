@@ -25,8 +25,11 @@ picture_classify2.py：处理图片和文本的匹配和名称问题
 
 storedata.py：存储图片和大纲
 
+main_processor.py：总调控，调用它可以直接实现全部的调用。
+
 注意：
 1. 需要按顺序调用storedata_dataclean.py和storedata_datacombine.py从而完成标题和对应文本的匹配。
 2.需要按顺序调用picture_classify.py和picture_classify2.py从而完成图片和对应文本的匹配。
 3.最后的picture和大纲部分分别存储在output_picture0和output5中
 4.运行storedata.py来存储到Paperinfo之中。
+5.你也可以直接调用main_processor.py来完成上面三步。

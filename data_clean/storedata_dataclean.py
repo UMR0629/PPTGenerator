@@ -99,29 +99,33 @@ def process_page(page_dir, output_dir, page_index):
             next_group_index = process_group(group_dir, output_page_dir, next_group_index)
 
 def main():
-    # 定义输入输出路径
-    base_dir = Path(__file__).parent.parent
-    input_dir = base_dir / 'data_clean' / 'output2'
-    output0_dir = base_dir / 'data_clean' / 'output0'
-    
+    # # 定义输入输出路径 原代码
+    # base_dir = Path(__file__).parent.parent
+    # input_dir = base_dir / 'data_clean' / 'output2'
+    # output0_dir = base_dir / 'data_clean' / 'output0'
+    # 修正后（直接使用同级目录）
+    base_dir = Path(__file__).parent  # 指向data_clean目录
+    input_dir = base_dir / 'output2'  # 输入目录
+    output_dir = base_dir / 'output0' # 输出目录
+
     print(f"输入目录: {input_dir}")
-    print(f"输出目录: {output0_dir}")
+    print(f"输出目录: {output_dir}")
     
     # 清空或创建输出目录
-    if output0_dir.exists():
-        for item in output0_dir.glob('*'):
+    if output_dir.exists():
+        for item in output_dir.glob('*'):
             if item.is_file():
                 item.unlink()
             else:
                 shutil.rmtree(item)
-    output0_dir.mkdir(exist_ok=True)
-    print(f"清空或创建输出目录: {output0_dir}")
+    output_dir.mkdir(exist_ok=True)
+    print(f"清空或创建输出目录: {output_dir}")
     
     # 处理每个页面（按page编号排序）
     page_dirs = sorted(input_dir.glob('page_*'), key=lambda x: int(x.stem.split('_')[1]))
     for page_index, page_dir in enumerate(page_dirs, start=1):
         if page_dir.is_dir():
-            process_page(page_dir, output0_dir, page_index)
+            process_page(page_dir, output_dir, page_index)
 
 if __name__ == '__main__':
     main()
