@@ -121,11 +121,12 @@ class SectionContent:
         parse_output_to_section(output, tmp_summary)
         self.summary[0].key_points=tmp_summary.key_points
         for i in range(1, len(parts)):
-            self.summary[i]=self.summary[0]
-            tmp_summary=PaperSectionSummary(key_points=[])
-            output = generate_presentation_summary(parts[0],lang)
-            parse_output_to_section(output, tmp_summary)
-            self.summary[i].key_points=tmp_summary.key_points
+            tmp_summary2=PaperSectionSummary(key_points=[],tables=self.summary[0].tables,figures=self.summary[0].figures)
+            self.summary.append(tmp_summary2)
+            tmp_summary3=PaperSectionSummary(key_points=[])
+            output = generate_presentation_summary(parts[i],lang)
+            parse_output_to_section(output, tmp_summary3)
+            self.summary[i].key_points=tmp_summary3.key_points
 
 
 
