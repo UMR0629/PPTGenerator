@@ -110,7 +110,8 @@ class SectionContent:
 
     def user_feedback(self,feedback,lang:str="zh"):   #在用户对大模型有反馈信息时调用
         api_output=generate_with_feedback(self.text,feedback,lang)
-        self.summary=api_output
+        self.summary.key_points.clear()
+        self.summary.key_points.extend(api_output)
 
 
 # 存储论文信息及其大纲的具体信息

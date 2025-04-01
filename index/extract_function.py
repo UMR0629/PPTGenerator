@@ -208,7 +208,6 @@ def generate_with_feedback(
 
     2. 多要点分离策略：
     if 文本包含提到了多个要点，并且内容相对独立；或者提到了多个例子，则进行分点描述，但是不进行不必要的分点。
-        一定要输出分点数量，放置在输出的最前方（如"3"）
         不同分点直接使用换行符隔离。
         如果原文是连续而非并列的关系，则不需要进行分点。
 
@@ -265,7 +264,6 @@ def generate_with_feedback(
 
     2. Multi-point Separation Strategy:
     if text contains multiple independent points OR distinct examples:
-        → Lead with point count (e.g., "3")
         → Separate points with line breaks
         → Avoid unnecessary fragmentation for continuous content
 
