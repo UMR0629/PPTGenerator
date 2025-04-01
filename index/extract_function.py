@@ -368,12 +368,92 @@ def title_translate_function(
     
     return "".join(response_content)
 
+def split_text_into_parts(input_text: str, num_parts: int) -> str:
+    
+    prompt_template = f"""
+    【系统角色设定】
+    你是一位专业的文本处理专家，需要将输入文本按语义均衡分割成 {num_parts} 个连贯部分。请严格按照以下规则执行：
+
+    【输入输出格式】
+    输入：需要分割的文本（长度：约{len(input_text)}字符）
+    输出：
+    按顺序排列的文本块，每个块保持完整语义
+    各块之间用固定标识符连接：\n---\n
+
+    【核心处理规则】
+    1. 分割后的文本块一定要使用\n---\n分割开
+    
+    2. 禁止生成空文本块。
+
+    3. 均衡分割原则：
+    - 必须保证分块数量为{num_parts}个
+    - 必须保证每个分割块的长度差异不超过±20%
+    - 保持语意完整性，禁止在句子中间切断
+    - 优先在段落结尾、标点符号后分割
+
+    4. 语义连贯性：
+    - 优先确保每个块含义完整通顺
+    - 保留原始文本的段落结构
+    - 禁止修改或删减原文内容 
+
+
+    【示例演示】
+    输入文本：
+    "深度学习模型在自然语言处理领域取得了显著进展。Transformer架构通过自注意力机制，有效捕捉长距离依赖关系。BERT等预训练模型通过大规模语料训练，显著提升了下游任务性能。"
+
+    分割数：2
+    输出：
+    "深度学习模型在自然语言处理领域取得了显著进展。Transformer架构通过自注意力机制，有效捕捉长距离依赖关系。
+    ---
+    BERT等预训练模型通过大规模语料训练，显著提升了下游任务性能。"
+    """
+
+    messages = [
+        {"role": "system", "content": prompt_template},
+        {"role": "user", "content": input_text}
+    ]
+    
+    # 调用大模型API
+    completion = client.chat.completions.create(
+        model="deepseek-r1",
+        messages=messages,
+        temperature=0.3,  # 降低随机性
+        modalities=["text"],
+        stream=True
+    )
+    
+    # 收集响应并过滤非文本内容
+    response = []
+    for chunk in completion:
+        if chunk.choices and chunk.choices[0].delta.content:
+            content = chunk.choices[0].delta.content
+            # 过滤可能添加的解释性内容
+            if "\n---\n" in content:
+                response.append(content.split("\n---\n")[0])
+            else:
+                response.append(content)
+    print(response)
+    separator="\n---\n"
+    # 后处理确保格式正确
+    processed = separator.join("".join(response).split(separator)[:num_parts])
+    return processed.strip()
 
 if __name__ == "__main__":
     
     title="""6.2 Comparison with the State of the Art"""
-
-    result = title_translate_function(
-        title=title
-    )
+    input="""The Internet of Things (IoT) has become an indispensable part of our daily lives, and the number of devices in use is expected to reach 27.1 billion by 2025 [2]. However, this growth has also resulted in an increase in vulnerabilities in embedded systems. According to recent statistics [6], weekly attacks on IoT devices have increased by 41% per organization in the first two months of 2023 compared to 2022. The threat of IoT vulnerabilities includes numerous vulnerabilities, some [4, 5, 47] of which are easily exploited and impact an average of 14% to 49% of organizations worldwide on a weekly basis. Hence, early detecting vulnerabilities in embedded systems has become crucial. IoT devices with web services are more susceptible to attacks compared to other IoT devices [10]. This is because while web services provide a convenient interface for device control and configuration, they also create opportunities for remote attacks if the underlying backend contains vulnerabilities. Thus, detecting vulnerabilities in IoT devices relying on web services is crucial. Most existing techniques [7,8,55,59] have limited effectiveness in detecting vulnerabilities in the backend programs of the web services in IoT devices. The testing techniques suffer from low code coverage and only focus on memory-related vulnerabilities. In comparison, static taint analysis is more suitable for detecting a wider variety of vulnerabilities. Taint analysis tracks and analyzes the flow of tainted information in a program, using source, sink, and taint propagation [49]. The source is where user inputs are introduced, the sink is where potentially risky operations occur, and taint propagation analysis examines how tainted markers propagate along variable dependencies in the program. Currently, most researches focus on taint propagation analysis, which employs techniques such as multi-binary tracking or pointer analysis to obtain more efficient and accurate analysis results [12,38]. However, their effectiveness on embedded systems is not significant. This is because traditional sources such as recv function are not effective in revealing the characteristics of user input entry identification and processing in embedded systems, thereby missing many potential vulnerabilities. To address the source identification challenge, a recent advancement in static taint analysis called SATC [10] proposes to leverage common input keywords between the frontend and backend to identify the user input handling code in the backend as sources. It can improve static taint analysis by providing more sources. Nevertheless, SATC misses certain sources (at least 82.5% according to our investigation) because some hidden user input handling code in the backend
+does not have frontend counterparts and some non-hidden user input entries are ignored due to the incomplete rules used
+for extracting the keywords. Additionally, SATC still suffers from high false positives (52.7%) for the detected sources due to a lack of awareness of dangling keywords with no/unreachable handling code. The falsely identified sources could affect the result of final vulnerability detection (missing over 87.3% with 75.2% false positives). In conclusion, static taint analysis shows promise in detecting vulnerabilities in IoT web services, but extracting sources systematically remains an open problem.
+To mitigate false negatives and false positives in source identification, we conducted a comprehensive analysis of the web services in mainstream devices and made an observation relates to the characteristics of the user input entries. User inputs for the web services are typically encoded as key-value pairs organized by forms or form-like data [22]. Rather than treating all user input entries equally, separating them into URIs and keys enables better utilization of their mapping to identify corresponding backend handling codes and more sources effectively. Maintaining a mapping between them can facilitate the identification of their corresponding backend handling codes. These code of the functions, in turn, can reveal hidden URIs and keys, leading to the discovery of additional sources. However, how to identify sources based on the complex relations among URIs and keys and the corresponding pattern between them and the backend code remains a challenge. Additionally, the semantic information in the backend code can facilitate more precise pattern-based static analysis, such as inferring the purpose of a function. Effectively perform semantic-based analysis add combine it with pattern-based analysis is another challenge. In this paper, we propose LARA2, a novel static taint analysis technique for detecting vulnerabilities in embedded
+systems. LARA utilizes URIs and keys extracted from the frontend to determine their corresponding handling code in the backend. This process is achieved through a combination of pattern-based static analysis and large language model (LLM)-aided analysis, aiming to replicate how human experts perform the identification based on previous experience and code semantics. The pattern-based static analysis leverages predefined rules and pattern matching, which simulates human experience, to address the first challenge. Meanwhile, the LLM-aided analysis performs the identification from the code semantics aspect to address the second challenge, as LLMs have been shown effective for summarizing the semantics
+of functions [16, 25, 37]. LARA then combines the results obtained from both analyses to generate two sets of codes that
+handle URIs and keys, respectively. By analyzing the URI and key handling codes, LARA can also identify the other URIs and keys that are handled by the same functions. In this manner, LARA can systematically and precisely identify the key handling functions and use them to extract sources. Regarding sinks, LARA analyzes the primary program and its related shared libraries to identify calls to dangerous operations as sinks. Finally, using the identified sources and sinks, LARA performs the static taint analysis that supports inter-process analysis to detect potential vulnerabilities. We implemented LARA as a static taint analysis framework and evaluated it on the dataset used by SATC, which includes 203 devices from 21 vendors such as DLink, Tenda, NetGear and others. The evaluation results indicate that LARA can detect significantly more vulnerabilities with fewer false positives than both SATC and KARONTE. Specifically, LARA can detect 556 and 602 more known vulnerabilities than SATC
+and KARONTE, respectively, while reducing false positives by 57.0% and 54.3%. Additionally, EMTAINT could detect 245
+more vulnerabilities with the assistance of LARA. To comprehensively understand the capability of each component in LARA, we also conducted an ablation study and the results showed that the pattern-based static analysis, LLM-aided analysis, and sink extraction can all improve the overall performance. Last but not least, we applied LARA to the firmware dataset for vulnerability detection. In total, we have found 245 0-day vulnerabilities in 57 devices, with all confirmed or fixed by the developers and 162 CVE IDs assigned. In summary, we make the following contributions: • We tackle the technical challenges and transform the
+observation into a novel static taint analysis technique called LARA. LARA can capture sources with low false positive and false negative rates and thus is capable of detecting more vulnerabilities. • We implemented LARA and comprehensively evaluated
+its performance in vulnerability detection, source identification and sink identification. The results show that LARA can significantly outperform the state-of-the-art IoT static taint analysis techniques by detecting more vulnerabilities with fewer false positives. • We discovered 245 0-day vulnerabilities in 57 devices from 13 vendors. To date, all have been confirmed or
+fixed and 162 CVE IDs have been assigned. We make the raw data, detailed information and source code of LARA available on the LARA-Site: https://sites.google.com/view/lara-data."""
+    #result = title_translate_function(title=title)
+    result=split_text_into_parts(input,3)
+    parts = result.split()
     print("生成结果：\n", result)
