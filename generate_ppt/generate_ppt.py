@@ -15,7 +15,7 @@ class Generate_ppt:
         self.slide_layout = self.prs_new.slide_layouts
 
     def process_title(self, text_to_process):
-        return re.sub(r'^\d+\s+', '', text_to_process)
+        return re.sub(r'^\d+[\.\s]+', '', text_to_process)
 
     # 添加封面页
     def add_cover(self, title_text, author_text, date_text):
@@ -393,21 +393,31 @@ class Generate_ppt:
         slide = self.prs_new.slides.add_slide(self.slide_layout[8])
         text_len = len(text)
         text_size = 25
-        if text_len >= 200 and text_len < 400:
-            text_size = int(400 / text_len * 25 * 1.1)
+        row_text = 34
+        if text_len >= 200 and text_len < 300:
+            text_size = int(300 / text_len * 25 * 0.8)
+            row_text = int(text_len / 400 * 34 * 1.2)
             print(f"文本字体大小：{text_size}")
 
-        elif text_len >= 400 and text_len < 600:
-            text_size = int(400 / text_len * 25 * 1.5)
+        elif text_len >= 300 and text_len < 600:
+            text_size = int(300 / text_len * 25 * 1)
+            row_text = int(text_len / 400 * 34 * 1.2)
             print(f"文本字体大小：{text_size}")
 
+        text_height = 0.5 * (text_len // row_text + 1)
+        text_top = 1 + 0.5 * (6 - text_height)
+
+        slide.placeholders[0].text = self.process_title(title)
+        slide.placeholders[10].top = Inches(text_top)
+        slide.placeholders[10].left = Inches(0.5)
+        slide.placeholders[10].width = Inches(12.3)
+        slide.placeholders[10].height = Inches(text_height)
+        slide.placeholders[10].text = text
 
         for paragraph in slide.placeholders[10].text_frame.paragraphs:
             for run in paragraph.runs:
                 run.font.size = Pt(text_size)
 
-        slide.placeholders[0].text = self.process_title(title)
-        slide.placeholders[10].text = text
 
     # 添加文本和图片页（文本左-图片右）
     def add_text_image(self, title, text, image_path):
@@ -417,7 +427,7 @@ class Generate_ppt:
         slide = self.prs_new.slides.add_slide(self.slide_layout[8])
 
         # 设置标题
-        slide.placeholders[0].text = self.process_title(title)
+        slide.placeholders[0].text = title
 
         # 设置文本的占位符
         text_placeholder = slide.placeholders[10]
@@ -480,7 +490,7 @@ class Generate_ppt:
         slide = self.prs_new.slides.add_slide(self.slide_layout[8])
 
         # 设置标题
-        slide.placeholders[0].text = self.process_title(title)
+        slide.placeholders[0].text = title
 
         # 设置文本的占位符
         text_placeholder = slide.placeholders[10]
@@ -581,7 +591,7 @@ class Generate_ppt:
 
         slide = self.prs_new.slides.add_slide(self.slide_layout[8])
 
-        slide.placeholders[0].text = self.process_title(title)
+        slide.placeholders[0].text = title
 
         text_placeholder = slide.placeholders[10]
         text_placeholder.element.getparent().remove(text_placeholder.element)
@@ -614,6 +624,74 @@ class Generate_ppt:
 
         # 插入图片
         slide.shapes.add_picture(image_path, left, top, width=Inches(img_width / 96), height=Inches(img_height / 96))
+
+    def add_double_image(self, title, image_path_1, image_path_2):
+
+        slide = self.prs_new.slides.add_slide(self.slide_layout[8])
+
+        slide.placeholders[0].text = title
+
+        text_placeholder = slide.placeholders[10]
+        text_placeholder.element.getparent().remove(text_placeholder.element)
+        # 获取图片的大小
+        with Image.open(image_path_1) as img_1:
+            img_1_width, img_1_height = img_1.size
+
+        # 计算PPT页面的宽度和最大图片宽度（PPT整体宽度的一半）
+        img_width_alter = 550
+        img_height_alter = 550
+
+        # 调整图片大小
+        if img_1_width / img_1_height > img_width_alter / img_height_alter:
+            # 如果图片的宽高比大于PPT页面的宽高比，则按照宽度调整图片比例
+            scale_factor = img_width_alter / img_1_width
+            img_1_width = img_width_alter
+            img_1_height = int(img_1_height * scale_factor)
+        else:
+            # 如果图片的宽高比小于PPT页面的宽高比，则按照高度调整图片比例
+            scale_factor = img_height_alter / img_1_height
+            img_1_height = img_height_alter
+            img_1_width = int(img_1_width * scale_factor)
+
+
+        # 计算图片的位置：使其位于PPT的中央
+        p_height = (8 - img_1_height / 96) / 2
+        p_width =  (6 - img_1_width / 96) / 2
+        left = Inches(p_width)  # 图片距离左侧的距离
+        top = Inches(p_height)  # 图片距离顶部的距离
+
+        # 插入图片
+        slide.shapes.add_picture(image_path_1, left, top, width=Inches(img_1_width / 96), height=Inches(img_1_height / 96))
+
+        with Image.open(image_path_2) as img_2:
+            img_2_width, img_2_height = img_2.size
+
+        # 计算PPT页面的宽度和最大图片宽度（PPT整体宽度的一半）
+        img_width_alter = 550
+        img_height_alter = 550
+
+        # 调整图片大小
+        if img_2_width / img_2_height > img_width_alter / img_height_alter:
+            # 如果图片的宽高比大于PPT页面的宽高比，则按照宽度调整图片比例
+            scale_factor = img_width_alter / img_1_width
+            img_2_width = img_width_alter
+            img_2_height = int(img_2_height * scale_factor)
+        else:
+            # 如果图片的宽高比小于PPT页面的宽高比，则按照高度调整图片比例
+            scale_factor = img_height_alter / img_1_height
+            img_2_height = img_height_alter
+            img_2_width = int(img_2_width * scale_factor)
+
+
+        # 计算图片的位置：使其位于PPT的中央
+        p_height = (8 - img_2_height / 96) / 2
+        p_width = 7 + (6 - img_2_width / 96) / 2
+        left = Inches(p_width)  # 图片距离左侧的距离
+        top = Inches(p_height)  # 图片距离顶部的距离
+
+        # 插入图片
+        slide.shapes.add_picture(image_path_1, left, top, width=Inches(img_2_width / 96), height=Inches(img_2_height / 96))
+
 
     # 添加感谢页
     def add_thanks(self, text="感谢您的观看"):
