@@ -77,20 +77,24 @@ class SectionContent:
     可以存储具体文本内容、引用、公式等信息。
     """
 
-    def __init__(self, text=None,summary:PaperSectionSummary=None):
+    def __init__(self, text=None,summary:list[PaperSectionSummary]=None):
         # 原始text（来自pdf处理模块）
         self.text = text or ""
         # summary中应当包含大模型处理过后的text要点、img路径、table路径（来自大模型处理模块）
-        self.summary=summary
-        
+        self.summary=summary or []
+
+    def add_summary(self, summary: PaperSectionSummary):
+        """添加单个summary到列表中"""
+        self.summary.append(summary)    
 
     def __repr__(self):
         return f"SectionContent(text={self.text[:30]}...)"
     
     def content_extract(self,lang:str="zh"):     #对每个叶子结点遍历调用，使用大模型提取信息
-        self.summary=PaperSectionSummary(key_points=[])
+        tmp_summary=PaperSectionSummary(key_points=[])
         api_output=generate_presentation_summary(self.text,lang)
-        parse_output_to_section(api_output, self.summary)
+        parse_output_to_section(api_output, tmp_summary)
+        self.summary.append(tmp_summary)
 
     def user_feedback(self,feedback,lang:str="zh"):   #在用户对大模型有反馈信息时调用
         api_output=generate_with_feedback(self.text,feedback,lang)
