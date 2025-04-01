@@ -174,3 +174,4 @@ for node in PreOrderIter(tmp.outline_root):
     if isinstance(node.content, SectionContent):
         print(node.content.summary)
 paper_id = db.save_paper(tmp)
+print(paper_id)

@@ -19,7 +19,7 @@ project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(project_root)
 
 from anytree import Node, RenderTree, PreOrderIter
-from extract_function import generate_presentation_summary, generate_with_feedback
+from extract_function import generate_presentation_summary, generate_with_feedback,split_text_into_parts
 from generate_ppt.generate_ppt import Generate_ppt  # 暂时注释掉
 import re
 
@@ -108,10 +108,25 @@ class SectionContent:
         parse_output_to_section(api_output, tmp_summary)
         self.summary.append(tmp_summary)
 
-    def user_feedback(self,feedback,lang:str="zh"):   #在用户对大模型有反馈信息时调用
+    def user_feedback(self,feedback,lang:str="zh",index=0):   #在用户对大模型有反馈信息时调用
         api_output=generate_with_feedback(self.text,feedback,lang)
-        self.summary.key_points.clear()
-        self.summary.key_points.extend(api_output)
+        self.summary[index].key_points.clear()
+        self.summary[index].key_points.extend(api_output)
+    
+    def split_into_parts(self,num:int=2,lang:str="zh"):  #用户可以选择一部分，多做几页PPT，从这里进行切割和重新赋值
+        result=split_text_into_parts(self.text,num)
+        parts = result.split("\n---\n")
+        tmp_summary=PaperSectionSummary(key_points=[])
+        output = generate_presentation_summary(parts[0],lang)
+        parse_output_to_section(output, tmp_summary)
+        self.summary[0].key_points=tmp_summary.key_points
+        for i in range(1, len(parts)):
+            self.summary[i]=self.summary[0]
+            tmp_summary=PaperSectionSummary(key_points=[])
+            output = generate_presentation_summary(parts[0],lang)
+            parse_output_to_section(output, tmp_summary)
+            self.summary[i].key_points=tmp_summary.key_points
+
 
 
 # 存储论文信息及其大纲的具体信息

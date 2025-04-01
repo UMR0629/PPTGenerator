@@ -453,5 +453,5 @@ its performance in vulnerability detection, source identification and sink ident
 fixed and 162 CVE IDs have been assigned. We make the raw data, detailed information and source code of LARA available on the LARA-Site: https://sites.google.com/view/lara-data."""
     #result = title_translate_function(title=title)
     result=split_text_into_parts(input,3)
-    parts = result.split()
+    parts = result.split("\n---\n")
     print("生成结果：\n", result)
