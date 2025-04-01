@@ -1,3 +1,5 @@
+#from lxml.xmlerror import text_size
+import re
 from pptx import Presentation
 from pptx.util import Inches, Pt
 from pptx.enum.text import PP_ALIGN, MSO_ANCHOR
@@ -12,12 +14,28 @@ class Generate_ppt:
         self.prs_new = self.prs_old
         self.slide_layout = self.prs_new.slide_layouts
 
+    def process_title(self, text_to_process):
+        return re.sub(r'^\d+\s+', '', text_to_process)
+
     # 添加封面页
     def add_cover(self, title_text, author_text, date_text):
         slide = self.prs_new.slides.add_slide(self.slide_layout[0])
-        content = slide.placeholders[0]
+        title_len = len(title_text)
+        print(f"标题长度：{title_len}")
+        if title_len < 50:
+            text_size = 54
+        elif 50 <= title_len < 100:
+            text_size = 32
+        else:
+            text_size = 24
+        print(text_size)
 
-        content.text = title_text
+        slide.placeholders[0].text = title_text
+
+        for paragraph in slide.placeholders[0].text_frame.paragraphs:
+            for run in paragraph.runs:
+                run.font.size = Pt(text_size)
+
 
         try:
             slide.placeholders[11].text = author_text
@@ -83,7 +101,7 @@ class Generate_ppt:
 
             # 设置该段落的文字样式
             run = p.add_run()  # 为段落添加一个文本运行
-            run.text = text  # 设置文本为目录项的名称
+            run.text = self.process_title(text)  # 设置文本为目录项的名称
             run.font.size = Pt(24)  # 设置字体大小为24磅
             run.font.bold = True  # 设置字体为粗体
             run.font.color.rgb = RGBColor(68, 84, 106)  # 设置字体颜色为黑色
@@ -159,7 +177,7 @@ class Generate_ppt:
 
             # 设置该段落的文字样式
             run = p.add_run()  # 为段落添加一个文本运行
-            run.text = text  # 设置文本为目录项的名称
+            run.text = self.process_title(text)  # 设置文本为目录项的名称
             run.font.size = Pt(24)  # 设置字体大小为24磅
             run.font.bold = True  # 设置字体为粗体
             run.font.color.rgb = RGBColor(68, 84, 106)  # 设置字体颜色为黑色
@@ -235,7 +253,7 @@ class Generate_ppt:
 
             # 设置该段落的文字样式
             run = p.add_run()  # 为段落添加一个文本运行
-            run.text = text  # 设置文本为目录项的名称
+            run.text = self.process_title(text)   # 设置文本为目录项的名称
             run.font.size = Pt(24)  # 设置字体大小为24磅
             run.font.bold = True  # 设置字体为粗体
             run.font.color.rgb = RGBColor(68, 84, 106)  # 设置字体颜色为黑色
@@ -311,7 +329,7 @@ class Generate_ppt:
 
             # 设置该段落的文字样式
             run = p.add_run()  # 为段落添加一个文本运行
-            run.text = text  # 设置文本为目录项的名称
+            run.text = self.process_title(text)   # 设置文本为目录项的名称
             run.font.size = Pt(24)  # 设置字体大小为24磅
             run.font.bold = True  # 设置字体为粗体
             run.font.color.rgb = RGBColor(68, 84, 106)  # 设置字体颜色为黑色
@@ -355,7 +373,7 @@ class Generate_ppt:
 
         # 添加段落并设置文本
         p = text_frame.paragraphs[0]
-        p.text = title_text
+        p.text = self.process_title(title_text)
         #p.font.size = Pt(44)  # 调整字体大小
         p.font.bold = True  # 加粗
         p.font.color.rgb = RGBColor(192, 0, 0)  # 设为红色
@@ -388,7 +406,7 @@ class Generate_ppt:
             for run in paragraph.runs:
                 run.font.size = Pt(text_size)
 
-        slide.placeholders[0].text = title
+        slide.placeholders[0].text = self.process_title(title)
         slide.placeholders[10].text = text
 
     # 添加文本和图片页（文本左-图片右）
@@ -399,7 +417,7 @@ class Generate_ppt:
         slide = self.prs_new.slides.add_slide(self.slide_layout[8])
 
         # 设置标题
-        slide.placeholders[0].text = title
+        slide.placeholders[0].text = self.process_title(title)
 
         # 设置文本的占位符
         text_placeholder = slide.placeholders[10]
@@ -462,7 +480,7 @@ class Generate_ppt:
         slide = self.prs_new.slides.add_slide(self.slide_layout[8])
 
         # 设置标题
-        slide.placeholders[0].text = title
+        slide.placeholders[0].text = self.process_title(title)
 
         # 设置文本的占位符
         text_placeholder = slide.placeholders[10]
@@ -563,7 +581,7 @@ class Generate_ppt:
 
         slide = self.prs_new.slides.add_slide(self.slide_layout[8])
 
-        slide.placeholders[0].text = title
+        slide.placeholders[0].text = self.process_title(title)
 
         text_placeholder = slide.placeholders[10]
         text_placeholder.element.getparent().remove(text_placeholder.element)
