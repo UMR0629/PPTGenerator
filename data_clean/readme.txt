@@ -22,7 +22,11 @@ picture_classify2.py：处理图片和文本的匹配和名称问题
     2.修改图片和文本的名称，存储为更加明晰的形式
     3.输入文件：output_picture；输出文件：output_picture0
 
+
+storedata.py：存储图片和大纲
+
 注意：
 1. 需要按顺序调用storedata_dataclean.py和storedata_datacombine.py从而完成标题和对应文本的匹配。
 2.需要按顺序调用picture_classify.py和picture_classify2.py从而完成图片和对应文本的匹配。
 3.最后的picture和大纲部分分别存储在output_picture0和output5中
+4.运行storedata.py来存储到Paperinfo之中。
