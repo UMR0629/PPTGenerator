@@ -297,7 +297,10 @@ class PaperInfo:
         """
         ppt_path = "../source/ppt_model/1.百廿红-李一.pptx"
         generate_ppt = Generate_ppt(ppt_path)
-        generate_ppt.add_cover(self.title, self.authors, self.date)
+        author_text = ""
+        for author in self.authors:
+            author_text += author + " "
+        generate_ppt.add_cover(self.title, author_text, self.date)
         index_content = self.find_root_children()
         index_num = len(index_content)
         generate_ppt.add_menu("../source/img/image22.jpg", index_num, index_content)
@@ -315,6 +318,7 @@ class PaperInfo:
                 tables = content_node.content.summary.tables
                 figures = content_node.content.summary.figures
                 img_num = len(tables) + len(figures)
+                print("generate_ppt",title,img_num)
                 if img_num == 0:
                     text_combined = ""
                     for point in content_node.content.summary.key_points:
