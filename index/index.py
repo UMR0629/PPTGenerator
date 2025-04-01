@@ -4,13 +4,24 @@
 
 ############################################
 
-import sys
-#sys.path.append("..")
-from anytree import Node, RenderTree, PreOrderIter
-from extract_function import generate_presentation_summary,generate_with_feedback
-from generate_ppt.generate_ppt import Generate_ppt   #这里先注释掉，因为会报错
-import re
+# import sys
+# #sys.path.append("..")
+# from anytree import Node, RenderTree, PreOrderIter
+# from extract_function import generate_presentation_summary,generate_with_feedback
+# from generate_ppt.generate_ppt import Generate_ppt   #这里先注释掉，因为会报错
+# import re
 
+import sys
+import os
+
+# 添加项目根目录到Python路径
+project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(project_root)
+
+from anytree import Node, RenderTree, PreOrderIter
+from .extract_function import generate_presentation_summary, generate_with_feedback
+# from generate_ppt.generate_ppt import Generate_ppt  # 暂时注释掉
+import re
 
 class PaperSectionSummary:
     def __init__(
@@ -110,7 +121,8 @@ class PaperInfo:
         self.journal = journal
         self.ppt_presenter = ppt_presenter
         self.ppt_date = ppt_date
-        self.outline_root = Node(title, content=None)  # 根节点不存储内容
+        # 根节点使用论文标题（而非目录名）
+        self.outline_root = Node("论文标题", content=None)  # 临时占位，实际内容在后续填充
         # “名称-路径”对应表（来自pdf处理模块）
         self.image_list = []
 
@@ -197,13 +209,29 @@ class PaperInfo:
             return True
         return False
 
+    # def display_outline(self):
+    #     """
+    #     以层次结构打印论文大纲，并显示叶子节点的内容。
+    #     """
+    #     for pre, _, node in RenderTree(self.outline_root):
+    #         content_info = f" (Content: {node.content})" if node.content else ""
+    #         print(f"{pre}{node.name}{content_info}")
     def display_outline(self):
-        """
-        以层次结构打印论文大纲，并显示叶子节点的内容。
-        """
+        """显示大纲和图片信息"""
+        # 1. 显示章节结构
         for pre, _, node in RenderTree(self.outline_root):
             content_info = f" (Content: {node.content})" if node.content else ""
             print(f"{pre}{node.name}{content_info}")
+        
+        # 2. 显示图片信息
+        if hasattr(self, 'image_list') and self.image_list:
+            print("\n=== 图片列表 ===")
+            for img_info in self.image_list:
+                print(f"{img_info['number']}:")
+                print(f"  路径: {img_info['path']}")
+                print(f"  描述: {img_info['description'][:100]}...")  # 显示前100字符
+        else:
+            print("\n未找到任何图片文件")
 
     def traverse_outline(self):
         """
