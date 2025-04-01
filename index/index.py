@@ -257,16 +257,19 @@ class PaperInfo:
         for node in node_list:
             title = node[0]
             depth = node[1]
+            content_node = self.find_outline_section(title)
             if depth == 1:
                 main_title_count += 1
                 generate_ppt.add_main_title(title,str(main_title_count))
-            else:
-                content_node = self.find_outline_section(title)
+            if content_node.content is not None:
                 tables = content_node.content.summary.tables
                 figures = content_node.content.summary.figures
                 img_num = len(tables) + len(figures)
                 if img_num == 0:
-                    generate_ppt.add_all_text(self,content_node.content.summary.keypoints[0])
+                    text_combined = ""
+                    for point in content_node.content.summary.key_points:
+                        text_combined  += (point + "\n")
+                    generate_ppt.add_all_text(title,text_combined)
 
 
         generate_ppt.add_thanks()

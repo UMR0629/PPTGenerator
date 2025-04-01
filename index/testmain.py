@@ -161,7 +161,9 @@ challenge, we designed LLM automatic interaction models
 and algorithms that combines pattern-based static analysis
 with LLM-aided analysis to identify more accurate sources""")
 tmp.display_outline()
+
 db = PaperInfoDB()
+
 #paper_id = db.save_paper(tmp)
 print(tmp.find_outline_section("2.3 Findings based on the Observation").content)
 for node in PreOrderIter(tmp.outline_root):
