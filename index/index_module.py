@@ -19,7 +19,7 @@ project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(project_root)
 
 from anytree import Node, RenderTree, PreOrderIter
-from extract_function import generate_presentation_summary, generate_with_feedback
+from .extract_function import generate_presentation_summary, generate_with_feedback
 from generate_ppt.generate_ppt import Generate_ppt  # 暂时注释掉
 import re
 

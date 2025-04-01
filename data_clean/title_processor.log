@@ -740,3 +740,210 @@ AttributeError: 'NoneType' object has no attribute 'startswith'
 2025-04-01 15:18:17,689 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\Appendix C. (层级 1)
 2025-04-01 15:18:17,691 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\Appendix C.\C.1. Summary (层级 2)
 2025-04-01 15:18:17,692 - INFO - 处理完成！输出目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5
+2025-04-01 15:40:16,697 - INFO - 开始处理目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output4
+2025-04-01 15:40:16,697 - WARNING - 清空输出目录
+2025-04-01 15:40:16,712 - INFO - 保存文章标题到: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\文章标题
+2025-04-01 15:40:16,713 - INFO - 处理 group_1: 1. Introduction
+2025-04-01 15:40:16,713 - INFO - 处理 group_2: 2. Background and Motivation
+2025-04-01 15:40:16,714 - INFO - 处理 group_3: 2.1. Web Application Fuzzing
+2025-04-01 15:40:16,714 - INFO - 处理 group_4: 2.2. Directed Fuzzing for Web Applications
+2025-04-01 15:40:16,714 - INFO - 处理 group_5: 2.3. Motivation
+2025-04-01 15:40:16,714 - INFO - 处理 group_6: 3. Challenges
+2025-04-01 15:40:16,715 - INFO - 处理 group_7: 4. PREDATOR
+2025-04-01 15:40:16,715 - INFO - 处理 group_8: 4.1. Architecture Overview
+2025-04-01 15:40:16,715 - INFO - 处理 group_9: 4.2. Static Analysis for Directed Web Fuzzing
+2025-04-01 15:40:16,716 - INFO - 处理 group_10: 4.2.1. Entry URL Identification.
+2025-04-01 15:40:16,716 - INFO - 处理 group_11: 4.2.2. Targeted Input Corpus Construction.
+2025-04-01 15:40:16,716 - INFO - 处理 group_12: 4.4.95. selective Dynamic instrumentation.
+2025-04-01 15:40:16,717 - INFO - 处理 group_13: 4.3. Tailored Directed Fuzzing Techniques
+2025-04-01 15:40:16,717 - INFO - 处理 group_14: 4.3.1. Block Distance Supplementation.
+2025-04-01 15:40:16,717 - INFO - 处理 group_15: 4.3.2. Tailored Input Mutation Strategies.
+2025-04-01 15:40:16,718 - INFO - 处理 group_16: Dependent Parameter- Sensitive Mutation. PREI
+2025-04-01 15:40:16,718 - INFO - 处理 group_17: 5. Implementation
+2025-04-01 15:40:16,718 - INFO - 处理 group_18: 6. Evaluation
+2025-04-01 15:40:16,719 - INFO - 处理 group_19: 6.1. Known Vulnerability Reproduction (RQ1)
+2025-04-01 15:40:16,719 - INFO - 处理 group_20: 6.1.1. Effectiveness.
+2025-04-01 15:40:16,719 - INFO - 处理 group_21: 6.1.3. Scalability.
+2025-04-01 15:40:16,719 - INFO - 处理 group_22: 6.2. Ablation Study (RQ2)
+2025-04-01 15:40:16,720 - INFO - 处理 group_23: 6.3. Validating Static Analysis Reports (RQ3)
+2025-04-01 15:40:16,720 - INFO - 处理 group_24: 6.4. Discovering New Vulnerabilities (RQ4)
+2025-04-01 15:40:16,720 - INFO - 处理 group_25: 7. Discussion
+2025-04-01 15:40:16,720 - INFO - 处理 group_26: 8. Related Work
+2025-04-01 15:40:16,721 - INFO - 处理 group_27: 9. Conclusion
+2025-04-01 15:40:16,721 - INFO - 处理 group_28: 10. Acknowledgment
+2025-04-01 15:40:16,721 - INFO - 处理 group_29: Appendix A.
+2025-04-01 15:40:16,722 - INFO - 处理 group_30: AAPPCHUIA D.
+2025-04-01 15:40:16,722 - INFO - 处理 group_31: Appendix C.
+2025-04-01 15:40:16,722 - INFO - 处理 group_32: C.1. Summary
+2025-04-01 15:40:16,722 - WARNING - 编号修正: Dependent Parameter- Sensitive Mutation. PREI → 4.3.3. Dependent Parameter- Sensitive Mutation. PREI
+2025-04-01 15:40:16,723 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\1. Introduction (层级 1)
+2025-04-01 15:40:16,724 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\2. Background and Motivation (层级 1)
+2025-04-01 15:40:16,725 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\2. Background and Motivation\2.1. Web Application Fuzzing (层级 2)
+2025-04-01 15:40:16,726 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\2. Background and Motivation\2.2. Directed Fuzzing for Web Applications (层级 2)
+2025-04-01 15:40:16,728 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\2. Background and Motivation\2.3. Motivation (层级 2)
+2025-04-01 15:40:16,729 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\3. Challenges (层级 1)
+2025-04-01 15:40:16,730 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\4. PREDATOR (层级 1)
+2025-04-01 15:40:16,731 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\4. PREDATOR\4.1. Architecture Overview (层级 2)
+2025-04-01 15:40:16,733 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\4. PREDATOR\4.2. Static Analysis for Directed Web Fuzzing (层级 2)
+2025-04-01 15:40:16,734 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\4. PREDATOR\4.2. Static Analysis for Directed Web Fuzzing\4.2.1. Entry URL Identification. (层级 3)
+2025-04-01 15:40:16,736 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\4. PREDATOR\4.2. Static Analysis for Directed Web Fuzzing\4.2.2. Targeted Input Corpus Construction. (层级 3)
+2025-04-01 15:40:16,737 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\4. PREDATOR\4.2. Static Analysis for Directed Web Fuzzing\4.4.95. selective Dynamic instrumentation. (层级 3)
+2025-04-01 15:40:16,738 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\4. PREDATOR\4.3. Tailored Directed Fuzzing Techniques (层级 2)
+2025-04-01 15:40:16,739 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\4. PREDATOR\4.3. Tailored Directed Fuzzing Techniques\4.3.1. Block Distance Supplementation. (层级 3)
+2025-04-01 15:40:16,741 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\4. PREDATOR\4.3. Tailored Directed Fuzzing Techniques\4.3.2. Tailored Input Mutation Strategies. (层级 3)
+2025-04-01 15:40:16,742 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\4. PREDATOR\4.3. Tailored Directed Fuzzing Techniques\4.3.3. Dependent Parameter- Sensitive Mutation. PREI (层级 3)
+2025-04-01 15:40:16,743 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\5. Implementation (层级 1)
+2025-04-01 15:40:16,744 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\6. Evaluation (层级 1)
+2025-04-01 15:40:16,745 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\6. Evaluation\6.1. Known Vulnerability Reproduction (RQ1) (层级 2)
+2025-04-01 15:40:16,747 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\6. Evaluation\6.1. Known Vulnerability Reproduction (RQ1)\6.1.1. Effectiveness. (层级 3)
+2025-04-01 15:40:16,749 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\6. Evaluation\6.1. Known Vulnerability Reproduction (RQ1)\6.1.3. Scalability. (层级 3)
+2025-04-01 15:40:16,750 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\6. Evaluation\6.2. Ablation Study (RQ2) (层级 2)
+2025-04-01 15:40:16,751 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\6. Evaluation\6.3. Validating Static Analysis Reports (RQ3) (层级 2)
+2025-04-01 15:40:16,752 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\6. Evaluation\6.4. Discovering New Vulnerabilities (RQ4) (层级 2)
+2025-04-01 15:40:16,753 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\7. Discussion (层级 1)
+2025-04-01 15:40:16,754 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\8. Related Work (层级 1)
+2025-04-01 15:40:16,755 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\9. Conclusion (层级 1)
+2025-04-01 15:40:16,757 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\10. Acknowledgment (层级 1)
+2025-04-01 15:40:16,758 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\Appendix A. (层级 1)
+2025-04-01 15:40:16,758 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\Appendix A.\AAPPCHUIA D. (层级 2)
+2025-04-01 15:40:16,760 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\Appendix C. (层级 1)
+2025-04-01 15:40:16,761 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\Appendix C.\C.1. Summary (层级 2)
+2025-04-01 15:40:16,762 - INFO - 处理完成！输出目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5
+2025-04-01 15:56:00,690 - INFO - 开始处理目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output4
+2025-04-01 15:56:00,690 - WARNING - 清空输出目录
+2025-04-01 15:56:00,709 - INFO - 保存文章标题到: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\文章标题
+2025-04-01 15:56:00,713 - INFO - 处理 group_1: 1. Introduction
+2025-04-01 15:56:00,713 - INFO - 处理 group_2: 2. Background and Motivation
+2025-04-01 15:56:00,713 - INFO - 处理 group_3: 2.1. Web Application Fuzzing
+2025-04-01 15:56:00,713 - INFO - 处理 group_4: 2.2. Directed Fuzzing for Web Applications
+2025-04-01 15:56:00,713 - INFO - 处理 group_5: 2.3. Motivation
+2025-04-01 15:56:00,713 - INFO - 处理 group_6: 3. Challenges
+2025-04-01 15:56:00,715 - INFO - 处理 group_7: 4. PREDATOR
+2025-04-01 15:56:00,715 - INFO - 处理 group_8: 4.1. Architecture Overview
+2025-04-01 15:56:00,715 - INFO - 处理 group_9: 4.2. Static Analysis for Directed Web Fuzzing
+2025-04-01 15:56:00,715 - INFO - 处理 group_10: 4.2.1. Entry URL Identification.
+2025-04-01 15:56:00,715 - INFO - 处理 group_11: 4.2.2. Targeted Input Corpus Construction.
+2025-04-01 15:56:00,715 - INFO - 处理 group_12: 4.4.95. selective Dynamic instrumentation.
+2025-04-01 15:56:00,715 - INFO - 处理 group_13: 4.3. Tailored Directed Fuzzing Techniques
+2025-04-01 15:56:00,715 - INFO - 处理 group_14: 4.3.1. Block Distance Supplementation.
+2025-04-01 15:56:00,717 - INFO - 处理 group_15: 4.3.2. Tailored Input Mutation Strategies.
+2025-04-01 15:56:00,717 - INFO - 处理 group_16: Dependent Parameter- Sensitive Mutation. PREI
+2025-04-01 15:56:00,717 - INFO - 处理 group_17: 5. Implementation
+2025-04-01 15:56:00,717 - INFO - 处理 group_18: 6. Evaluation
+2025-04-01 15:56:00,717 - INFO - 处理 group_19: 6.1. Known Vulnerability Reproduction (RQ1)
+2025-04-01 15:56:00,717 - INFO - 处理 group_20: 6.1.1. Effectiveness.
+2025-04-01 15:56:00,717 - INFO - 处理 group_21: 6.1.3. Scalability.
+2025-04-01 15:56:00,717 - INFO - 处理 group_22: 6.2. Ablation Study (RQ2)
+2025-04-01 15:56:00,719 - INFO - 处理 group_23: 6.3. Validating Static Analysis Reports (RQ3)
+2025-04-01 15:56:00,719 - INFO - 处理 group_24: 6.4. Discovering New Vulnerabilities (RQ4)
+2025-04-01 15:56:00,719 - INFO - 处理 group_25: 7. Discussion
+2025-04-01 15:56:00,719 - INFO - 处理 group_26: 8. Related Work
+2025-04-01 15:56:00,719 - INFO - 处理 group_27: 9. Conclusion
+2025-04-01 15:56:00,719 - INFO - 处理 group_28: 10. Acknowledgment
+2025-04-01 15:56:00,719 - INFO - 处理 group_29: Appendix A.
+2025-04-01 15:56:00,719 - INFO - 处理 group_30: AAPPCHUIA D.
+2025-04-01 15:56:00,721 - INFO - 处理 group_31: Appendix C.
+2025-04-01 15:56:00,721 - INFO - 处理 group_32: C.1. Summary
+2025-04-01 15:56:00,721 - WARNING - 编号修正: Dependent Parameter- Sensitive Mutation. PREI → 4.3.3. Dependent Parameter- Sensitive Mutation. PREI
+2025-04-01 15:56:00,721 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\1. Introduction (层级 1)
+2025-04-01 15:56:00,722 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\2. Background and Motivation (层级 1)
+2025-04-01 15:56:00,724 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\2. Background and Motivation\2.1. Web Application Fuzzing (层级 2)
+2025-04-01 15:56:00,724 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\2. Background and Motivation\2.2. Directed Fuzzing for Web Applications (层级 2)
+2025-04-01 15:56:00,724 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\2. Background and Motivation\2.3. Motivation (层级 2)
+2025-04-01 15:56:00,724 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\3. Challenges (层级 1)
+2025-04-01 15:56:00,724 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\4. PREDATOR (层级 1)
+2025-04-01 15:56:00,724 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\4. PREDATOR\4.1. Architecture Overview (层级 2)
+2025-04-01 15:56:00,724 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\4. PREDATOR\4.2. Static Analysis for Directed Web Fuzzing (层级 2)
+2025-04-01 15:56:00,724 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\4. PREDATOR\4.2. Static Analysis for Directed Web Fuzzing\4.2.1. Entry URL Identification. (层级 3)
+2025-04-01 15:56:00,724 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\4. PREDATOR\4.2. Static Analysis for Directed Web Fuzzing\4.2.2. Targeted Input Corpus Construction. (层级 3)
+2025-04-01 15:56:00,736 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\4. PREDATOR\4.2. Static Analysis for Directed Web Fuzzing\4.4.95. selective Dynamic instrumentation. (层级 3)
+2025-04-01 15:56:00,736 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\4. PREDATOR\4.3. Tailored Directed Fuzzing Techniques (层级 2)
+2025-04-01 15:56:00,738 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\4. PREDATOR\4.3. Tailored Directed Fuzzing Techniques\4.3.1. Block Distance Supplementation. (层级 3)
+2025-04-01 15:56:00,738 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\4. PREDATOR\4.3. Tailored Directed Fuzzing Techniques\4.3.2. Tailored Input Mutation Strategies. (层级 3)
+2025-04-01 15:56:00,738 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\4. PREDATOR\4.3. Tailored Directed Fuzzing Techniques\4.3.3. Dependent Parameter- Sensitive Mutation. PREI (层级 3)
+2025-04-01 15:56:00,738 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\5. Implementation (层级 1)
+2025-04-01 15:56:00,738 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\6. Evaluation (层级 1)
+2025-04-01 15:56:00,738 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\6. Evaluation\6.1. Known Vulnerability Reproduction (RQ1) (层级 2)
+2025-04-01 15:56:00,738 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\6. Evaluation\6.1. Known Vulnerability Reproduction (RQ1)\6.1.1. Effectiveness. (层级 3)
+2025-04-01 15:56:00,738 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\6. Evaluation\6.1. Known Vulnerability Reproduction (RQ1)\6.1.3. Scalability. (层级 3)
+2025-04-01 15:56:00,738 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\6. Evaluation\6.2. Ablation Study (RQ2) (层级 2)
+2025-04-01 15:56:00,738 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\6. Evaluation\6.3. Validating Static Analysis Reports (RQ3) (层级 2)
+2025-04-01 15:56:00,738 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\6. Evaluation\6.4. Discovering New Vulnerabilities (RQ4) (层级 2)
+2025-04-01 15:56:00,738 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\7. Discussion (层级 1)
+2025-04-01 15:56:00,738 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\8. Related Work (层级 1)
+2025-04-01 15:56:00,754 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\9. Conclusion (层级 1)
+2025-04-01 15:56:00,754 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\10. Acknowledgment (层级 1)
+2025-04-01 15:56:00,754 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\Appendix A. (层级 1)
+2025-04-01 15:56:00,754 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\Appendix A.\AAPPCHUIA D. (层级 2)
+2025-04-01 15:56:00,754 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\Appendix C. (层级 1)
+2025-04-01 15:56:00,754 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\Appendix C.\C.1. Summary (层级 2)
+2025-04-01 15:56:00,754 - INFO - 处理完成！输出目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5
+2025-04-01 15:56:34,864 - INFO - 开始处理目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output4
+2025-04-01 15:56:34,864 - WARNING - 清空输出目录
+2025-04-01 15:56:34,879 - INFO - 保存文章标题到: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\文章标题
+2025-04-01 15:56:34,879 - INFO - 处理 group_1: 1. Introduction
+2025-04-01 15:56:34,879 - INFO - 处理 group_2: 2. Background and Motivation
+2025-04-01 15:56:34,879 - INFO - 处理 group_3: 2.1. Web Application Fuzzing
+2025-04-01 15:56:34,879 - INFO - 处理 group_4: 2.2. Directed Fuzzing for Web Applications
+2025-04-01 15:56:34,879 - INFO - 处理 group_5: 2.3. Motivation
+2025-04-01 15:56:34,879 - INFO - 处理 group_6: 3. Challenges
+2025-04-01 15:56:34,879 - INFO - 处理 group_7: 4. PREDATOR
+2025-04-01 15:56:34,879 - INFO - 处理 group_8: 4.1. Architecture Overview
+2025-04-01 15:56:34,879 - INFO - 处理 group_9: 4.2. Static Analysis for Directed Web Fuzzing
+2025-04-01 15:56:34,879 - INFO - 处理 group_10: 4.2.1. Entry URL Identification.
+2025-04-01 15:56:34,879 - INFO - 处理 group_11: 4.2.2. Targeted Input Corpus Construction.
+2025-04-01 15:56:34,879 - INFO - 处理 group_12: 4.4.95. selective Dynamic instrumentation.
+2025-04-01 15:56:34,879 - INFO - 处理 group_13: 4.3. Tailored Directed Fuzzing Techniques
+2025-04-01 15:56:34,879 - INFO - 处理 group_14: 4.3.1. Block Distance Supplementation.
+2025-04-01 15:56:34,879 - INFO - 处理 group_15: 4.3.2. Tailored Input Mutation Strategies.
+2025-04-01 15:56:34,879 - INFO - 处理 group_16: Dependent Parameter- Sensitive Mutation. PREI
+2025-04-01 15:56:34,879 - INFO - 处理 group_17: 5. Implementation
+2025-04-01 15:56:34,879 - INFO - 处理 group_18: 6. Evaluation
+2025-04-01 15:56:34,879 - INFO - 处理 group_19: 6.1. Known Vulnerability Reproduction (RQ1)
+2025-04-01 15:56:34,879 - INFO - 处理 group_20: 6.1.1. Effectiveness.
+2025-04-01 15:56:34,879 - INFO - 处理 group_21: 6.1.3. Scalability.
+2025-04-01 15:56:34,879 - INFO - 处理 group_22: 6.2. Ablation Study (RQ2)
+2025-04-01 15:56:34,879 - INFO - 处理 group_23: 6.3. Validating Static Analysis Reports (RQ3)
+2025-04-01 15:56:34,879 - INFO - 处理 group_24: 6.4. Discovering New Vulnerabilities (RQ4)
+2025-04-01 15:56:34,879 - INFO - 处理 group_25: 7. Discussion
+2025-04-01 15:56:34,879 - INFO - 处理 group_26: 8. Related Work
+2025-04-01 15:56:34,879 - INFO - 处理 group_27: 9. Conclusion
+2025-04-01 15:56:34,879 - INFO - 处理 group_28: 10. Acknowledgment
+2025-04-01 15:56:34,879 - INFO - 处理 group_29: Appendix A.
+2025-04-01 15:56:34,890 - INFO - 处理 group_30: AAPPCHUIA D.
+2025-04-01 15:56:34,890 - INFO - 处理 group_31: Appendix C.
+2025-04-01 15:56:34,890 - INFO - 处理 group_32: C.1. Summary
+2025-04-01 15:56:34,890 - WARNING - 编号修正: Dependent Parameter- Sensitive Mutation. PREI → 4.3.3. Dependent Parameter- Sensitive Mutation. PREI
+2025-04-01 15:56:34,890 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\1. Introduction (层级 1)
+2025-04-01 15:56:34,890 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\2. Background and Motivation (层级 1)
+2025-04-01 15:56:34,890 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\2. Background and Motivation\2.1. Web Application Fuzzing (层级 2)
+2025-04-01 15:56:34,895 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\2. Background and Motivation\2.2. Directed Fuzzing for Web Applications (层级 2)
+2025-04-01 15:56:34,895 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\2. Background and Motivation\2.3. Motivation (层级 2)
+2025-04-01 15:56:34,895 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\3. Challenges (层级 1)
+2025-04-01 15:56:34,895 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\4. PREDATOR (层级 1)
+2025-04-01 15:56:34,895 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\4. PREDATOR\4.1. Architecture Overview (层级 2)
+2025-04-01 15:56:34,895 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\4. PREDATOR\4.2. Static Analysis for Directed Web Fuzzing (层级 2)
+2025-04-01 15:56:34,895 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\4. PREDATOR\4.2. Static Analysis for Directed Web Fuzzing\4.2.1. Entry URL Identification. (层级 3)
+2025-04-01 15:56:34,895 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\4. PREDATOR\4.2. Static Analysis for Directed Web Fuzzing\4.2.2. Targeted Input Corpus Construction. (层级 3)
+2025-04-01 15:56:34,895 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\4. PREDATOR\4.2. Static Analysis for Directed Web Fuzzing\4.4.95. selective Dynamic instrumentation. (层级 3)
+2025-04-01 15:56:34,895 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\4. PREDATOR\4.3. Tailored Directed Fuzzing Techniques (层级 2)
+2025-04-01 15:56:34,895 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\4. PREDATOR\4.3. Tailored Directed Fuzzing Techniques\4.3.1. Block Distance Supplementation. (层级 3)
+2025-04-01 15:56:34,895 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\4. PREDATOR\4.3. Tailored Directed Fuzzing Techniques\4.3.2. Tailored Input Mutation Strategies. (层级 3)
+2025-04-01 15:56:34,911 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\4. PREDATOR\4.3. Tailored Directed Fuzzing Techniques\4.3.3. Dependent Parameter- Sensitive Mutation. PREI (层级 3)
+2025-04-01 15:56:34,911 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\5. Implementation (层级 1)
+2025-04-01 15:56:34,911 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\6. Evaluation (层级 1)
+2025-04-01 15:56:34,911 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\6. Evaluation\6.1. Known Vulnerability Reproduction (RQ1) (层级 2)
+2025-04-01 15:56:34,911 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\6. Evaluation\6.1. Known Vulnerability Reproduction (RQ1)\6.1.1. Effectiveness. (层级 3)
+2025-04-01 15:56:34,911 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\6. Evaluation\6.1. Known Vulnerability Reproduction (RQ1)\6.1.3. Scalability. (层级 3)
+2025-04-01 15:56:34,911 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\6. Evaluation\6.2. Ablation Study (RQ2) (层级 2)
+2025-04-01 15:56:34,911 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\6. Evaluation\6.3. Validating Static Analysis Reports (RQ3) (层级 2)
+2025-04-01 15:56:34,911 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\6. Evaluation\6.4. Discovering New Vulnerabilities (RQ4) (层级 2)
+2025-04-01 15:56:34,911 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\7. Discussion (层级 1)
+2025-04-01 15:56:34,911 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\8. Related Work (层级 1)
+2025-04-01 15:56:34,911 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\9. Conclusion (层级 1)
+2025-04-01 15:56:34,926 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\10. Acknowledgment (层级 1)
+2025-04-01 15:56:34,926 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\Appendix A. (层级 1)
+2025-04-01 15:56:34,926 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\Appendix A.\AAPPCHUIA D. (层级 2)
+2025-04-01 15:56:34,926 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\Appendix C. (层级 1)
+2025-04-01 15:56:34,931 - INFO - 创建目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5\Appendix C.\C.1. Summary (层级 2)
+2025-04-01 15:56:34,931 - INFO - 处理完成！输出目录: D:\teamwork\teamwork1\PPTGenerator\data_clean\output5
