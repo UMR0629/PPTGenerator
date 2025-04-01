@@ -14,6 +14,7 @@ class Generate_ppt:
         self.prs_new = self.prs_old
         self.slide_layout = self.prs_new.slide_layouts
 
+    # 去除标题序号
     def process_title(self, text_to_process):
         return re.sub(r'^\d+[\.\s]+', '', text_to_process)
 
@@ -373,7 +374,7 @@ class Generate_ppt:
 
         # 添加段落并设置文本
         p = text_frame.paragraphs[0]
-        p.text = self.process_title(title_text)
+        p.text = title_text
         #p.font.size = Pt(44)  # 调整字体大小
         p.font.bold = True  # 加粗
         p.font.color.rgb = RGBColor(192, 0, 0)  # 设为红色
@@ -407,7 +408,7 @@ class Generate_ppt:
         text_height = 0.5 * (text_len // row_text + 1)
         text_top = 1 + 0.5 * (6 - text_height)
 
-        slide.placeholders[0].text = self.process_title(title)
+        slide.placeholders[0].text = title
         slide.placeholders[10].top = Inches(text_top)
         slide.placeholders[10].left = Inches(0.5)
         slide.placeholders[10].width = Inches(12.3)
@@ -417,7 +418,6 @@ class Generate_ppt:
         for paragraph in slide.placeholders[10].text_frame.paragraphs:
             for run in paragraph.runs:
                 run.font.size = Pt(text_size)
-
 
     # 添加文本和图片页（文本左-图片右）
     def add_text_image(self, title, text, image_path):
@@ -625,6 +625,7 @@ class Generate_ppt:
         # 插入图片
         slide.shapes.add_picture(image_path, left, top, width=Inches(img_width / 96), height=Inches(img_height / 96))
 
+    # 添加双图片页
     def add_double_image(self, title, image_path_1, image_path_2):
 
         slide = self.prs_new.slides.add_slide(self.slide_layout[8])
@@ -655,10 +656,10 @@ class Generate_ppt:
 
 
         # 计算图片的位置：使其位于PPT的中央
-        p_height = (8 - img_1_height / 96) / 2
-        p_width =  (6 - img_1_width / 96) / 2
-        left = Inches(p_width)  # 图片距离左侧的距离
-        top = Inches(p_height)  # 图片距离顶部的距离
+        p_1_height = (8 - img_1_height / 96) / 2
+        p_1_width = 0.3 + (6 - img_1_width / 96) / 2
+        left = Inches(p_1_width)  # 图片距离左侧的距离
+        top = Inches(p_1_height)  # 图片距离顶部的距离
 
         # 插入图片
         slide.shapes.add_picture(image_path_1, left, top, width=Inches(img_1_width / 96), height=Inches(img_1_height / 96))
@@ -666,32 +667,28 @@ class Generate_ppt:
         with Image.open(image_path_2) as img_2:
             img_2_width, img_2_height = img_2.size
 
-        # 计算PPT页面的宽度和最大图片宽度（PPT整体宽度的一半）
-        img_width_alter = 550
-        img_height_alter = 550
-
         # 调整图片大小
         if img_2_width / img_2_height > img_width_alter / img_height_alter:
             # 如果图片的宽高比大于PPT页面的宽高比，则按照宽度调整图片比例
-            scale_factor = img_width_alter / img_1_width
+            scale_factor = img_width_alter / img_2_width
             img_2_width = img_width_alter
             img_2_height = int(img_2_height * scale_factor)
         else:
             # 如果图片的宽高比小于PPT页面的宽高比，则按照高度调整图片比例
-            scale_factor = img_height_alter / img_1_height
+            scale_factor = img_height_alter / img_2_height
             img_2_height = img_height_alter
+            print("add double image")
             img_2_width = int(img_2_width * scale_factor)
 
 
         # 计算图片的位置：使其位于PPT的中央
-        p_height = (8 - img_2_height / 96) / 2
-        p_width = 7 + (6 - img_2_width / 96) / 2
-        left = Inches(p_width)  # 图片距离左侧的距离
-        top = Inches(p_height)  # 图片距离顶部的距离
+        p_2_height = (8 - img_2_height / 96) / 2
+        p_2_width = 7 + (6 - img_2_width / 96) / 2
+        left = Inches(p_2_width)  # 图片距离左侧的距离
+        top = Inches(p_2_height)  # 图片距离顶部的距离
 
         # 插入图片
-        slide.shapes.add_picture(image_path_1, left, top, width=Inches(img_2_width / 96), height=Inches(img_2_height / 96))
-
+        slide.shapes.add_picture(image_path_2, left, top, width=Inches(img_2_width / 96), height=Inches(img_2_height / 96))
 
     # 添加感谢页
     def add_thanks(self, text="感谢您的观看"):

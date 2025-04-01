@@ -25,6 +25,7 @@ long_long_text = "这是一段文本。这是这是这这是一段文本。这�
 # generate_ppt.add_all_image("ppt生成",  "../source/img/image22.jpg")
 # generate_ppt.add_all_image("ppt生成",  "../source/img/image19.jpg")
 generate_ppt.add_text_double_image("ppt生成", long_text, "../source/img/image22.jpg", "../source/img/image19.jpg")
+generate_ppt.add_double_image("ppt生成", "../source/img/image22.jpg", "../source/img/image22.jpg")
 generate_ppt.add_text_image("ppt生成", long_long_text, "../source/img/image22.jpg")
 generate_ppt.add_all_text("ppt生成", long_long_text)
 generate_ppt.add_thanks()
