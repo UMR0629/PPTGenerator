@@ -541,9 +541,9 @@ def parse_output_to_section(output: str, section: PaperSectionSummary) -> None:
         if line.startswith('◆')
     ]
     
-    # 自动处理关联关系（示例中的图引用）
-    figure_refs = set()
-    for point in section.key_points:
-        if matches := re.findall(r'图(\d+)', point):
-            figure_refs.update(int(m) for m in matches)
-    section.figures = list(set(section.figures) | figure_refs)
+    # # 自动处理关联关系（示例中的图引用）
+    # figure_refs = set()
+    # for point in section.key_points:
+    #     if matches := re.findall(r'图(\d+)', point):
+    #         figure_refs.update(int(m) for m in matches)
+    # section.figures = list(set(section.figures) | figure_refs)
