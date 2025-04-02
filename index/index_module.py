@@ -338,34 +338,45 @@ class PaperInfo:
         ppt_path = "../source/ppt_model/1.百廿红-李一.pptx"
         generate_ppt = Generate_ppt(ppt_path)
         author_text = ""
-        for author in self.authors:
+        for author in self.ppt_presenter:
             author_text += author + " "
-        generate_ppt.add_cover(self.title, author_text, self.date)
+        # 增加标题页
+        generate_ppt.add_cover(self.title, author_text, self.ppt_date)
+
         index_content = self.find_root_children()
         index_num = len(index_content)
+
+        # 增加目录页
         generate_ppt.add_menu("../source/img/image22.jpg", index_num, index_content)
         main_title_count = 0
 
+        # 遍历树，添加正文内容
         node_list = self.dfs_recursive_with_depth()
         for node in node_list:
             title = node[0]
             depth = node[1]
             content_node = self.find_outline_section(title)
+            # 添加大标题页
             if depth == 1:
                 main_title_count += 1
                 title = generate_ppt.process_title(title)
                 generate_ppt.add_main_title(title,str(main_title_count))
+            # 添加正文页
             if content_node.content is not None:
+                # 每个summary_content为用户指定的一页ppt
                 for summary_content in content_node.content.summary:
                     tables = summary_content.tables
                     figures = summary_content.figures
                     img_num = len(tables) + len(figures)
-                    print("generate_ppt",title,img_num)
+                    #print("generate_ppt",title,img_num)
+                    # 根据不同的图片数量和文字长度，选择合适的模板
+                    # 如果为纯文字
                     if img_num == 0:
                         text_combined = ""
                         for point in summary_content.key_points:
                             text_combined  += (point + "\n")
                         generate_ppt.add_all_text(title,text_combined)
+                    # 一张图片+文字
                     if img_num == 1:
                         text_combined = ""
                         for point in summary_content.key_points:
@@ -378,10 +389,12 @@ class PaperInfo:
                             #figure_path = self.find_image_addr(figures[0])
                             figure_path = figures[0].path
                             generate_ppt.add_text_image(title,text_combined,figure_path)
+                    # 两张图片+文字
                     if img_num == 2:
                         text_combined = ""
                         for point in summary_content.key_points:
                             text_combined  += (point + "\n")
+                        # 如果文字很长，自动拆分为2图ppt+纯文字ppt
                         if len(text_combined) < 200:
                             if len(tables) == 2:
                                 # table_path1 = self.find_table_addr(tables[0])
@@ -423,6 +436,7 @@ class PaperInfo:
                                 figure_path = figures[0].path
                                 generate_ppt.add_double_image(title,table_path,figure_path)
                                 generate_ppt.add_all_text(title,text_combined)
+                    # 三图+文字（自动拆分为2图ppt+1图1文ppt）
                     if img_num == 3:
                         text_combined = ""
                         for point in summary_content.key_points:

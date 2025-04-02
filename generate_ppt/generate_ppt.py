@@ -55,7 +55,7 @@ class Generate_ppt:
         elif menu_items_number == 6:
             self.add_menu_6(image_path, menu_items)
         else:
-            print("目录项数量错误，目前仅支持3-6个目录项")
+            self.add_menu_6(image_path, menu_items)
 
     # 添加目录页（3个目录项）
     def add_menu_3(self, image_path, menu_items):
