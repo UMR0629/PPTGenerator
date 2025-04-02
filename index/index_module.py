@@ -423,6 +423,34 @@ class PaperInfo:
                                 figure_path = figures[0].path
                                 generate_ppt.add_double_image(title,table_path,figure_path)
                                 generate_ppt.add_all_text(title,text_combined)
+                    if img_num == 3:
+                        text_combined = ""
+                        for point in summary_content.key_points:
+                            text_combined  += (point + "\n")
+                        if len(figures) == 0:
+                            table_path1 = tables[0].path
+                            table_path2 = tables[1].path
+                            table_path3 = tables[2].path
+                            generate_ppt.add_double_image(title, table_path1, table_path2)
+                            generate_ppt.add_text_image(title, text_combined, table_path3)
+                        elif len(figures) == 1:
+                            figure_path = figures[0].path
+                            table_path1 = tables[0].path
+                            table_path2 = tables[1].path
+                            generate_ppt.add_double_image(title, table_path1, table_path2)
+                            generate_ppt.add_text_image(title, text_combined, figure_path)
+                        elif len(figures) == 2:
+                            figure_path1 = figures[0].path
+                            figure_path2 = figures[1].path
+                            table_path = tables[0].path
+                            generate_ppt.add_double_image(title, figure_path1, figure_path2)
+                            generate_ppt.add_text_image(title, text_combined, table_path)
+                        else:
+                            figure_path1 = figures[0].path
+                            figure_path2 = figures[1].path
+                            figure_path3 = figures[2].path
+                            generate_ppt.add_double_image(title, figure_path1, figure_path2)
+                            generate_ppt.add_text_image(title, text_combined, figure_path3)
 
         generate_ppt.add_thanks()
         generate_ppt.save_ppt("../source/ppt_model/output.pptx")
