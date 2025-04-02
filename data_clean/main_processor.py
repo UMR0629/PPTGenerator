@@ -59,18 +59,20 @@ def main_data_process():
 
     if paper_info:
         print("\n✅ 所有处理步骤已完成")
-        print("\n=== 最终处理结果 ===")
-        print("=== 论文大纲 ===")
-        paper_info.display_outline()
+        # print("\n=== 最终处理结果 ===")
+        # print("=== 论文大纲 ===")
+        #paper_info.display_outline()
 
-        print("\n=== 图片信息 ===")
-        for img in paper_info.image_list:
-            print(f"图片编号: {img['number']}")
-            print(f"路径: {img['path']}")
-            print(f"描述: {img['description']}")
-            print("-" * 40)
+        # print("\n=== 图片信息 ===")
+        # for img in paper_info.image_list:
+        #     print(f"图片编号: {img['number']}")
+        #     print(f"路径: {img['path']}")
+        #     print(f"描述: {img['description']}")
+        #     print("-" * 40)
     else:
         print("❌ storedata.py 未成功返回论文信息。")
+    return paper_info
 
-if __name__ == "__main__":
-    main_data_process()
+
+# if __name__ == "__main__":
+#     main_data_process()

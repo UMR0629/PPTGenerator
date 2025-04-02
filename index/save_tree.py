@@ -1,6 +1,8 @@
 import sqlite3
 from typing import List, Dict, Any
 import json
+
+#from index.testmain import summary
 from index_module import PaperInfo, Node, SectionContent, PaperSectionSummary
 
 
@@ -36,6 +38,7 @@ class PaperInfoDB:
                     title TEXT NOT NULL,
                     parent_name TEXT,
                     text_content TEXT,
+                    summary_id INTEGER,
                     key_points TEXT,
                     tables TEXT,
                     figures TEXT,
@@ -76,25 +79,79 @@ class PaperInfoDB:
         """Recursively save outline nodes"""
         # Prepare content data
         text_content = node.content.text if node.content else None
-        key_points = json.dumps(node.content.summary.key_points) if node.content and node.content.summary else None
-        tables = json.dumps(node.content.summary.tables) if node.content and node.content.summary else None
-        figures = json.dumps(node.content.summary.figures) if node.content and node.content.summary else None
+        if node.content is not None:
+            if len(node.content.summary) != 0:
+                #print(text_content)
+                summary_id = 0
+                for summary_content in node.content.summary:
+                    summary_id += 1
+                    key_points = json.dumps(summary_content.key_points) if node.content and node.content.summary else None
+                    tables = json.dumps(summary_content.tables) if node.content and node.content.summary else None
+                    figures = json.dumps(summary_content.figures) if node.content and node.content.summary else None
 
-        # Insert current node
-        cursor.execute("""
-            INSERT INTO outline_nodes (
-                paper_id, title, parent_name, text_content, key_points, tables, figures
-            ) VALUES (?, ?, ?, ?, ?, ?, ?)
-        """, (
-            paper_id,
-            node.name,
-            parent_name,
-            text_content,
-            key_points,
-            tables,
-            figures
-        ))
-        current_id = cursor.lastrowid
+                    # Insert current node
+                    cursor.execute("""
+                        INSERT INTO outline_nodes (
+                            paper_id, title, parent_name, text_content, summary_id, key_points, tables, figures
+                        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                    """, (
+                        paper_id,
+                        node.name,
+                        parent_name,
+                        text_content,
+                        summary_id,
+                        key_points,
+                        tables,
+                        figures
+                    ))
+                    current_id = cursor.lastrowid
+            else:
+                #print(text_content)
+                summary_id = None
+                key_points = None
+                tables = None
+                figures = None
+
+                # Insert current node
+                cursor.execute("""
+                        INSERT INTO outline_nodes (
+                            paper_id, title, parent_name, text_content, summary_id, key_points, tables, figures
+                        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                    """, (
+                    paper_id,
+                    node.name,
+                    parent_name,
+                    text_content,
+                    summary_id,
+                    key_points,
+                    tables,
+                    figures
+                ))
+                current_id = cursor.lastrowid
+
+        else:
+            summary_id = None
+            key_points =  None
+            tables =  None
+            figures =  None
+            text_content = None
+
+            # Insert current node
+            cursor.execute("""
+                INSERT INTO outline_nodes (
+                    paper_id, title, parent_name, text_content, summary_id, key_points, tables, figures
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            """, (
+                paper_id,
+                node.name,
+                parent_name,
+                text_content,
+                summary_id,
+                key_points,
+                tables,
+                figures
+            ))
+            current_id = cursor.lastrowid
 
         # Save children recursively
         for child in node.children:
@@ -136,27 +193,45 @@ class PaperInfoDB:
                 for node_data in nodes_data:
                     node_id = node_data[0]
                     parent_name = node_data[3]
-
+                    if paper.find_outline_section(node_data[2]) is not None:
+                        node_find = paper.find_outline_section(node_data[2])
+                        if node_data[4] is not None:  # text_content exists
+                            summary_data = {
+                                "key_points": json.loads(node_data[6]) if node_data[6] else [],
+                                "tables": json.loads(node_data[7]) if node_data[7] else [],
+                                "figures": json.loads(node_data[8]) if node_data[8] else []
+                            }
+                            summary = PaperSectionSummary(**summary_data)
+                            if node_find.content is not None:
+                                if node_data[6] is not None:
+                                    node_find.content.add_summary(summary)
+                            else:
+                                print(f"{node_data[2]}add to leaf")
+                                paper.add_content_to_leaf(node_data[2], nodes_data[4])
+                                if node_data[6] is not None:
+                                    node_find.content.add_summary(summary)
                     # Create SectionContent if content exists
-                    content = None
-                    if node_data[4] is not None:  # text_content exists
-                        summary_data = {
-                            "key_points": json.loads(node_data[5]) if node_data[5] else [],
-                            "tables": json.loads(node_data[6]) if node_data[6] else [],
-                            "figures": json.loads(node_data[7]) if node_data[7] else []
-                        }
-                        summary = PaperSectionSummary(**summary_data)
-                        content = SectionContent(
-                            text=node_data[4],
-                            summary=summary
+                    else:
+                        content = None
+                        if node_data[4] is not None:  # text_content exists
+                            summary_data = {
+                                "key_points": json.loads(node_data[6]) if node_data[6] else [],
+                                "tables": json.loads(node_data[7]) if node_data[7] else [],
+                                "figures": json.loads(node_data[8]) if node_data[8] else []
+                            }
+                            summary = PaperSectionSummary(**summary_data)
+                            content = SectionContent(
+                                text=node_data[4],
+                            )
+                            if node_data[6] is not None:
+                                content.add_summary(summary)
+                        parent_node = paper.find_outline_section(parent_name) if parent_name else None
+                        node = Node(
+                            name=node_data[2],
+                            parent=parent_node,
+                            content=content
                         )
-                    parent_node = paper.find_outline_section(parent_name) if parent_name else None
-                    node = Node(
-                        name=node_data[2],
-                        parent=parent_node,
-                        content=content
-                    )
-                    nodes_map[node_id] = (node, parent_name)  # Store node and its parent_id
+                        nodes_map[node_id] = (node, parent_name)  # Store node and its parent_id
 
                 # # Second pass: build hierarchy
                 # root_node = None

@@ -19,20 +19,20 @@ def collect_images(paper_info, output_picture0_dir):
         print(f"警告：图片目录不存在 {os.path.abspath(output_picture0_dir)}")
         return
 
-    print(f"\n正在扫描图片目录：{os.path.abspath(output_picture0_dir)}")
-    print("目录内容：", os.listdir(output_picture0_dir))
+    # print(f"\n正在扫描图片目录：{os.path.abspath(output_picture0_dir)}")
+    # print("目录内容：", os.listdir(output_picture0_dir))
 
     # 遍历所有子目录（如Figure1/, Table1/等）
     for item in os.listdir(output_picture0_dir):
         item_path = os.path.join(output_picture0_dir, item)
         if os.path.isdir(item_path):
-            print(f"\n扫描子目录：{item}")
+            #print(f"\n扫描子目录：{item}")
             # 在子目录中查找png和txt文件
             png_files = [f for f in os.listdir(item_path) if f.lower().endswith('.png')]
             txt_files = [f for f in os.listdir(item_path) if f.lower().endswith('.txt')]
             
-            print(f"找到PNG文件：{png_files}")
-            print(f"找到TXT文件：{txt_files}")
+            # print(f"找到PNG文件：{png_files}")
+            # print(f"找到TXT文件：{txt_files}")
 
             # 处理找到的PNG文件
             for png_file in png_files:
@@ -60,7 +60,7 @@ def collect_images(paper_info, output_picture0_dir):
                     'path': img_path,
                     'description': description
                 })
-                print(f"已登记图片：{img_num} (路径: {img_path})")
+                #print(f"已登记图片：{img_num} (路径: {img_path})")
 
     # 按图片编号排序
     paper_info.image_list.sort(key=lambda x: (
@@ -75,8 +75,8 @@ def store_paper_data(output5_dir, output_picture0_dir):
     output5_dir = os.path.abspath(output5_dir)
     output_picture0_dir = os.path.abspath(output_picture0_dir)
     
-    print(f"论文文本目录：{output5_dir}")
-    print(f"图片资源目录：{output_picture0_dir}")
+    # print(f"论文文本目录：{output5_dir}")
+    # print(f"图片资源目录：{output_picture0_dir}")
     
     paper_info = initialize_paper_info(output5_dir)
     build_outline_structure(paper_info, output5_dir)
