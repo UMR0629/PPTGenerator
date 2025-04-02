@@ -19,7 +19,7 @@ project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(project_root)
 
 from anytree import Node, RenderTree, PreOrderIter
-from extract_function import generate_presentation_summary, generate_with_feedback,split_text_into_parts
+from extract_function import generate_presentation_summary, generate_with_feedback,split_text_into_parts,title_translate_function
 from generate_ppt.generate_ppt import Generate_ppt  # 暂时注释掉
 import re
 
@@ -60,6 +60,13 @@ class PaperSectionSummary:
         if not any(figure.number == figure_num for figure in self.figures):
             new_figure = TableorFigure(number=figure_num)
             self.figures.append(new_figure)
+    
+    def insert_figure(self,path:str) ->None:
+        """用户自己选择插入图片"""
+        num=100+len(self.figures)
+        new_figure=TableorFigure(number=num,enable=1,path=str)
+        self.figures.append(new_figure)
+
 
     def to_dict(self) -> dict:
         """转换为字典格式"""
@@ -405,6 +412,19 @@ class PaperInfo:
         generate_ppt.add_thanks()
         generate_ppt.save_ppt("../source/ppt_model/output.pptx")
 
+    def generate_summary(self,lang:str="zh"):
+        for node in PreOrderIter(self.outline_root):
+            if isinstance(node.content, SectionContent):
+                 if(lang=="zh"):
+                     tmp=title_translate_function(node.name)
+                     node.name=tmp
+                 node.content.content_extract()
+        for node in PreOrderIter(self.outline_root):
+            if isinstance(node.content, SectionContent):
+                for figure in node.content.summary[0].figures:
+                    figure.path=self.find_image_addr(figure.number)
+                for table in node.content.summary[0].tables:
+                    table.path=self.find_table_addr(figure.number)
 
 
 
