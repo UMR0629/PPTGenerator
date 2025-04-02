@@ -471,18 +471,24 @@ class PaperInfo:
 
     def generate_summary(self,lang:str="zh"):
         for node in PreOrderIter(self.outline_root):
+            
             if isinstance(node.content, SectionContent):
-                 if(lang=="zh"):
-                     tmp=title_translate_function(node.name)
-                     node.name=tmp
-                 node.content.content_extract()
+                print("正在翻译标题")
+                if(lang=="zh"):
+                    tmp=title_translate_function(node.name)
+                    node.name=tmp
+                print("正在提取{self.name}要点")
+                node.content.content_extract()
+                print("{self.name}提取完成")
+            
         for node in PreOrderIter(self.outline_root):
             if isinstance(node.content, SectionContent):
+                print("正在提取{self.name}中的图片信息")
                 for figure in node.content.summary[0].figures:
                     figure.path=self.find_image_addr(figure.number)
                 for table in node.content.summary[0].tables:
                     table.path=self.find_table_addr(figure.number)
-
+                print("提取完成")
 
 
 def parse_output_to_section(output: str, section: PaperSectionSummary) -> None:
@@ -521,10 +527,8 @@ def parse_output_to_section(output: str, section: PaperSectionSummary) -> None:
                 break
     
     # 设置表格和图片（确保容错）
-    if len(parsed_arrays) >= 1:
-        section.tables = parsed_arrays[0]
-    if len(parsed_arrays) >= 2:
-        section.figures = parsed_arrays[1]
+    section.tables = [TableorFigure(number=num) for num in parsed_arrays[0]] if len(parsed_arrays) >= 1 else []
+    section.figures = [TableorFigure(number=num) for num in parsed_arrays[1]] if len(parsed_arrays) >= 2 else []
     
     # 提取标题（第一个非数组行）
     title_line = None
@@ -543,9 +547,9 @@ def parse_output_to_section(output: str, section: PaperSectionSummary) -> None:
         if line.startswith('◆')
     ]
     
-    # 自动处理关联关系（示例中的图引用）
-    figure_refs = set()
-    for point in section.key_points:
-        if matches := re.findall(r'图(\d+)', point):
-            figure_refs.update(int(m) for m in matches)
-    section.figures = list(set(section.figures) | figure_refs)
+    # # 自动处理关联关系（示例中的图引用）
+    # figure_refs = set()
+    # for point in section.key_points:
+    #     if matches := re.findall(r'图(\d+)', point):
+    #         figure_refs.update(int(m) for m in matches)
+    # section.figures = list(set(section.figures) | figure_refs)
