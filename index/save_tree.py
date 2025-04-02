@@ -3,7 +3,7 @@ from typing import List, Dict, Any
 import json
 
 #from index.testmain import summary
-from index_module import PaperInfo, Node, SectionContent, PaperSectionSummary
+from index_module import PaperInfo, Node, SectionContent, PaperSectionSummary, TableorFigure
 
 
 class PaperInfoDB:
@@ -46,6 +46,20 @@ class PaperInfoDB:
                 )
             """)
 
+            cursor.execute("""
+                CREATE TABLE IF NOT EXISTS tables_figures (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    paper_id INTEGER NOT NULL,
+                    title TEXT NOT NULL,
+                    summary_id INTEGER,
+                    item_type TEXT,
+                    number TEXT,
+                    enable INTEGER,
+                    path TEXT,
+                    FOREIGN KEY (paper_id) REFERENCES papers(id)
+                )
+            """)
+
             conn.commit()
 
     def save_paper(self, paper: PaperInfo) -> int:
@@ -79,6 +93,7 @@ class PaperInfoDB:
         """Recursively save outline nodes"""
         # Prepare content data
         text_content = node.content.text if node.content else None
+        # 如果
         if node.content is not None:
             if len(node.content.summary) != 0:
                 #print(text_content)
@@ -86,8 +101,42 @@ class PaperInfoDB:
                 for summary_content in node.content.summary:
                     summary_id += 1
                     key_points = json.dumps(summary_content.key_points) if node.content and node.content.summary else None
-                    tables = json.dumps(summary_content.tables) if node.content and node.content.summary else None
-                    figures = json.dumps(summary_content.figures) if node.content and node.content.summary else None
+                    tables = node.content.summary.tables
+                    figures = node.content.summary.figures
+                    if len(tables) != 0:
+                        for table in tables:
+                            cursor.execute("""
+                                INSERT INTO tables_figures (
+                                    paper_id, title, summary_id, item_type, number, enable, path
+                                ) VALUES (?, ?, ?, ?, ?, ?, ?)
+                            """, (
+                                paper_id,
+                                node.name,
+                                summary_id,
+                                "TABLE",
+                                table.number,
+                                table.enable,
+                                table.path
+                            ))
+                    if len(figures) != 0:
+                        for figure in figures:
+                            cursor.execute("""
+                                INSERT INTO tables_figures (
+                                    paper_id, title, summary_id, item_type, number, enable, path
+                                ) VALUES (?, ?, ?, ?, ?, ?, ?)
+                            """, (
+                                paper_id,
+                                node.name,
+                                summary_id,
+                                "FIGURE",
+                                figure.number,
+                                figure.enable,
+                                figure.path
+                            ))
+                    #tables = json.dumps(summary_content.tables) if node.content and node.content.summary else None
+                    #figures = json.dumps(summary_content.figures) if node.content and node.content.summary else None
+                    tables = None
+                    figures = None
 
                     # Insert current node
                     cursor.execute("""
@@ -187,43 +236,77 @@ class PaperInfoDB:
             """, (paper_id,))
             nodes_data = cursor.fetchall()
 
+
             if nodes_data:
                 # First pass: create all nodes without hierarchy
                 nodes_map = {}
                 for node_data in nodes_data:
                     node_id = node_data[0]
                     parent_name = node_data[3]
+                    # 如果是已经插入树的结点
                     if paper.find_outline_section(node_data[2]) is not None:
                         node_find = paper.find_outline_section(node_data[2])
-                        if node_data[4] is not None:  # text_content exists
-                            summary_data = {
-                                "key_points": json.loads(node_data[6]) if node_data[6] else [],
-                                "tables": json.loads(node_data[7]) if node_data[7] else [],
-                                "figures": json.loads(node_data[8]) if node_data[8] else []
-                            }
-                            summary = PaperSectionSummary(**summary_data)
-                            if node_find.content is not None:
-                                if node_data[6] is not None:
-                                    node_find.content.add_summary(summary)
-                            else:
-                                print(f"{node_data[2]}add to leaf")
+
+                        # 如果database存在content（section）内容
+                        if node_data[4] is not None:
+                            # 如果树中的node没有content叶子，则创建
+                            if node_find.content is None:
                                 paper.add_content_to_leaf(node_data[2], nodes_data[4])
-                                if node_data[6] is not None:
-                                    node_find.content.add_summary(summary)
-                    # Create SectionContent if content exists
+                            # 如果database存在keypoints，说明有summary
+                            if node_data[6] is not None:
+                                key_points = json.loads(node_data[6]) if node_data[6] else []
+                                summary = PaperSectionSummary(key_points)
+                                # 查询该论文、该section、该summery下的table数据
+                                cursor.execute("""
+                                    SELECT * FROM outline_nodes 
+                                    WHERE paper_id = ? and title = ? and summary_id = ? and item_type = ?
+                                    ORDER BY id
+                                """, (paper_id, node_data[2], node_data[5], "TABLE",))
+                                tables_data = cursor.fetchall()
+                                for table_data in tables_data:
+                                    new_table = TableorFigure(table_data[5], table_data[6], table_data[7])
+                                    summary.tables.append(new_table)
+                                # 查询该论文、该section、该summery下的figure数据
+                                cursor.execute("""
+                                    SELECT * FROM outline_nodes 
+                                    WHERE paper_id = ? and title = ? and summary_id = ? and item_type = ?
+                                    ORDER BY id
+                                """, (paper_id, node_data[2], node_data[5], "FIGURE",))
+                                figures_data = cursor.fetchall()
+                                for figure_data in figures_data:
+                                    new_figure = TableorFigure(figure_data[5], figure_data[6], figure_data[7])
+                                    summary.tables.append(new_figure)
+                                node_find.content.add_summary(summary)
+
+                    # 如果是新的结点
                     else:
                         content = None
-                        if node_data[4] is not None:  # text_content exists
-                            summary_data = {
-                                "key_points": json.loads(node_data[6]) if node_data[6] else [],
-                                "tables": json.loads(node_data[7]) if node_data[7] else [],
-                                "figures": json.loads(node_data[8]) if node_data[8] else []
-                            }
-                            summary = PaperSectionSummary(**summary_data)
-                            content = SectionContent(
-                                text=node_data[4],
-                            )
+                        # 如果存在content（section）内容
+                        if node_data[4] is not None:
+                            content = SectionContent(node_data[4])
                             if node_data[6] is not None:
+                                key_points = json.loads(node_data[6]) if node_data[6] else []
+                                summary = PaperSectionSummary(key_points)
+                                # 查询该论文、该section、该summery下的table数据
+                                cursor.execute("""
+                                    SELECT * FROM outline_nodes 
+                                    WHERE paper_id = ? and title = ? and summary_id = ? and item_type = ?
+                                    ORDER BY id
+                                """, (paper_id, node_data[2], node_data[5], "TABLE",))
+                                tables_data = cursor.fetchall()
+                                for table_data in tables_data:
+                                    new_table = TableorFigure(table_data[5], table_data[6], table_data[7])
+                                    summary.tables.append(new_table)
+                                # 查询该论文、该section、该summery下的figure数据
+                                cursor.execute("""
+                                    SELECT * FROM outline_nodes 
+                                    WHERE paper_id = ? and title = ? and summary_id = ? and item_type = ?
+                                    ORDER BY id
+                                """, (paper_id, node_data[2], node_data[5], "FIGURE",))
+                                figures_data = cursor.fetchall()
+                                for figure_data in figures_data:
+                                    new_figure = TableorFigure(figure_data[5], figure_data[6], figure_data[7])
+                                    summary.tables.append(new_figure)
                                 content.add_summary(summary)
                         parent_node = paper.find_outline_section(parent_name) if parent_name else None
                         node = Node(
@@ -233,19 +316,6 @@ class PaperInfoDB:
                         )
                         nodes_map[node_id] = (node, parent_name)  # Store node and its parent_id
 
-                # # Second pass: build hierarchy
-                # root_node = None
-                # for node_id, (node, parent_id) in nodes_map.items():
-                #     if parent_id is None:
-                #         root_node = node
-                #         paper.outline_root = node
-                #     else:
-                #         parent_node = nodes_map[parent_id][0]  # Get the Node object
-                #         parent_node.children.append(node)
-                #         node.parent = parent_node
-                #
-                # if not root_node:
-                #     raise ValueError("No root node found in the outline structure")
 
             return paper
 
