@@ -101,8 +101,8 @@ class PaperInfoDB:
                 for summary_content in node.content.summary:
                     summary_id += 1
                     key_points = json.dumps(summary_content.key_points) if node.content and node.content.summary else None
-                    tables = node.content.summary.tables
-                    figures = node.content.summary.figures
+                    tables = summary_content.tables
+                    figures = summary_content.figures
                     if len(tables) != 0:
                         for table in tables:
                             cursor.execute("""
@@ -155,7 +155,7 @@ class PaperInfoDB:
                     ))
                     current_id = cursor.lastrowid
             else:
-                #print(text_content)
+                print(text_content)
                 summary_id = None
                 key_points = None
                 tables = None
@@ -258,7 +258,7 @@ class PaperInfoDB:
                                 summary = PaperSectionSummary(key_points)
                                 # 查询该论文、该section、该summery下的table数据
                                 cursor.execute("""
-                                    SELECT * FROM outline_nodes 
+                                    SELECT * FROM tables_figures 
                                     WHERE paper_id = ? and title = ? and summary_id = ? and item_type = ?
                                     ORDER BY id
                                 """, (paper_id, node_data[2], node_data[5], "TABLE",))
@@ -268,7 +268,7 @@ class PaperInfoDB:
                                     summary.tables.append(new_table)
                                 # 查询该论文、该section、该summery下的figure数据
                                 cursor.execute("""
-                                    SELECT * FROM outline_nodes 
+                                    SELECT * FROM tables_figures
                                     WHERE paper_id = ? and title = ? and summary_id = ? and item_type = ?
                                     ORDER BY id
                                 """, (paper_id, node_data[2], node_data[5], "FIGURE",))
@@ -289,7 +289,7 @@ class PaperInfoDB:
                                 summary = PaperSectionSummary(key_points)
                                 # 查询该论文、该section、该summery下的table数据
                                 cursor.execute("""
-                                    SELECT * FROM outline_nodes 
+                                    SELECT * FROM tables_figures 
                                     WHERE paper_id = ? and title = ? and summary_id = ? and item_type = ?
                                     ORDER BY id
                                 """, (paper_id, node_data[2], node_data[5], "TABLE",))
@@ -299,7 +299,7 @@ class PaperInfoDB:
                                     summary.tables.append(new_table)
                                 # 查询该论文、该section、该summery下的figure数据
                                 cursor.execute("""
-                                    SELECT * FROM outline_nodes 
+                                    SELECT * FROM tables_figures
                                     WHERE paper_id = ? and title = ? and summary_id = ? and item_type = ?
                                     ORDER BY id
                                 """, (paper_id, node_data[2], node_data[5], "FIGURE",))

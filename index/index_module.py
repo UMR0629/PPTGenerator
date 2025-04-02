@@ -13,6 +13,7 @@
 
 import sys
 import os
+from itertools import count
 
 # 添加项目根目录到Python路径
 project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -470,24 +471,30 @@ class PaperInfo:
         generate_ppt.save_ppt("../source/ppt_model/output.pptx")
 
     def generate_summary(self,lang:str="zh"):
+        count_extract = 0
         for node in PreOrderIter(self.outline_root):
-            
+            count_extract+=1
+            if count_extract == 14:
+                break
             if isinstance(node.content, SectionContent):
                 print("正在翻译标题")
                 if(lang=="zh"):
                     tmp=title_translate_function(node.name)
                     node.name=tmp
-                print("正在提取{self.name}要点")
+                print(f"正在提取{node.name}要点")
                 node.content.content_extract()
-                print("{self.name}提取完成")
-            
+                print(f"{node.name}提取完成")
+        count_extract = 0
         for node in PreOrderIter(self.outline_root):
+            count_extract += 1
+            if count_extract == 14:
+                break
             if isinstance(node.content, SectionContent):
-                print("正在提取{self.name}中的图片信息")
+                print(f"正在提取{node.name}中的图片信息")
                 for figure in node.content.summary[0].figures:
                     figure.path=self.find_image_addr(figure.number)
                 for table in node.content.summary[0].tables:
-                    table.path=self.find_table_addr(figure.number)
+                    table.path=self.find_table_addr(table.number)
                 print("提取完成")
 
 
