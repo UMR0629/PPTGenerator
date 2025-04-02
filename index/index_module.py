@@ -356,58 +356,59 @@ class PaperInfo:
                 title = generate_ppt.process_title(title)
                 generate_ppt.add_main_title(title,str(main_title_count))
             if content_node.content is not None:
-                tables = content_node.content.summary.tables
-                figures = content_node.content.summary.figures
-                img_num = len(tables) + len(figures)
-                print("generate_ppt",title,img_num)
-                if img_num == 0:
-                    text_combined = ""
-                    for point in content_node.content.summary.key_points:
-                        text_combined  += (point + "\n")
-                    generate_ppt.add_all_text(title,text_combined)
-                if img_num == 1:
-                    text_combined = ""
-                    for point in content_node.content.summary.key_points:
-                        text_combined  += (point + "\n")
-                    if len(tables) == 1:
-                        table_path = self.find_table_addr(tables[0])
-                        generate_ppt.add_text_image(title,text_combined,table_path)
-                    elif len(figures) == 1:
-                        figure_path = self.find_image_addr(figures[0])
-                        generate_ppt.add_text_image(title,text_combined,figure_path)
-                if img_num == 2:
-                    text_combined = ""
-                    for point in content_node.content.summary.key_points:
-                        text_combined  += (point + "\n")
-                    if len(text_combined) < 200:
-                        if len(tables) == 2:
-                            table_path1 = self.find_table_addr(tables[0])
-                            table_path2 = self.find_table_addr(tables[1])
-                            generate_ppt.add_text_double_image(title,text_combined,table_path1,table_path2)
-                        elif len(figures) == 2:
-                            figure_path1 = self.find_image_addr(figures[0])
-                            figure_path2 = self.find_image_addr(figures[1])
-                            generate_ppt.add_text_double_image(title,text_combined,figure_path1,figure_path2)
-                        elif len(tables) == 1 and len(figures) == 1:
+                for summary_content in content_node.content.summary:
+                    tables = summary_content.tables
+                    figures = summary_content.figures
+                    img_num = len(tables) + len(figures)
+                    print("generate_ppt",title,img_num)
+                    if img_num == 0:
+                        text_combined = ""
+                        for point in summary_content.key_points:
+                            text_combined  += (point + "\n")
+                        generate_ppt.add_all_text(title,text_combined)
+                    if img_num == 1:
+                        text_combined = ""
+                        for point in summary_content.key_points:
+                            text_combined  += (point + "\n")
+                        if len(tables) == 1:
                             table_path = self.find_table_addr(tables[0])
+                            generate_ppt.add_text_image(title,text_combined,table_path)
+                        elif len(figures) == 1:
                             figure_path = self.find_image_addr(figures[0])
-                            generate_ppt.add_text_double_image(title,text_combined,table_path,figure_path)
-                    else:
-                        if len(tables) == 2:
-                            table_path1 = self.find_table_addr(tables[0])
-                            table_path2 = self.find_table_addr(tables[1])
-                            generate_ppt.add_double_image(title,table_path1,table_path2)
-                            generate_ppt.add_all_text(title,text_combined)
-                        elif len(figures) == 2:
-                            figure_path1 = self.find_image_addr(figures[0])
-                            figure_path2 = self.find_image_addr(figures[1])
-                            generate_ppt.add_double_image(title,figure_path1,figure_path2)
-                            generate_ppt.add_all_text(title,text_combined)
-                        elif len(tables) == 1 and len(figures) == 1:
-                            table_path = self.find_table_addr(tables[0])
-                            figure_path = self.find_image_addr(figures[0])
-                            generate_ppt.add_double_image(title,table_path,figure_path)
-                            generate_ppt.add_all_text(title,text_combined)
+                            generate_ppt.add_text_image(title,text_combined,figure_path)
+                    if img_num == 2:
+                        text_combined = ""
+                        for point in summary_content.key_points:
+                            text_combined  += (point + "\n")
+                        if len(text_combined) < 200:
+                            if len(tables) == 2:
+                                table_path1 = self.find_table_addr(tables[0])
+                                table_path2 = self.find_table_addr(tables[1])
+                                generate_ppt.add_text_double_image(title,text_combined,table_path1,table_path2)
+                            elif len(figures) == 2:
+                                figure_path1 = self.find_image_addr(figures[0])
+                                figure_path2 = self.find_image_addr(figures[1])
+                                generate_ppt.add_text_double_image(title,text_combined,figure_path1,figure_path2)
+                            elif len(tables) == 1 and len(figures) == 1:
+                                table_path = self.find_table_addr(tables[0])
+                                figure_path = self.find_image_addr(figures[0])
+                                generate_ppt.add_text_double_image(title,text_combined,table_path,figure_path)
+                        else:
+                            if len(tables) == 2:
+                                table_path1 = self.find_table_addr(tables[0])
+                                table_path2 = self.find_table_addr(tables[1])
+                                generate_ppt.add_double_image(title,table_path1,table_path2)
+                                generate_ppt.add_all_text(title,text_combined)
+                            elif len(figures) == 2:
+                                figure_path1 = self.find_image_addr(figures[0])
+                                figure_path2 = self.find_image_addr(figures[1])
+                                generate_ppt.add_double_image(title,figure_path1,figure_path2)
+                                generate_ppt.add_all_text(title,text_combined)
+                            elif len(tables) == 1 and len(figures) == 1:
+                                table_path = self.find_table_addr(tables[0])
+                                figure_path = self.find_image_addr(figures[0])
+                                generate_ppt.add_double_image(title,table_path,figure_path)
+                                generate_ppt.add_all_text(title,text_combined)
 
         generate_ppt.add_thanks()
         generate_ppt.save_ppt("../source/ppt_model/output.pptx")
