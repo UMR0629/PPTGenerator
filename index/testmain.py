@@ -1,9 +1,9 @@
 import sys
 #sys.path.append("..")
 #from index import PaperSectionSummary,PaperInfo,SectionContent
-from index_module import PaperInfo,SectionContent
-from index_module import parse_output_to_section 
-from extract_function import generate_presentation_summary,generate_with_feedback
+from index.index_module import PaperInfo,SectionContent
+from index.index_module import parse_output_to_section 
+from index.extract_function import generate_presentation_summary,generate_with_feedback
 from anytree import Node, RenderTree, PreOrderIter
 from save_tree import PaperInfoDB
 tmp=PaperInfo(title="Leveraging Semantic Relations in Code and Data to Enhance Taint Analysis of Embedded Systems",authors="Jiaxu Zhao",date=2024,journal="tmp",ppt_presenter="tom",ppt_date="2025.3")
