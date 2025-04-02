@@ -471,11 +471,7 @@ class PaperInfo:
         generate_ppt.save_ppt("../source/ppt_model/output.pptx")
 
     def generate_summary(self,lang:str="zh"):
-        count_extract = 0
         for node in PreOrderIter(self.outline_root):
-            count_extract+=1
-            if count_extract == 14:
-                break
             if isinstance(node.content, SectionContent):
                 print("正在翻译标题")
                 if(lang=="zh"):
@@ -484,11 +480,7 @@ class PaperInfo:
                 print(f"正在提取{node.name}要点")
                 node.content.content_extract()
                 print(f"{node.name}提取完成")
-        count_extract = 0
         for node in PreOrderIter(self.outline_root):
-            count_extract += 1
-            if count_extract == 14:
-                break
             if isinstance(node.content, SectionContent):
                 print(f"正在提取{node.name}中的图片信息")
                 for figure in node.content.summary[0].figures:

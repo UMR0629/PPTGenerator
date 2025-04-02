@@ -155,7 +155,7 @@ class PaperInfoDB:
                     ))
                     current_id = cursor.lastrowid
             else:
-                print(text_content)
+                #print(text_content)
                 summary_id = None
                 key_points = None
                 tables = None
@@ -227,6 +227,7 @@ class PaperInfoDB:
                 ppt_date=paper_data[6]
             )
             paper.image_list = json.loads(paper_data[7])
+            #paper.title = "Predator：用于高效漏洞验证的定向Web应用模糊测试"
 
             # Load outline structure
             cursor.execute("""
