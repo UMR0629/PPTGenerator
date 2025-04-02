@@ -471,18 +471,24 @@ class PaperInfo:
 
     def generate_summary(self,lang:str="zh"):
         for node in PreOrderIter(self.outline_root):
+            
             if isinstance(node.content, SectionContent):
-                 if(lang=="zh"):
-                     tmp=title_translate_function(node.name)
-                     node.name=tmp
-                 node.content.content_extract()
+                print("正在翻译标题")
+                if(lang=="zh"):
+                    tmp=title_translate_function(node.name)
+                    node.name=tmp
+                print("正在提取{self.name}要点")
+                node.content.content_extract()
+                print("{self.name}提取完成")
+            
         for node in PreOrderIter(self.outline_root):
             if isinstance(node.content, SectionContent):
+                print("正在提取{self.name}中的图片信息")
                 for figure in node.content.summary[0].figures:
                     figure.path=self.find_image_addr(figure.number)
                 for table in node.content.summary[0].tables:
                     table.path=self.find_table_addr(figure.number)
-
+                print("提取完成")
 
 
 def parse_output_to_section(output: str, section: PaperSectionSummary) -> None:
