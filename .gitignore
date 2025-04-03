@@ -1,0 +1,12 @@
+# 忽略所有 __pycache__ 目录
+__pycache__/
+
+# 忽略所有名称为 note 的文件
+note
+
+# 忽略所有 .pth 后缀的文件
+*.pth
+
+#忽略所有pdf，zip
+*.pdf
+*.zip

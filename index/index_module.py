@@ -336,7 +336,7 @@ class PaperInfo:
         """
         生成ppt
         """
-        ppt_path = "../source/ppt_model/1.百廿红-李一.pptx"
+        ppt_path = "source/ppt_model/1.百廿红-李一.pptx"
         generate_ppt = Generate_ppt(ppt_path)
         author_text = ""
         for author in self.ppt_presenter:
@@ -348,7 +348,7 @@ class PaperInfo:
         index_num = len(index_content)
 
         # 增加目录页
-        generate_ppt.add_menu("../source/img/image22.jpg", index_num, index_content)
+        generate_ppt.add_menu("source/img/image22.jpg", index_num, index_content)
         main_title_count = 0
 
         # 遍历树，添加正文内容
@@ -486,8 +486,8 @@ class PaperInfo:
         ppt_presenter_first_part = self.ppt_presenter.split(' ')[0]
         ppt_presenter = re.sub(r'[^\w]', '', ppt_presenter_first_part).lower()
         print(ppt_presenter)
-        ppt_save_path = "../source/ppt_model/" + title + "_" + ppt_presenter + ".pptx"
-        #ppt_save_path = "../source/ppt_model/output.pptx"
+        ppt_save_path = "source/ppt_model/" + title + "_" + ppt_presenter + ".pptx"
+        #ppt_save_path = "source/ppt_model/output.pptx"
         generate_ppt.save_ppt(ppt_save_path)
 
     def generate_summary(self,lang:str="zh"):

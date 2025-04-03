@@ -3,7 +3,7 @@ from typing import List, Dict, Any
 import json
 
 #from index.testmain import summary
-from index_module import PaperInfo, Node, SectionContent, PaperSectionSummary, TableorFigure
+from index.index_module import PaperInfo, Node, SectionContent, PaperSectionSummary, TableorFigure
 
 
 class PaperInfoDB:
