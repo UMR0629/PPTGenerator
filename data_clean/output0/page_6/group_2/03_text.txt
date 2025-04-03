@@ -1,5 +1,0 @@
-script chooses which function to call based on the value of
-$action. We identify that $a is the dependent parameter
-influencing the value of $action in the branch statements
-on lines 9, 11, and 19. We then extract all potential values
-of $a, which include lookup, edit, and defaultAction.

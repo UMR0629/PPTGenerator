@@ -1,7 +1,0 @@
-We further assess the capability of PREDATOR in validat-
-ing static analysis reports. We use the set of vulnerabilities
-reported by TChecker [6] as the ground truth, and then
-perform automatic validation using PREDATOR. We set
-the locations reported by TChecker as the targets. Some
-applications evaluated by TChecker are excluded, and we
-provide detailed explanations in Table 8 in the appendix.

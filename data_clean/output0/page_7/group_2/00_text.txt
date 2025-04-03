@@ -1,6 +1,0 @@
-Inaccurate static
-analysis results caused by variable function calls can be
-supplemented during dynamic testing. PREDATOR can dy-
-namically identify paths that were not recognized during the
-static analysis phase and update the block distances accord-
-ingly. The simplified workflow is shown in Algorithm 2.

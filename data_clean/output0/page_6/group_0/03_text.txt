@@ -1,6 +1,0 @@
-Script Inclusion Chain Analysis. We assess the script
-inclusion chain to identify which scripts include the entry
-scripts, consequently designating those as entry scripts as
-well. Then, we convert the file system paths of the entry
-scripts into entry URLs. They are then fed into the fuzzer
-to indicate the scripts responsible for processing test cases.

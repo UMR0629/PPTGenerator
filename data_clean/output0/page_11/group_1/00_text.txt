@@ -1,5 +1,0 @@
-We evaluate the scalability of PREDATOR
-by measuring the static analysis time and the throughput of
-directed fuzzing. The static analysis time consists of two
-parts: the time spent on the distance calculation and the
-time spent on identifying entry URLs and constructing the

@@ -1,3 +1,0 @@
-TABLE 6: The results of static analysis report validation. +The
-stored XSS vulnerability in Collabtive is not supported by
-PREDATOR.
