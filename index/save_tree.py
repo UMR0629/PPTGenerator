@@ -19,7 +19,7 @@ class PaperInfoDB:
             # Paper metadata table
             cursor.execute("""
                 CREATE TABLE IF NOT EXISTS papers (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    id INTEGER PRIMARY KEY,
                     title TEXT NOT NULL,
                     authors TEXT NOT NULL,
                     date TEXT NOT NULL,
@@ -76,19 +76,28 @@ class PaperInfoDB:
                 cursor.execute("DELETE FROM outline_nodes WHERE paper_id = ?", (paper_id,))
                 cursor.execute("DELETE FROM tables_figures WHERE paper_id = ?", (paper_id,))
             conn.commit()
+            if len(papers_id) == 0:
+                cursor.execute("SELECT * FROM papers")
+                papers_all = cursor.fetchall()
+                last_paper_id = 0
+                for row in papers_all:
+                    last_paper_id = row[0]
+                return last_paper_id
+        return papers_id[0]
 
     def save_paper(self, paper: PaperInfo) -> int:
         """Save PaperInfo object to database and return paper_id"""
         with sqlite3.connect(self.db_path) as conn:
             cursor = conn.cursor()
             # Clear existing data for the same paper title
-            self.clear_same_data(paper)
+            paper_id = self.clear_same_data(paper)
             # Save paper metadata
             cursor.execute("""
                 INSERT INTO papers (
-                    title, authors, date, journal, ppt_presenter, ppt_date, image_list
-                ) VALUES (?, ?, ?, ?, ?, ?, ?)
+                    id, title, authors, date, journal, ppt_presenter, ppt_date, image_list
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
             """, (
+                paper_id,
                 paper.title,
                 json.dumps(paper.authors),
                 paper.date,
@@ -97,7 +106,7 @@ class PaperInfoDB:
                 paper.ppt_date,
                 json.dumps(paper.image_list)
             ))
-            paper_id = cursor.lastrowid
+            #paper_id = cursor.lastrowid
 
             # Save outline structure using recursive approach
             self._save_node_recursive(cursor, paper_id, paper.outline_root)

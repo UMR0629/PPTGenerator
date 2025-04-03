@@ -94,7 +94,7 @@ class PaperSectionSummary:
 class SectionContent:
     """
     论文大纲叶子节点的内容类。
-    可以存储具体文本内容、引用、公式等信息。
+    存储具体文本内容，并且指向summary部分，以获取大模型处理后的要点、关联图像和表格。
     """
 
     def __init__(self, text=None,summary:list[PaperSectionSummary]=None):
@@ -336,7 +336,7 @@ class PaperInfo:
         """
         生成ppt
         """
-        ppt_path = "source/ppt_model/1.百廿红-李一.pptx"
+        ppt_path = "../source/ppt_model/1.百廿红-李一.pptx"
         generate_ppt = Generate_ppt(ppt_path)
         author_text = ""
         for author in self.ppt_presenter:
@@ -348,7 +348,7 @@ class PaperInfo:
         index_num = len(index_content)
 
         # 增加目录页
-        generate_ppt.add_menu("source/img/image22.jpg", index_num, index_content)
+        generate_ppt.add_menu("../source/img/image22.jpg", index_num, index_content)
         main_title_count = 0
 
         # 遍历树，添加正文内容
@@ -486,7 +486,7 @@ class PaperInfo:
         ppt_presenter_first_part = self.ppt_presenter.split(' ')[0]
         ppt_presenter = re.sub(r'[^\w]', '', ppt_presenter_first_part).lower()
         print(ppt_presenter)
-        ppt_save_path = "source/ppt_model/" + title + "_" + ppt_presenter + ".pptx"
+        ppt_save_path = "../source/ppt_model/" + title + "_" + ppt_presenter + ".pptx"
         #ppt_save_path = "source/ppt_model/output.pptx"
         generate_ppt.save_ppt(ppt_save_path)
 

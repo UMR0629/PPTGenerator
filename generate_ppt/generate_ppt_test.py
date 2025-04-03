@@ -1,7 +1,7 @@
 from generate_ppt import Generate_ppt
 #coding:utf-8
 # 加载已有的PPT模板
-ppt_path = "source/ppt_model/1.百廿红-李一.pptx"
+ppt_path = "../source/ppt_model/1.百廿红-李一.pptx"
 generate_ppt = Generate_ppt(ppt_path)
 generate_ppt.add_cover("这是标题", "这是作者", "2021年5月")
 menu_items = ["目录1", "目录2", "目录3", "目录4"]
