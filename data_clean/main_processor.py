@@ -3,7 +3,7 @@ from pathlib import Path
 import sys
 
 # 导入 storedata.py 中的函数
-from storedata import store_paper_data
+from data_clean.storedata import store_paper_data
 
 def run_script(script_name):
     """更健壮的脚本执行函数"""
