@@ -1,1 +1,0 @@
-4.2. Static Analysis for Directed Web Fuzzing
