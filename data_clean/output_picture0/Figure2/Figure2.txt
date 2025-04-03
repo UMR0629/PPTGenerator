@@ -1,4 +1,0 @@
-The iCFG of the example script, with red numbers
-representing the block distance to the target vuln_func(), and the
-red dashed directed line indicating paths that cannot be recognized
-by static analysis tools.

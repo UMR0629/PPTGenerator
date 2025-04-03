@@ -1,2 +1,0 @@
-The results of automated validation for new vulnerabil-
-ities.

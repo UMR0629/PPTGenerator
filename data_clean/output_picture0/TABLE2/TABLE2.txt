@@ -1,3 +1,0 @@
-The evaluation results on synthetic test suites. We list the total number of vulnerabilities by type, in the format of
-SQLi + CMDi + XSS. As the source code is not available at the time of writing, we borrow the detection results from the papers of
-Atropos and Cefuzz. "-" denotes that no detection results are available.
