@@ -119,7 +119,7 @@ class SectionContent:
     def user_feedback(self,feedback,lang:str="zh",index=0):   #在用户对大模型有反馈信息时调用
         api_output=generate_with_feedback(self.text,feedback,lang)
         self.summary[index].key_points.clear()
-        self.summary[index].key_points.extend(api_output)
+        self.summary[index].key_points.append(api_output)
     
     def split_into_parts(self,num:int=2,lang:str="zh"):  #用户可以选择一部分，多做几页PPT，从这里进行切割和重新赋值
         result=split_text_into_parts(self.text,num)
