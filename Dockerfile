@@ -26,8 +26,9 @@ COPY detectron2-main.zip /tmp/
 RUN pip install -r requirements.txt
 
 # 安装detectron2（增加详细日志）
-RUN unzip /tmp/detectron2-main.zip -d /tmp && \
-    cd /tmp/detectron2-main && \
+RUN cd /tmp && \
+    unzip detectron2-main.zip && \
+    cd detectron2-main && \  
     pip install -v . && \
     rm -rf /tmp/detectron2-main*
 
