@@ -1,5 +1,7 @@
 #from lxml.xmlerror import text_size
 import re
+
+from PIL.ImageOps import scale
 from pptx import Presentation
 from pptx.util import Inches, Pt
 from pptx.enum.text import PP_ALIGN, MSO_ANCHOR
@@ -441,14 +443,11 @@ class Generate_ppt:
             row_text = int(text_len / 200 * 15 * 1.2)
             print(f"文本每行字数：{row_text}")
         elif text_len >= 400 and text_len < 600:
-            text_size = int(200 / text_len * 25 * 1.5)
+            text_size = int(200 / text_len * 25 * 1.1)
             print(f"文本字体大小：{text_size}")
             row_text = int(text_len / 200 * 15 * 1.2)
             print(f"文本每行字数：{row_text}")
 
-        for paragraph in text_placeholder.text_frame.paragraphs:
-            for run in paragraph.runs:
-                run.font.size = Pt(text_size)
 
         # 设置文本框的位置和大小
         text_height = 0.5 * (text_len // row_text + 1)
@@ -459,22 +458,29 @@ class Generate_ppt:
         text_placeholder.width = Inches(6)
         text_placeholder.height = Inches(text_height)
 
+        for paragraph in text_placeholder.text_frame.paragraphs:
+            for run in paragraph.runs:
+                run.font.size = Pt(text_size)
+
         # 获取图片的大小
         with Image.open(image_path) as img:
             img_width, img_height = img.size
 
         # 计算PPT页面的宽度和最大图片宽度（PPT整体宽度的一半）
         img_width_alter = 600
-
+        img_height_alter = 680
+        scale_factor = img_width / img_height
         # 按照宽度调整图片比例
+        if img_width / img_height > img_width_alter / img_height_alter:
+            img_width = img_width_alter
+            img_height = int(img_width / scale_factor)  # 按比例调整高度
+        else:
+            img_height = img_height_alter
+            img_width = int(img_height * scale_factor)  # 按比例调整宽度
 
-        scale_factor = img_width_alter / img_width
-        img_width = img_width_alter
-        img_height = int(img_height * scale_factor)  # 按比例调整高度
 
         # 计算图片的位置：使其位于PPT的右侧
-
-        p_height =  (8 - img_height / 96) / 2
+        p_height =  (7.5 - img_height / 96) / 2
         p_width = 6.5  + (6.5 - img_width / 96) / 2
         left = Inches(p_width)  # 图片距离左侧的距离
         top = Inches(p_height)  # 图片距离顶部的距离
@@ -550,12 +556,22 @@ class Generate_ppt:
 
         # 计算PPT页面的宽度和最大图片宽度（PPT整体宽度的一半）
         img_left_width_alter = 600
+        img_left_height_alter = 680
 
         # 按照宽度调整图片比例
-
-        scale_factor_left = img_left_width_alter / img_left_width
-        img_left_width = img_left_width_alter
-        img_left_height = int(img_left_height * scale_factor_left)  # 按比例调整高度
+        if img_left_width / img_left_height > img_left_width_alter / img_left_height_alter:
+            # 如果图片的宽高比大于PPT页面的宽高比，则按照宽度调整图片比例
+            scale_factor_left = img_left_width_alter / img_left_width
+            img_left_width = img_left_width_alter
+            img_left_height = int(img_left_height * scale_factor_left)
+        else:
+            # 如果图片的宽高比小于PPT页面的宽高比，则按照高度调整图片比例
+            scale_factor_left = img_left_height_alter / img_left_height
+            img_left_height = img_left_height_alter
+            img_left_width = int(img_left_width * scale_factor_left)
+        # scale_factor_left = img_left_width_alter / img_left_width
+        # img_left_width = img_left_width_alter
+        # img_left_height = int(img_left_height * scale_factor_left)  # 按比例调整高度
 
         # 计算图片的位置：使img_left位于PPT的左侧，文本框上方
 
@@ -569,12 +585,22 @@ class Generate_ppt:
 
         # 计算PPT页面的宽度和最大图片宽度（PPT整体宽度的一半）
         img_right_width_alter = 600
+        img_right_height_alter = 680
 
         # 按照宽度调整图片比例
-
-        scale_factor_right = img_right_width_alter / img_right_width
-        img_right_width = img_right_width_alter
-        img_right_height = int(img_right_height * scale_factor_right)
+        if img_right_width / img_right_height > img_right_width_alter / img_right_height_alter:
+            # 如果图片的宽高比大于PPT页面的宽高比，则按照宽度调整图片比例
+            scale_factor_right = img_right_width_alter / img_right_width
+            img_right_width = img_right_width_alter
+            img_right_height = int(img_right_height * scale_factor_right)
+        else:
+            # 如果图片的宽高比小于PPT页面的宽高比，则按照高度调整图片比例
+            scale_factor_right = img_right_height_alter / img_right_height
+            img_right_height = img_right_height_alter
+            img_right_width = int(img_right_width * scale_factor_right)
+        # scale_factor_right = img_right_width_alter / img_right_width
+        # img_right_width = img_right_width_alter
+        # img_right_height = int(img_right_height * scale_factor_right)
 
         # 计算图片的位置：使img_right位于PPT的右侧，文本框上方
 
