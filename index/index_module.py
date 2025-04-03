@@ -480,12 +480,14 @@ class PaperInfo:
                             generate_ppt.add_text_image(title, text_combined, figure_path3)
 
         generate_ppt.add_thanks()
-        title = self.title.split(' ')[0] if ' ' in self.title else self.title
+        title_first_part = self.title.split(' ')[0]
+        title = re.sub(r'[^\w]', '', title_first_part).lower()
         print(title)
-        ppt_presenter = self.ppt_presenter
+        ppt_presenter_first_part = self.ppt_presenter.split(' ')[0]
+        ppt_presenter = re.sub(r'[^\w]', '', ppt_presenter_first_part).lower()
         print(ppt_presenter)
-        #ppt_save_path = "../source/ppt_model/" + title + "_" + ppt_presenter + ".pptx"
-        ppt_save_path = "../source/ppt_model/output.pptx"
+        ppt_save_path = "../source/ppt_model/" + title + "_" + ppt_presenter + ".pptx"
+        #ppt_save_path = "../source/ppt_model/output.pptx"
         generate_ppt.save_ppt(ppt_save_path)
 
     def generate_summary(self,lang:str="zh"):
