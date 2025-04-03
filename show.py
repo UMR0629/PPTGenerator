@@ -7,7 +7,7 @@ from data_clean.main_processor import main_data_process
 import os,re
 import time
 import pandas as pd
-import pdf_scan.scan_pdf as scan_pdf
+#import pdf_scan.scan_pdf as scan_pdf
 # 展示主页
 def show_home():
     """显示主页内容"""
@@ -97,7 +97,7 @@ def initialize_paper():
             os.makedirs(output_dir, exist_ok=True)
         
             # 调用extract_blocks_from_pdf函数
-            scan_pdf.extract_blocks_from_pdf(pdf_path=file_path, output_dir=output_dir)
+            #scan_pdf.extract_blocks_from_pdf(pdf_path=file_path, output_dir=output_dir)
             paper = main_data_process()
             db.save_paper(paper)
             paper.generate_summary(lang="en")
@@ -388,6 +388,8 @@ def show_text():
         st.header("内容编辑区域")
         
         show_content_editor()
+        db = PaperInfoDB()
+        db.save_paper(st.session_state.paper)
         col1, col2 = st.columns([1,5])
         with col1:
             return_home = st.button("返回主页面")
