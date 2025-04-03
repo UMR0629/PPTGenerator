@@ -1,8 +1,0 @@
-We develop new directed web fuzzing techniques to tailor
-towards the specific dynamic features of web applications as
-they render the fuzzing process inefficient. These techniques
-encompass block distance supplementation at runtime and
-tailored mutation strategies. Block distance supplementa-
-tion assists in updating imprecise block distances during
-the fuzzing process, while tailored mutation strategies are
-designed to improve the mutation effectiveness.

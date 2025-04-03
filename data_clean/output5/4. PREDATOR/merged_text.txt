@@ -1,3 +1,0 @@
-In this section, we present PREDATOR, a directed fuzzing
-tool specifically designed for detecting vulnerabilities in web
-applications and addressing the aforementioned challenges.
