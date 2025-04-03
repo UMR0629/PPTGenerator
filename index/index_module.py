@@ -366,9 +366,21 @@ class PaperInfo:
             if content_node.content is not None:
                 # 每个summary_content为用户指定的一页ppt
                 for summary_content in content_node.content.summary:
-                    tables = summary_content.tables
-                    figures = summary_content.figures
-                    img_num = len(tables) + len(figures)
+                    tables_all = summary_content.tables
+                    figures_all = summary_content.figures
+                    tables = []
+                    figures = []
+                    table_num = 0
+                    figure_num = 0
+                    for table in tables_all:
+                        if table.enable == 0:
+                            tables.append(table)
+                            table_num += 1
+                    for figure in figures_all:
+                        if figure.enable == 0:
+                            figures.append(figure)
+                            figure_num += 1
+                    img_num = table_num + figure_num
                     #print("generate_ppt",title,img_num)
                     # 根据不同的图片数量和文字长度，选择合适的模板
                     # 如果为纯文字
@@ -468,7 +480,13 @@ class PaperInfo:
                             generate_ppt.add_text_image(title, text_combined, figure_path3)
 
         generate_ppt.add_thanks()
-        generate_ppt.save_ppt("../source/ppt_model/output.pptx")
+        title = self.title.split(' ')[0] if ' ' in self.title else self.title
+        print(title)
+        ppt_presenter = self.ppt_presenter
+        print(ppt_presenter)
+        #ppt_save_path = "../source/ppt_model/" + title + "_" + ppt_presenter + ".pptx"
+        ppt_save_path = "../source/ppt_model/output.pptx"
+        generate_ppt.save_ppt(ppt_save_path)
 
     def generate_summary(self,lang:str="zh"):
         for node in PreOrderIter(self.outline_root):
