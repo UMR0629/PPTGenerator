@@ -57,12 +57,6 @@ def show_home():
         hide_index=True
     )
     st.session_state.papernumber = st.text_input("请选择列表中的论文")
-    if uploaded_files:
-        for file in uploaded_files:
-            if file.type != "application/pdf":
-                st.error(f"❌ 文件 {file.name} 类型不支持")
-                continue
-            st.success(f"✅ 已接收文件: {file.name}")
     
     if st.button("点击生成PPT大纲"):
         if not uploaded_files and not st.session_state.papernumber:
@@ -107,13 +101,13 @@ def initialize_paper():
             paper = main_data_process()
             db.save_paper(paper)
             paper.generate_summary(lang="en")
+            db.save_paper(paper)
             
 
 
     paper.ppt_presenter = st.session_state.ppt_presenter
     paper.ppt_date = st.session_state.ppt_date
     paper.clear_nonexistent()
-    db.save_paper(paper)
     return paper
 
 def toggle_expand(node_key):
