@@ -373,11 +373,11 @@ class PaperInfo:
                     table_num = 0
                     figure_num = 0
                     for table in tables_all:
-                        if table.enable == 0:
+                        if table.enable == 1:
                             tables.append(table)
                             table_num += 1
                     for figure in figures_all:
-                        if figure.enable == 0:
+                        if figure.enable == 1:
                             figures.append(figure)
                             figure_num += 1
                     img_num = table_num + figure_num
