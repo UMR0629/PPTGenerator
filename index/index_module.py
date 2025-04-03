@@ -484,9 +484,17 @@ class PaperInfo:
             if isinstance(node.content, SectionContent):
                 print(f"正在提取{node.name}中的图片信息")
                 for figure in node.content.summary[0].figures:
-                    figure.path=self.find_image_addr(figure.number)
+                    figure_path=self.find_image_addr(figure.number)
+                    if figure_path is not None:
+                        figure.path = figure_path
+                    else:
+                        node.content.summary[0].figures.remove(figure)
                 for table in node.content.summary[0].tables:
-                    table.path=self.find_table_addr(table.number)
+                    table_path=self.find_table_addr(table.number)
+                    if table_path is not None:
+                        table.path = table_path
+                    else:
+                        node.content.summary[0].tables.remove(table)
                 print("提取完成")
 
 

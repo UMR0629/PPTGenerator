@@ -62,11 +62,27 @@ class PaperInfoDB:
 
             conn.commit()
 
+    def clear_same_data(self, paper:PaperInfo):
+        """Clear all data from the database"""
+        with sqlite3.connect(self.db_path) as conn:
+            cursor = conn.cursor()
+            cursor.execute("SELECT * FROM papers WHERE title = ?", (paper.title,))
+            papers_all = cursor.fetchall()
+            cursor.execute("DELETE FROM papers WHERE title = ?", (paper.title,))
+            papers_id = []
+            for row in papers_all:
+                papers_id.append(row[0])
+            for paper_id in papers_id:
+                cursor.execute("DELETE FROM outline_nodes WHERE paper_id = ?", (paper_id,))
+                cursor.execute("DELETE FROM tables_figures WHERE paper_id = ?", (paper_id,))
+            conn.commit()
+
     def save_paper(self, paper: PaperInfo) -> int:
         """Save PaperInfo object to database and return paper_id"""
         with sqlite3.connect(self.db_path) as conn:
             cursor = conn.cursor()
-
+            # Clear existing data for the same paper title
+            self.clear_same_data(paper)
             # Save paper metadata
             cursor.execute("""
                 INSERT INTO papers (
