@@ -1,3 +1,11 @@
 python-pptx==1.0.2
 anytree==2.12.1
 streamlit==1.43.2
+opencv-python==4.7.0.72
+layoutparser==0.3.4
+pdf2image==1.16.3
+pytesseract==0.3.10
+numpy==1.24.3
+torch==1.13.1
+torchvision==0.14.1
+Pillow==9.5.0
