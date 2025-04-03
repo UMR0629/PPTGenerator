@@ -92,7 +92,7 @@ def initialize_paper():
                 f.write(file.getbuffer())
         
             # 定义输出目录
-            output_dir = os.path.join(".", "output")
+            output_dir = os.path.join("./data_clean/", "output")
             # 创建输出目录（如果不存在）
             os.makedirs(output_dir, exist_ok=True)
         
