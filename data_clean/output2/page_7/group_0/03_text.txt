@@ -1,6 +1,0 @@
-PHP script, as it introduces new code paths and potential
-function calls that are not present or known in static analysis.
-Additionally, the included or evaluated code can contain
-any number of function calls, conditional statements, or
-even additional include or eval statements. PREDATOR treats
-include as a jump and eval as a function call.

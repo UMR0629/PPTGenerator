@@ -1,8 +1,0 @@
-that are likely to lead to the target locations and calculating
-the block distances. The current tools are not perfect in this
-regard, especially when the target application is complex
-or contains new language syntax that the tools cannot
-handle [6, 10]. Additionally, some PHP frameworks, such
-as Laravel, may dynamically register HTTP URLs and their
-handling functions to define URL entries, causing PREDATOR
-to potentially miss these entry URLs.

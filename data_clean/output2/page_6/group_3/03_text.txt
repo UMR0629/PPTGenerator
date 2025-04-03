@@ -1,6 +1,0 @@
-Function Calls. When executing a function call opcode,
-PREDATOR detects the control flow transfer. The process of
-handling distance information is similar to that used for jump
-opcodes. Additionally, PREDATOR records the filename and
-line number of the call sites to dynamically update imprecise
-block distances, which will be detailed in §4.3.1.

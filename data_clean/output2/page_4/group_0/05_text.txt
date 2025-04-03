@@ -1,7 +1,0 @@
-Challenge 3: Addressing Dynamic Natures of Interpreted
-Languages. Directed fuzzing typically requires preparatory
-work based on static analysis. For instance, tools utilizing a
-distance metric need to initially calculate and assign distances
-to basic blocks based on the control flow of the target
-application [23, 26]. During dynamic testing, they collect
-distance feedback and conduct power scheduling, prioritizing

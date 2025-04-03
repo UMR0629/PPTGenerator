@@ -1,5 +1,0 @@
-Performance of Static Analysis Tools. The effectiveness
-of PREDATOR highly depends on the performance of the
-static analysis tools. For reproducing known vulnerabilities,
-these tools need to identify potential execution paths as
-accurately as possible. This assists in analyzing the paths

@@ -1,8 +1,0 @@
-We discovered that TChecker encountered errors when
-analyzing certain applications, such as ForkCMS and Suite-
-CRM. This limitation pertains to the static analysis tool used,
-rather than to PREDATOR. Moreover, it is important to note
-that the current XSS detector inherently has the potential for
-false positives, which is a limitation due to implementation
-issues. Developing more advanced detectors could overcome
-this limitation.

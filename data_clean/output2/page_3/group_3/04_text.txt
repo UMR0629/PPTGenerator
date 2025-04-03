@@ -1,9 +1,0 @@
-A Promising Approach to Bridge the Gap. Utilizing
-directed fuzzing for automated static analysis report valida-
-tion shows great promise in web application vulnerability
-detection. By leveraging directed fuzzing, we can mitigate the
-extensive manual review and validation workload, primarily
-induced by the high false-positive rates of static analysis. This
-is particularly beneficial for dynamic programming languages
-like PHP, where the intricacies and dynamic features pose
-modeling challenges for static analysis.

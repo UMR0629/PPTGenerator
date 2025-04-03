@@ -1,4 +1,0 @@
-6.1.1. Effectiveness. We first evaluate the effectiveness of
-PREDATOR in reproducing known vulnerabilities and com-
-pare it with other fuzzers. For each application, we search and
-select the reported code locations of all known vulnerabilities

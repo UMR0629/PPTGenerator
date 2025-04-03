@@ -1,6 +1,0 @@
-effort. This allows limited human resources to be focused
-on auditing unconfirmed reports. Second, developers can
-promptly patch vulnerabilities confirmed by PREDATOR,
-saving time and reducing the potential damage of the
-vulnerabilities compared to patching after manual auditing,
-which may take weeks or even 1 months.

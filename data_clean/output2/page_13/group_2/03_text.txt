@@ -1,4 +1,0 @@
-Our detection approach offers two key advantages. First,
-we observed only 2 false positives for XSS during the
-validation process, indicating that vulnerabilities confirmed
-by PREDATOR generally do not require additional manual

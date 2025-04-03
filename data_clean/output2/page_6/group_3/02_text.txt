@@ -1,8 +1,0 @@
-Jumps. PREDATOR detects the control-flow transfer caused
-by either a conditional or unconditional jump. At this point,
-the execution stream is at a branch statement, which is the
-starting position of a basic block. PREDATOR checks the
-file name and starting line number of this basic block to
-determine if it is a path-divergent basic block. It updates the
-input distance of the current test case if the block distance
-is shorter than the current input distance.

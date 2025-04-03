@@ -1,5 +1,0 @@
-in seeds that are closer to the target. However, static analysis
-tools often struggle to effectively model dynamic features
-of interpreted languages like PHP. Inaccurate modeling of
-dynamic features by static analysis tools can lead to imprecise
-or erroneous distance calculations.

@@ -1,3 +1,0 @@
-We develop new directed web fuzzing techniques to tailor
-towards the specific dynamic features of web applications as
-they render the fuzzing process inefficient. These techniques

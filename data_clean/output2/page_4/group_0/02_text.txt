@@ -1,7 +1,0 @@
-Triggering specific vulnerabilities necessitates manipu-
-lating both parameter keys and values [35]. Fuzzers often
-struggle when lacking the necessary parameters to target
-vulnerabilities. Crawlers extract request parameters from the
-user interface but lack insight into the application’s internal
-logic. Such superficial information fails to assist directed
-fuzzers in triggering deeper vulnerabilities.

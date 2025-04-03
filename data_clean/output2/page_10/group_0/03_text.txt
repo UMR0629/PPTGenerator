@@ -1,2 +1,0 @@
-TABLE 3: The evaluation results on real-world applications. We list the total number of vulnerabilities by type, in the format of
-SQLi + CMDi + XSS. +We remove the hidden tokens in WeBid for a comparison between PREDATOR and Witcher.
