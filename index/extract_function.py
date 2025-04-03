@@ -155,7 +155,7 @@ def generate_presentation_summary(input_text: str, lang: str = "zh") -> str:
     
     # 调用大模型API
     completion = client.chat.completions.create(
-        model="qwq-plus-2025-03-05",
+        model="qwq-plus-latest",
         messages=messages,
         modalities=["text"],
         stream=True,
@@ -324,7 +324,7 @@ def generate_with_feedback(
     
     # API调用
     completion = client.chat.completions.create(
-        model="qwq-plus-2025-03-05",
+        model="qwq-plus-latest",
         messages=messages,
         modalities=["text"],
         temperature=temperature,
@@ -351,7 +351,7 @@ def title_translate_function(
         {"role": "user", "content": title}
     ]
     completion = client.chat.completions.create(
-        model="qwq-plus-2025-03-05",
+        model="qwq-plus-latest",
         messages=messages,
         modalities=["text"],
         stream=True,

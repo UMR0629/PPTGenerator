@@ -160,9 +160,9 @@ results, false positives can be eliminated. But effectively combining these two 
 challenge, we designed LLM automatic interaction models
 and algorithms that combines pattern-based static analysis
 with LLM-aided analysis to identify more accurate sources""")
-tmp.display_outline()
+# tmp.display_outline()
 
-db = PaperInfoDB()
+# db = PaperInfoDB()
 
 # paper_id = db.save_paper(tmp)
 # print(tmp.find_outline_section("2.3 Findings based on the Observation").content)
@@ -190,12 +190,12 @@ its performance in vulnerability detection, source identification and sink ident
 fixed and 162 CVE IDs have been assigned. We make the raw data, detailed information and source code of LARA available on the LARA-Site: https://sites.google.com/view/lara-data.""")
 test.content_extract()
 print(test.summary[0])
-print("split start")
-test.split_into_parts(3)
-print("split end")
-i=0
-for summary in test.summary:
-    print(i)
-    print("\n")
-    print(summary)
-    i+=1
+# print("split start")
+# test.split_into_parts(3)
+# print("split end")
+# i=0
+# for summary in test.summary:
+#     print(i)
+#     print("\n")
+#     print(summary)
+#     i+=1
