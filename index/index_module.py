@@ -497,6 +497,23 @@ class PaperInfo:
                         node.content.summary[0].tables.remove(table)
                 print("提取完成")
 
+    def clear_nonexistent(self):
+        """
+        清除不存在的图片和表格
+        """
+        for node in PreOrderIter(self.outline_root):
+            if isinstance(node.content, SectionContent):
+                for summary_item in node.content.summary:
+                    # 清除不存在的图片
+                    for figure in summary_item.figures:
+                        figure_path = figure.path
+                        if figure_path is None:
+                            summary_item.figures.remove(figure)
+                    # 清除不存在的表格
+                    for table in summary_item.tables:
+                        table_path = table.path
+                        if table_path is None:
+                            summary_item.tables.remove(table)
 
 def parse_output_to_section(output: str, section: PaperSectionSummary) -> None:
     """
