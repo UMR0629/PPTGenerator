@@ -1,2 +1,0 @@
-Figure 3: Results of the ablation study. As PREDATORp fails to extract any valid entry URLs using Witcher’s crawler, we exclude it from
-this figure.
