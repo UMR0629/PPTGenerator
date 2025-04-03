@@ -336,7 +336,7 @@ class PaperInfo:
         """
         生成ppt
         """
-        ppt_path = "../source/ppt_model/1.百廿红-李一.pptx"
+        ppt_path = "source/ppt_model/1.百廿红-李一.pptx"
         generate_ppt = Generate_ppt(ppt_path)
         author_text = ""
         for author in self.ppt_presenter:
@@ -348,7 +348,7 @@ class PaperInfo:
         index_num = len(index_content)
 
         # 增加目录页
-        generate_ppt.add_menu("../source/img/image22.jpg", index_num, index_content)
+        generate_ppt.add_menu("source/img/image22.jpg", index_num, index_content)
         main_title_count = 0
 
         # 遍历树，添加正文内容
@@ -366,9 +366,21 @@ class PaperInfo:
             if content_node.content is not None:
                 # 每个summary_content为用户指定的一页ppt
                 for summary_content in content_node.content.summary:
-                    tables = summary_content.tables
-                    figures = summary_content.figures
-                    img_num = len(tables) + len(figures)
+                    tables_all = summary_content.tables
+                    figures_all = summary_content.figures
+                    tables = []
+                    figures = []
+                    table_num = 0
+                    figure_num = 0
+                    for table in tables_all:
+                        if table.enable == 1:
+                            tables.append(table)
+                            table_num += 1
+                    for figure in figures_all:
+                        if figure.enable == 1:
+                            figures.append(figure)
+                            figure_num += 1
+                    img_num = table_num + figure_num
                     #print("generate_ppt",title,img_num)
                     # 根据不同的图片数量和文字长度，选择合适的模板
                     # 如果为纯文字
@@ -468,7 +480,15 @@ class PaperInfo:
                             generate_ppt.add_text_image(title, text_combined, figure_path3)
 
         generate_ppt.add_thanks()
-        generate_ppt.save_ppt("../source/ppt_model/output.pptx")
+        title_first_part = self.title.split(' ')[0]
+        title = re.sub(r'[^\w]', '', title_first_part).lower()
+        print(title)
+        ppt_presenter_first_part = self.ppt_presenter.split(' ')[0]
+        ppt_presenter = re.sub(r'[^\w]', '', ppt_presenter_first_part).lower()
+        print(ppt_presenter)
+        ppt_save_path = "source/ppt_model/" + title + "_" + ppt_presenter + ".pptx"
+        #ppt_save_path = "source/ppt_model/output.pptx"
+        generate_ppt.save_ppt(ppt_save_path)
 
     def generate_summary(self,lang:str="zh"):
         for node in PreOrderIter(self.outline_root):
