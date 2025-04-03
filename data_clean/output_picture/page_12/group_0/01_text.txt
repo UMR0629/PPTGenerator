@@ -1,2 +1,0 @@
-TABLE 5: The results of static analysis time and fuzzing through-
-put.

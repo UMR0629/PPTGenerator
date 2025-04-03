@@ -1,1 +1,0 @@
-TABLE 1: Selected opcodes for instrumentation.
