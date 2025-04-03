@@ -4,15 +4,27 @@ from pdf2image import convert_from_path
 import pytesseract
 import os
 import numpy as np
+import platform
+from pathlib import Path
 from typing import List, Dict, Tuple
 
 # 设置Tesseract路径
-pytesseract.pytesseract.tesseract_cmd = "C:\\Program Files\\Tesseract-OCR\\tesseract.exe"
+if platform.system() == "Windows":
+    pytesseract.pytesseract.tesseract_cmd = "C:\\Program Files\\Tesseract-OCR\\tesseract.exe"
+else:  
+    pytesseract.pytesseract.tesseract_cmd = "/usr/bin/tesseract"
+
+# 获取当前脚本所在目录
+current_directory = Path(__file__).resolve().parent
+
+# 构建绝对路径
+config_path = current_directory / "config.yml"
+model_path = current_directory / "model_final.pth"
 
 # 加载模型
 model = lp.Detectron2LayoutModel(
-    config_path="./config.yml",
-    model_path="./model_final.pth",
+    config_path=str(config_path),
+    model_path=str(model_path),
     label_map={0: "Text", 1: "Title", 2: "List", 3: "Table", 4: "Figure"},
     extra_config=["MODEL.ROI_HEADS.SCORE_THRESH_TEST", 0.8]
 )
@@ -133,4 +145,4 @@ def extract_blocks_from_pdf(pdf_path: str, output_dir: str, dpi: int = 300, padd
 
 
 # 调用示例
-extract_blocks_from_pdf("test.pdf", "output2", padding=10)
+#extract_blocks_from_pdf("test.pdf", "output2", padding=10)

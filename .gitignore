@@ -10,3 +10,12 @@ note
 #忽略所有pdf，zip
 *.pdf
 *.zip
+
+#忽略log文件
+*.log
+
+#忽略output目录
+output/
+
+# 忽略所有名称包含 output 的目录及其内容
+**/*output*/

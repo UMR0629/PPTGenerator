@@ -6,6 +6,7 @@ from index.save_tree import PaperInfoDB
 import os,re
 import time
 import pandas as pd
+import pdf_scan.scan_pdf as scan_pdf
 # 展示主页
 def show_home():
     """显示主页内容"""
@@ -30,8 +31,8 @@ def show_home():
                 st.error(f"❌ 文件 {file.name} 类型不支持")
                 continue
             st.success(f"✅ 已接收文件: {file.name}")
-    
-
+            st.session_state.pdf_files = uploaded_files
+            
     # 连接数据库
     db = PaperInfoDB()
     papers = db.get_all_papers()
@@ -87,11 +88,27 @@ def initialize_paper():
     db = PaperInfoDB()
     if st.session_state.papernumber:
         paper = db.load_paper(st.session_state.papernumber)
+    else:
+        for file in st.session_state.pdf_files:
+            # 获取文件的保存路径
+            file_path = os.path.join(".", file.name)
+            # 将文件保存到当前目录
+            with open(file_path, "wb") as f:
+                f.write(file.getbuffer())
+        
+            # 定义输出目录
+            output_dir = os.path.join(".", "output")
+            # 创建输出目录（如果不存在）
+            os.makedirs(output_dir, exist_ok=True)
+        
+            # 调用extract_blocks_from_pdf函数
+            scan_pdf.extract_blocks_from_pdf(pdf_path=file_path, output_dir=output_dir)
+
+
     paper.ppt_presenter = st.session_state.ppt_presenter
     paper.ppt_date = st.session_state.ppt_date
     paper.clear_nonexistent()
     return paper
-    #return tmp
 
 def toggle_expand(node_key):
     """切换节点展开状态"""
