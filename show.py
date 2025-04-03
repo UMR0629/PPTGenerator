@@ -3,6 +3,7 @@ from index import index_module
 from PIL import Image
 #from index.testmain import tmp
 from index.save_tree import PaperInfoDB
+from data_clean.main_processor import main_data_process
 import os,re
 import time
 import pandas as pd
@@ -103,11 +104,16 @@ def initialize_paper():
         
             # 调用extract_blocks_from_pdf函数
             scan_pdf.extract_blocks_from_pdf(pdf_path=file_path, output_dir=output_dir)
+            paper = main_data_process()
+            db.save_paper(paper)
+            paper.generate_summary(lang="en")
+            
 
 
     paper.ppt_presenter = st.session_state.ppt_presenter
     paper.ppt_date = st.session_state.ppt_date
     paper.clear_nonexistent()
+    db.save_paper(paper)
     return paper
 
 def toggle_expand(node_key):
