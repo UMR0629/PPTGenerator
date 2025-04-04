@@ -8,7 +8,7 @@ import numpy as np
 import platform
 from pathlib import Path
 from typing import List, Dict, Tuple,Optional
-from anytree import Node
+from anytree import Node, PreOrderIter
 from difflib import SequenceMatcher
 import re
 import shutil
@@ -542,6 +542,7 @@ def extract_paper_info_from_pdf(pdf_path: str, output_base_dir: str, dpi: int = 
         grouped_blocks = group_by_title(sorted_blocks)
         
         current_groups = []
+        #parent_rome = paper_info.outline_root
         for group_idx, group in enumerate(grouped_blocks):
             # 处理内容块
             content_data = process_content_blocks(
@@ -577,8 +578,19 @@ def extract_paper_info_from_pdf(pdf_path: str, output_base_dir: str, dpi: int = 
                     paper_info.outline_root.name = title_text
                 else:
                     # 添加到大纲结构
-                    parent = find_parent_for_section(paper_info, title_text)
-                    Node(title_text, parent=parent, content=section_content)
+                    if title_text[0].isdigit():
+                        parent = find_parent_for_section(paper_info, title_text)
+                        print(f"数字-当前标题: {title_text}, 父节点: {parent.name if parent else '无'}")
+                        Node(title_text, parent=parent, content=section_content)
+                    else:
+                        if starts_with_roman_numeral(title_text):
+                            parent = paper_info.outline_root
+                            print(f"罗马-当前标题: {title_text}, 父节点: {parent.name if parent else '无'}")
+                            parent_rome = Node(title_text, parent=parent, content=section_content)
+                            print(f"{parent_rome.name if parent else '无'}")
+                        else:
+                            print(f"字母-当前标题: {title_text}, 父节点: {parent_rome.name if parent else '无'}")
+                            Node(title_text, parent=parent_rome, content=section_content)
             
             current_groups.append({
                 "title": group["title"],
@@ -630,14 +642,64 @@ def extract_paper_info_from_pdf(pdf_path: str, output_base_dir: str, dpi: int = 
     
     return paper_info
 
+# def find_parent_for_section(paper_info: PaperInfo, title_text: str):
+#     """根据标题文本确定父节点"""
+#     if "." in title_text:  # 假设包含点的标题是子标题
+#         parts = title_text.split(".")
+#         parent_title = ".".join(parts[:-1])
+#         parent = paper_info.find_outline_section(parent_title)
+#         return parent if parent else paper_info.outline_root
+#     return paper_info.outline_root
+
+
+def find_parent_id_for_section(section: str) -> str:
+    # 提取章节编号部分，并去除多余空格
+    match = re.match(r"([\d\s.]+)", section)  # 仅匹配章节编号部分
+    if not match:
+        return None  # 如果找不到编号，返回 None
+
+    section_number = match.group(1).replace(" ", "").rstrip(".")  # 去掉空格和尾随的点
+    parts = section_number.split(".")
+
+    if len(parts) == 1:
+        return None  # 顶级章节没有父节点
+
+    return ".".join(parts[:-1]) + "."
+
+def extract_section_id(text: str) -> str:
+    match = re.match(r"([\d\s.]+)", text)  # 仅匹配开头的数字、空格和点
+    if not match:
+        return ""  # 如果没有匹配到编号，返回空字符串
+
+    section_number = match.group(1).replace(" ", "")  # 去掉空格，保持原本的点
+    return section_number
+
 def find_parent_for_section(paper_info: PaperInfo, title_text: str):
     """根据标题文本确定父节点"""
     if "." in title_text:  # 假设包含点的标题是子标题
-        parts = title_text.split(".")
-        parent_title = ".".join(parts[:-1])
-        parent = paper_info.find_outline_section(parent_title)
+        parent_id = find_parent_id_for_section(title_text)
+        # 类似1. Introduction
+        if parent_id is None:
+            return paper_info.outline_root
+        parent = None
+        for node in PreOrderIter(paper_info.outline_root):
+            if extract_section_id(node.name) == parent_id:
+                parent = node
+                break
         return parent if parent else paper_info.outline_root
     return paper_info.outline_root
+
+# 判断是否以罗马数字开头
+def starts_with_roman_numeral(text: str) -> bool:
+    """ 判断字符串是否以罗马数字开头 """
+    # 定义匹配罗马数字的正则表达式
+    roman_pattern = r"^[IVX]+"
+
+    # 使用正则表达式匹配文本开头
+    match = re.match(roman_pattern, text.strip())  # 去除前后空格后检查
+
+    # 如果匹配成功并且至少有一个字符，说明是罗马数字开头
+    return bool(match)
 
 if __name__ == "__main__":
     # 设置输出目录和调试模式
