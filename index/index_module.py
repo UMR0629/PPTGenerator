@@ -1,26 +1,13 @@
-############################################
-
-# 还没写完
-
-############################################
-
-# import sys
-# #sys.path.append("..")
-# from anytree import Node, RenderTree, PreOrderIter
-# from extract_function import generate_presentation_summary,generate_with_feedback
-# from generate_ppt.generate_ppt import Generate_ppt   #这里先注释掉，因为会报错
-# import re
 
 import sys
 import os
-from itertools import count
 
 # 添加项目根目录到Python路径
 project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(project_root)
 
 from anytree import Node, RenderTree, PreOrderIter
-from index.extract_function import generate_presentation_summary, generate_with_feedback,split_text_into_parts,title_translate_function
+from information_extractor.extract_function import generate_presentation_summary, generate_with_feedback,split_text_into_parts,title_translate_function
 from generate_ppt.generate_ppt import Generate_ppt  # 暂时注释掉
 import re
 
