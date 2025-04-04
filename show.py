@@ -98,7 +98,7 @@ def initialize_paper():
             os.makedirs(output_dir, exist_ok=True)
         
             # 调用extract_blocks_from_pdf函数
-            paper=scan_pdf.extract_paper_info_from_pdf(pdf_path=file_path, output_dir=output_dir)
+            paper=scan_pdf.extract_paper_info_from_pdf(pdf_path=file_path, output_base_dir=output_dir)
             db.save_paper(paper)
             paper.generate_summary(lang="en")
             db.save_paper(paper)
