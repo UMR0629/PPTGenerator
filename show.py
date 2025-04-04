@@ -3,7 +3,7 @@ from index import index_module
 from PIL import Image
 #from index.testmain import tmp
 from index.save_tree import PaperInfoDB
-from data_clean.main_processor import main_data_process
+#from data_clean.main_processor import main_data_process
 import os,re
 import time
 import pandas as pd
