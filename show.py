@@ -42,6 +42,7 @@ def show_home():
 
     if not papers:
         st.info("数据库中没有论文")
+        print("no artical")
 
     df = pd.DataFrame(papers)
     df["authors"] = df["authors"].apply(lambda x: ", ".join(x))  # 将作者列表转换为字符串
