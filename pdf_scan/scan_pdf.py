@@ -580,16 +580,15 @@ def extract_paper_info_from_pdf(pdf_path: str, output_base_dir: str, dpi: int = 
                     # 添加到大纲结构
                     if title_text[0].isdigit():
                         parent = find_parent_for_section(paper_info, title_text)
-                        print(f"数字-当前标题: {title_text}, 父节点: {parent.name if parent else '无'}")
+                        #print(f"数字-当前标题: {title_text}, 父节点: {parent.name if parent else '无'}")
                         Node(title_text, parent=parent, content=section_content)
                     else:
                         if starts_with_roman_numeral(title_text):
                             parent = paper_info.outline_root
-                            print(f"罗马-当前标题: {title_text}, 父节点: {parent.name if parent else '无'}")
+                            #print(f"罗马-当前标题: {title_text}, 父节点: {parent.name if parent else '无'}")
                             parent_rome = Node(title_text, parent=parent, content=section_content)
-                            print(f"{parent_rome.name if parent else '无'}")
                         else:
-                            print(f"字母-当前标题: {title_text}, 父节点: {parent_rome.name if parent else '无'}")
+                            #print(f"字母-当前标题: {title_text}, 父节点: {parent_rome.name if parent else '无'}")
                             Node(title_text, parent=parent_rome, content=section_content)
             
             current_groups.append({
