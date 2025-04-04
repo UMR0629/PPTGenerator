@@ -473,7 +473,7 @@ class PaperInfo:
         ppt_presenter_first_part = self.ppt_presenter.split(' ')[0]
         ppt_presenter = re.sub(r'[^\w]', '', ppt_presenter_first_part).lower()
         print(ppt_presenter)
-        ppt_save_path = "source/ppt_model/" + title + "_" + ppt_presenter + ".pptx"
+        ppt_save_path = title + "_" + ppt_presenter + ".pptx"
         #ppt_save_path = "source/ppt_model/output.pptx"
         generate_ppt.save_ppt(ppt_save_path)
 
