@@ -96,9 +96,11 @@ def initialize_paper():
             output_dir = os.path.join("./data_clean/", "output")
             # 创建输出目录（如果不存在）
             os.makedirs(output_dir, exist_ok=True)
-        
+            print(file_path)
+            print(output_dir)
             # 调用extract_blocks_from_pdf函数
             paper=scan_pdf.extract_paper_info_from_pdf(pdf_path=file_path, output_base_dir=output_dir)
+            paper.display_outline()
             db.save_paper(paper)
             paper.generate_summary(lang="en")
             db.save_paper(paper)
