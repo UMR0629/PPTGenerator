@@ -43,20 +43,20 @@ def show_home():
     if not papers:
         st.info("数据库中没有论文")
         print("no artical")
+    else:
+        df = pd.DataFrame(papers)
+        df["authors"] = df["authors"].apply(lambda x: ", ".join(x))  # 将作者列表转换为字符串
 
-    df = pd.DataFrame(papers)
-    df["authors"] = df["authors"].apply(lambda x: ", ".join(x))  # 将作者列表转换为字符串
-    
-    # 配置交互式表格
-    st.dataframe(
-        df[["id", "title"]],
-        use_container_width=True,
-        column_config={
-            "id": "ID",
-            "title": "论文标题",
-        },
-        hide_index=True
-    )
+        # 配置交互式表格
+        st.dataframe(
+            df[["id", "title"]],
+            use_container_width=True,
+            column_config={
+                "id": "ID",
+                "title": "论文标题",
+            },
+            hide_index=True
+        )
     st.session_state.papernumber = st.text_input("请选择列表中的论文")
     
     if st.button("点击生成PPT大纲"):
