@@ -578,8 +578,8 @@ def parse_output_to_section(output: str, section: PaperSectionSummary) -> None:
                 break
     
     # 设置表格和图片（确保容错）
-    section.figures = [TableorFigure(number=num) for num in parsed_arrays[1]] if len(parsed_arrays) >= 2 else []
-    section.tables = [TableorFigure(number=num) for num in parsed_arrays[0]] if len(parsed_arrays) >= 1 else []
+    section.figures = [TableorFigure(number=num) for num in parsed_arrays[0]] if len(parsed_arrays) >= 1 else []
+    section.tables = [TableorFigure(number=num) for num in parsed_arrays[1]] if len(parsed_arrays) >= 2 else []
     
     # 提取标题（第一个非数组行）
     title_line = None
