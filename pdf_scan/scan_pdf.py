@@ -639,6 +639,5 @@ if __name__ == "__main__":
     paper_info = extract_paper_info_from_pdf(
         "test.pdf", 
         output_base_dir=output_directory,
-        debug=debug_mode
     )
     paper_info.display_outline()
