@@ -14,7 +14,7 @@ import re
 import shutil
 # 获取当前脚本所在目录
 current_directory = Path(__file__).resolve().parent
-
+debug_mode = False
 # 将 index 目录添加到 sys.path
 sys.path.append(str(current_directory.parent / 'index'))
 
@@ -132,7 +132,8 @@ def check_and_recover_missing_blocks(
         top_gap = first_block.block.y_1
         if top_gap > edge_gap:
             missing_count += 1
-            print(f"检测{col_name}顶部间隙: {top_gap}px (阈值: {edge_gap}px)")
+            if debug_mode:
+                print(f"检测{col_name}顶部间隙: {top_gap}px (阈值: {edge_gap}px)")
             
             # 减去edge_gap后的实际可疑区域
             actual_y1 = edge_gap
@@ -168,7 +169,8 @@ def check_and_recover_missing_blocks(
             
             if gap > min_gap:
                 missing_count += 1
-                print(f"检测{col_name}内部间隙: {gap}px (阈值: {min_gap}px)")
+                if debug_mode:
+                    print(f"检测{col_name}内部间隙: {gap}px (阈值: {min_gap}px)")
                 
                 missing_block = create_and_validate_missing_block(
                     x1=current_block.block.x_1,
@@ -193,7 +195,8 @@ def check_and_recover_missing_blocks(
         bottom_gap = image_height - last_block.block.y_2
         if bottom_gap > edge_gap:
             missing_count += 1
-            print(f"检测{col_name}底部间隙: {bottom_gap}px (阈值: {edge_gap}px)")
+            if debug_mode:
+                print(f"检测{col_name}底部间隙: {bottom_gap}px (阈值: {edge_gap}px)")
             
             # 减去edge_gap后的实际可疑区域
             actual_y2 = image_height-edge_gap
@@ -249,13 +252,15 @@ def create_and_validate_missing_block(
         if dx > 0 and dy > 0:
             overlap_area = dx * dy
             overlap_ratio = overlap_area / missing_area
-            print(f"缺失区域重合度: {overlap_ratio:.1%}")
-            print(f"缺失区域坐标:{missing_x1, missing_y1, missing_x2, missing_y2},block坐标:{block.x_1, block.y_1, block.x_2, block.y_2}")
+            if debug_mode:
+                print(f"缺失区域重合度: {overlap_ratio:.1%}")
+                print(f"缺失区域坐标:{missing_x1, missing_y1, missing_x2, missing_y2},block坐标:{block.x_1, block.y_1, block.x_2, block.y_2}")
             max_overlap_ratio = max(max_overlap_ratio, overlap_ratio)
     
     # 如果重合度过高则忽略
     if max_overlap_ratio > overlap_threshold:
-        print(f"忽略{location}遗漏区域 (重合度: {max_overlap_ratio:.1%} > {overlap_threshold:.0%}阈值)")
+        if debug_mode:
+            print(f"忽略{location}遗漏区域 (重合度: {max_overlap_ratio:.1%} > {overlap_threshold:.0%}阈值)")
         return None
     
     # 创建区块对象
@@ -321,24 +326,21 @@ def get_caption_for_block(blocks, current_index, block_type, image):
         
      # 对于unknown类型，查看前后两个区块
     elif block_type == "unknown":
-        print("未知类型区块，尝试查找前后两个区块")
+        if debug_mode:
+            print("未知类型区块，尝试查找前后两个区块")
         if current_index > 0 and current_index < len(blocks) - 1:
             prev_block = blocks[current_index-1]
             next_block = blocks[current_index+1]
             prev_text = extract_text_from_image(image, prev_block)
             next_text = extract_text_from_image(image, next_block)
-            print("next_text:", next_text)
             if match := re.search(caption_patterns["table"], prev_text, re.IGNORECASE):
                 block_type = "table"
-                print("未知类型区块为表格")
                 return f"Table {match.group(1)}", True, block_type
             elif match := re.search(caption_patterns["list"], next_text, re.IGNORECASE):
                 block_type = "list"
-                print("未知类型区块为列表")
                 return f"List {match.group(1)}", True, block_type
             elif match := re.search(caption_patterns["figure"], next_text, re.IGNORECASE):
                 block_type = "figure"
-                print("未知类型区块为图片")
                 return f"Figure {match.group(1)}", True, block_type
             else:
                 return clean_text(prev_text), False , "other"
@@ -392,16 +394,20 @@ def process_content_blocks(image, blocks, page_num, output_base_dir, debug=False
                 with open(os.path.join(debug_output_dir, f"text_{idx + 1}.txt"), "w", encoding="utf-8") as f:
                     f.write(raw_text)
             continue  # 文字块不进入图片列表
-        
+        number = None
         # 获取描述文本
         caption, is_numbered, block_type = get_caption_for_block(blocks, idx, block_type, image)
         # 确定命名前缀和分类
         if block_type == "algorithm":
             name_prefix = f"page_{page_num + 1}_algorithm_{len(content_data['algorithms']) + 1}"
             category = "algorithms"
+            match = re.search(r"\b(\d+)\b", caption)  # 匹配独立的数字
+            number = int(match.group(1)) if match else None
         elif is_numbered and caption:
             name_prefix = f"page_{page_num + 1}_{caption.lower().replace(' ', '_')}"
             category = block_type + "s"  # figure -> figures
+            match = re.search(r"\b(\d+)\b", caption)  # 匹配独立的数字
+            number = int(match.group(1)) if match else None
         else:
             name_prefix = f"page_{page_num + 1}_other_{len(content_data['others']) + 1}"
             category = "others"
@@ -417,7 +423,8 @@ def process_content_blocks(image, blocks, page_num, output_base_dir, debug=False
             "position": [block.block.x_1, block.block.y_1, block.block.x_2, block.block.y_2],
             "text": caption if caption else raw_text,
             "path": img_path,
-            "original_type": block.type.lower()  # 记录原始类型
+            "original_type": block.type.lower(),  # 记录原始类型
+            "nr": number  # 记录编号
         }
         
         # 添加到对应分类
@@ -565,7 +572,7 @@ def extract_paper_info_from_pdf(pdf_path: str, output_base_dir: str, dpi: int = 
                     with open(os.path.join(debug_output_dir, "title.txt"), "w", encoding="utf-8") as f:
                         f.write(title_text)
                 
-                if page_num == 0 and group_idx == 0:  # 可能是论文标题
+                if paper_info.title == "Untitled":
                     paper_info.title = title_text
                     paper_info.outline_root.name = title_text
                 else:
@@ -581,7 +588,7 @@ def extract_paper_info_from_pdf(pdf_path: str, output_base_dir: str, dpi: int = 
             # 处理各类图片
             for fig in content_data["figures"]:
                 paper_info.image_list.append({
-                    "number": f"Figure{len([img for img in paper_info.image_list if img['number'].startswith('Figure')]) + 1}",
+                    "number": f'Figure{fig["nr"]}',
                     "path": fig["path"],
                     "description": fig["text"],
                     "type": "figure"
@@ -589,7 +596,7 @@ def extract_paper_info_from_pdf(pdf_path: str, output_base_dir: str, dpi: int = 
             
             for table in content_data["tables"]:
                 paper_info.image_list.append({
-                    "number": f"Table{len([img for img in paper_info.image_list if img['number'].startswith('Table')]) + 1}",
+                    "number": f'Table{table["nr"]}',
                     "path": table["path"],
                     "description": table["text"],
                     "type": "table"
@@ -597,7 +604,7 @@ def extract_paper_info_from_pdf(pdf_path: str, output_base_dir: str, dpi: int = 
             
             for lst in content_data["lists"]:
                 paper_info.image_list.append({
-                    "number": f"List{len([img for img in paper_info.image_list if img['number'].startswith('List')]) + 1}",
+                    "number":f'List{lst["nr"]}',
                     "path": lst["path"],
                     "description": lst["text"],
                     "type": "list"
@@ -605,20 +612,21 @@ def extract_paper_info_from_pdf(pdf_path: str, output_base_dir: str, dpi: int = 
             
             for algo in content_data["algorithms"]:
                 paper_info.image_list.append({
-                    "number": f"Algorithm{len([img for img in paper_info.image_list if img['number'].startswith('Algorithm')]) + 1}",
+                    "number": f'Algorithm{algo["nr"]}',
                     "path": algo["path"],
                     "description": algo["text"],
                     "type": "algorithm"
                 })
             
             for other in content_data["others"]:
-                paper_info.image_list.append({
-                    "number": f"Other{len([img for img in paper_info.image_list if img['number'].startswith('Other')]) + 1}",
-                    "path": other["path"],
-                    "description": other["text"],
-                    "type": "other",
-                    "original_type": other["original_type"]  # 保留原始类型信息
-                })
+                if debug_mode:
+                    paper_info.image_list.append({
+                        "number": f"Other{len([img for img in paper_info.image_list if img['number'].startswith('Other')]) + 1}",
+                        "path": other["path"],
+                        "description": other["text"],
+                        "type": "other",
+                        "original_type": other["original_type"]  # 保留原始类型信息
+                    })
     
     return paper_info
 
