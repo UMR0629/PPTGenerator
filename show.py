@@ -1,9 +1,7 @@
 import streamlit as st
 from index import index_module
 from PIL import Image
-#from index.testmain import tmp
 from data_base.save_tree import PaperInfoDB
-#from data_clean.main_processor import main_data_process
 import os,re
 import time
 import pandas as pd
@@ -67,18 +65,6 @@ def show_home():
 
 
 
-def show_settings():
-    """显示设置页面内容"""
-    with st.sidebar:
-        pages = ["🏠 主页", "📊 大纲", "⚙️ 设置"]
-        st.session_state.current_page = st.selectbox("导航", pages, index=pages.index(st.session_state.current_page))
-    st.title("⚙️ 设置")
-    volume = st.slider("音量调节", 0, 100, 50)
-    st.write(f"当前音量：{volume}%")
-    returnhome = st.button("返回主页面")
-    if(returnhome):
-        st.session_state.current_page = "🏠 主页"
-
 def initialize_paper():
     """初始化论文数据结构"""
     db = PaperInfoDB()
@@ -104,9 +90,6 @@ def initialize_paper():
             db.save_paper(paper)
             paper.generate_summary(lang="en")
             db.save_paper(paper)
-            
-
-
     paper.ppt_presenter = st.session_state.ppt_presenter
     paper.ppt_date = st.session_state.ppt_date
     paper.clear_nonexistent()
@@ -193,9 +176,6 @@ def show_content_editor():
             st.rerun()
     with col_add:
         if st.button("✨ 更改页数"):
-            # new_summary = index_module.PaperSectionSummary(key_points= [])
-            # node.content.summary.append(new_summary)
-            # st.session_state.current_summary_index = len(node.content.summary) - 1
             st.session_state.show_page_input = True
     with col_page:
         st.write(f"📄 第 {current_index+1} 页 / 共 {total_pages} 页")
@@ -249,9 +229,6 @@ def show_content_editor():
             node.content.user_feedback(prompt, "zh")
             st.rerun()      
     # 在表单外上传图片
-    """
-    需要修改成从node.content.summary.figures中读取图片
-    """   
     # 处理图片上传和展示
 
     save_dir = "uploads"
@@ -333,39 +310,6 @@ def show_content_editor():
                             st.error(f"图片文件丢失: {fig_obj.path}")
                             fig_obj.enable = 0  # 自动禁用丢失的图片
 
-
-
-    # figures = current_summary.figures if current_summary else []#路径问题
-    # tables = current_summary.tables if current_summary else [] 
-    # png_files = [f"{num}.png" for num in figures] #之后加上table
-    # """添加外部图片的删除问题"""
-    # png_files += st.file_uploader("上传图片", type=["png", "jpg"], accept_multiple_files=True)
-    # # 在表单中展示和删除图片
-    # with st.expander("图片"):
-    #     if png_files:
-    #         # 使用列布局展示图片
-    #         num_cols = min(4, len(png_files))
-    #         cols = st.columns(num_cols)
-    #         selected_indices = []
-    #         for i, filename in enumerate(png_files):
-    #             with cols[i % num_cols]:
-    #                 try:
-    #                     img = Image.open(filename)
-    #                     st.image(img, caption=f"图片 {i+1}", width=200)
-    #                     if st.checkbox(f"选择图片 {i+1}", key=f"sel_{i}"):
-    #                         selected_indices.append(i)
-    #                 except FileNotFoundError:
-    #                     st.error(f"文件 {filename} 不存在")
-            
-    #         # 删除按钮（始终显示）
-    #         if st.button("🗑️ 删除选中图片") and selected_indices:
-    #             # 更新持久化存储
-    #             png_files = [
-    #                 f for j, f in enumerate(png_files)
-    #                 if j not in selected_indices
-    #             ]
-    #             current_summary.figures = [int(s[:-4]) for s in png_files]
-    #             st.rerun()
 
 def show_text():
     """展示与修改大纲的核心功能"""
