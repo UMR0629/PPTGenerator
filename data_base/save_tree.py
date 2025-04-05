@@ -82,7 +82,7 @@ class PaperInfoDB:
                 last_paper_id = 0
                 for row in papers_all:
                     last_paper_id = row[0]
-                return last_paper_id
+                return last_paper_id+1
         return papers_id[0]
 
     def save_paper(self, paper: PaperInfo) -> int:

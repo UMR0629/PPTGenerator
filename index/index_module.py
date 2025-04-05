@@ -1,27 +1,17 @@
-############################################
-
-# 还没写完
-
-############################################
-
-# import sys
-# #sys.path.append("..")
-# from anytree import Node, RenderTree, PreOrderIter
-# from extract_function import generate_presentation_summary,generate_with_feedback
-# from generate_ppt.generate_ppt import Generate_ppt   #这里先注释掉，因为会报错
-# import re
 
 import sys
 import os
-from itertools import count
-import copy
+<<<<<<< HEAD
+#from itertools import count
+=======
+>>>>>>> 1516d74acdca5292272e46438599254876e6dbe2
 
 # 添加项目根目录到Python路径
 project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(project_root)
 
 from anytree import Node, RenderTree, PreOrderIter
-from index.extract_function import generate_presentation_summary, generate_with_feedback,split_text_into_parts,title_translate_function
+from information_extractor.extract_function import generate_presentation_summary, generate_with_feedback,split_text_into_parts,title_translate_function
 from generate_ppt.generate_ppt import Generate_ppt  # 暂时注释掉
 import re
 
@@ -487,7 +477,7 @@ class PaperInfo:
         ppt_presenter_first_part = self.ppt_presenter.split(' ')[0]
         ppt_presenter = re.sub(r'[^\w]', '', ppt_presenter_first_part).lower()
         print(ppt_presenter)
-        ppt_save_path = "source/ppt_model/" + title + "_" + ppt_presenter + ".pptx"
+        ppt_save_path = title + "_" + ppt_presenter + ".pptx"
         #ppt_save_path = "source/ppt_model/output.pptx"
         generate_ppt.save_ppt(ppt_save_path)
 

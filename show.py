@@ -2,8 +2,8 @@ import streamlit as st
 from index import index_module
 from PIL import Image
 #from index.testmain import tmp
-from index.save_tree import PaperInfoDB
-from data_clean.main_processor import main_data_process
+from data_base.save_tree import PaperInfoDB
+#from data_clean.main_processor import main_data_process
 import os,re
 import time
 import pandas as pd
@@ -42,20 +42,21 @@ def show_home():
 
     if not papers:
         st.info("数据库中没有论文")
+        print("no artical")
+    else:
+        df = pd.DataFrame(papers)
+        df["authors"] = df["authors"].apply(lambda x: ", ".join(x))  # 将作者列表转换为字符串
 
-    df = pd.DataFrame(papers)
-    df["authors"] = df["authors"].apply(lambda x: ", ".join(x))  # 将作者列表转换为字符串
-    
-    # 配置交互式表格
-    st.dataframe(
-        df[["id", "title"]],
-        use_container_width=True,
-        column_config={
-            "id": "ID",
-            "title": "论文标题",
-        },
-        hide_index=True
-    )
+        # 配置交互式表格
+        st.dataframe(
+            df[["id", "title"]],
+            use_container_width=True,
+            column_config={
+                "id": "ID",
+                "title": "论文标题",
+            },
+            hide_index=True
+        )
     st.session_state.papernumber = st.text_input("请选择列表中的论文")
     
     if st.button("点击生成PPT大纲"):
@@ -95,10 +96,11 @@ def initialize_paper():
             output_dir = os.path.join("./data_clean/", "output")
             # 创建输出目录（如果不存在）
             os.makedirs(output_dir, exist_ok=True)
-        
+            print(file_path)
+            print(output_dir)
             # 调用extract_blocks_from_pdf函数
-            scan_pdf.extract_blocks_from_pdf(pdf_path=file_path, output_dir=output_dir)
-            paper = main_data_process()
+            paper=scan_pdf.extract_paper_info_from_pdf(pdf_path=file_path, output_base_dir=output_dir)
+            paper.display_outline()
             db.save_paper(paper)
             paper.generate_summary(lang="en")
             db.save_paper(paper)

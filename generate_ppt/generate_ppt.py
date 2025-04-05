@@ -1,7 +1,5 @@
-#from lxml.xmlerror import text_size
 import re
 
-from PIL.ImageOps import scale
 from pptx import Presentation
 from pptx.util import Inches, Pt
 from pptx.enum.text import PP_ALIGN, MSO_ANCHOR
@@ -721,8 +719,6 @@ class Generate_ppt:
         slide = self.prs_new.slides.add_slide(self.slide_layout[13])
 
         slide.placeholders[0].text = text
-
-
 
     # 保存PPT
     def save_ppt(self, output_path):
