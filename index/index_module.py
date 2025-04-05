@@ -14,6 +14,7 @@
 import sys
 import os
 from itertools import count
+import copy
 
 # 添加项目根目录到Python路径
 project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -129,7 +130,7 @@ class SectionContent:
         parse_output_to_section(output, tmp_summary)
         self.summary[0].key_points=tmp_summary.key_points
         for i in range(1, len(parts)):
-            tmp_summary2=PaperSectionSummary(key_points=[],tables=self.summary[0].tables,figures=self.summary[0].figures)
+            tmp_summary2=PaperSectionSummary(key_points=[],tables=self.summary[0].tables.copy(),figures=self.summary[0].figures.copy())
             self.summary.append(tmp_summary2)
             tmp_summary3=PaperSectionSummary(key_points=[])
             output = generate_presentation_summary(parts[i],lang)
