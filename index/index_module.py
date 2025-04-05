@@ -118,7 +118,16 @@ class SectionContent:
         parse_output_to_section(output, tmp_summary)
         self.summary[0].key_points=tmp_summary.key_points
         for i in range(1, len(parts)):
-            tmp_summary2=PaperSectionSummary(key_points=[],tables=self.summary[0].tables.copy(),figures=self.summary[0].figures.copy())
+            newtables = []
+            for table in self.summary[0].tables:
+                newtable = TableorFigure(number=table.number,enable=0,path=table.path)
+                newtables.append(newtable)
+            newfigures = []
+            for figure in self.summary[0].figures:
+                newfigure = TableorFigure(number=figure.number,enable=0,path=figure.path)
+                newfigures.append(newfigure)
+            #tmp_summary2=PaperSectionSummary(key_points=[],tables=self.summary[0].tables.copy(),figures=self.summary[0].figures.copy())
+            tmp_summary2=PaperSectionSummary(key_points=[],tables=newtables,figures=newfigures)
             self.summary.append(tmp_summary2)
             tmp_summary3=PaperSectionSummary(key_points=[])
             output = generate_presentation_summary(parts[i],lang)
