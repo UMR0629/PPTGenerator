@@ -1,10 +1,8 @@
 
 import sys
 import os
-<<<<<<< HEAD
-#from itertools import count
-=======
->>>>>>> 1516d74acdca5292272e46438599254876e6dbe2
+from itertools import count
+import copy
 
 # 添加项目根目录到Python路径
 project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
