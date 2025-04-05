@@ -26,11 +26,7 @@ COPY detectron2-main.zip /tmp/
 RUN pip install -r requirements.txt
 
 # 安装detectron2（增加详细日志）
-RUN cd /tmp && \
-    unzip detectron2-main.zip && \
-    cd detectron2-main && \  
-    pip install -v . && \
-    rm -rf /tmp/detectron2-main*
+RUN pip install "git+https://github.com/facebookresearch/detectron2.git"
 
 # 设置环境变量
 ENV PATH /opt/conda/envs/pdf2ppt/bin:$PATH

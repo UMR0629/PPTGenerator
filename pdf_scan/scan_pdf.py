@@ -28,13 +28,11 @@ else:
     pytesseract.pytesseract.tesseract_cmd = "/usr/bin/tesseract"
 
 # 构建绝对路径
-config_path = current_directory / "config.yml"
-model_path = current_directory / "model_final.pth"
+config_path="lp://PubLayNet/faster_rcnn_R_50_FPN_3x/config"
 
 # 加载模型
 model = lp.Detectron2LayoutModel(
     config_path=str(config_path),
-    model_path=str(model_path),
     label_map={0: "Text", 1: "Title", 2: "List", 3: "Table", 4: "Figure"},
     extra_config=["MODEL.ROI_HEADS.SCORE_THRESH_TEST", 0.8]
 )
