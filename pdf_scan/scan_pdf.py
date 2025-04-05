@@ -493,7 +493,7 @@ def extract_paper_info_from_pdf(pdf_path: str, output_base_dir: str, dpi: int = 
     )
     
     previous_groups = []  # 存储上一页的分组信息
-    
+    parent_rome = paper_info.outline_root
     for page_num, image in enumerate(images):
         # 在debug模式下保存原始页面图像
         if debug:
@@ -542,7 +542,6 @@ def extract_paper_info_from_pdf(pdf_path: str, output_base_dir: str, dpi: int = 
         grouped_blocks = group_by_title(sorted_blocks)
         
         current_groups = []
-        #parent_rome = paper_info.outline_root
         for group_idx, group in enumerate(grouped_blocks):
             # 处理内容块
             content_data = process_content_blocks(
