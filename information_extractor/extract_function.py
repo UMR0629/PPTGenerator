@@ -3,7 +3,7 @@ from openai import OpenAI
 
 client = OpenAI(
     #api_key="sk-09bb0e624026431eaf3aa118b6159df0",  # 替换为你的API密钥或配置环境变量
-    api_key = "sk-f7dfd4cc4aa148958071a39d60223faa",
+    api_key = "sk-2ea08d5b273146d89234d33ae68dda61",
     base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",
 )
 
