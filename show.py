@@ -70,6 +70,7 @@ def initialize_paper():
     db = PaperInfoDB()
     if st.session_state.papernumber:
         paper = db.load_paper(st.session_state.papernumber)
+        paper.display_outline()
     else:
         for file in st.session_state.pdf_files:
             # 获取文件的保存路径
@@ -79,17 +80,17 @@ def initialize_paper():
                 f.write(file.getbuffer())
         
             # 定义输出目录
-            output_dir = os.path.join("./data_clean/", "output")
+            output_dir = os.path.join("./data_clean/", "output", file.name.split(" ")[0])
             # 创建输出目录（如果不存在）
             os.makedirs(output_dir, exist_ok=True)
             print(file_path)
             print(output_dir)
             # 调用extract_blocks_from_pdf函数
             paper=scan_pdf.extract_paper_info_from_pdf(pdf_path=file_path, output_base_dir=output_dir)
-            paper.display_outline()
             db.save_paper(paper)
             paper.generate_summary(lang="en")
             db.save_paper(paper)
+            paper.display_outline()
     paper.ppt_presenter = st.session_state.ppt_presenter
     paper.ppt_date = st.session_state.ppt_date
     paper.clear_nonexistent()
@@ -125,6 +126,7 @@ def render_outline_node(node, depth=0):
             use_container_width=True,
             help="点击查看内容"
         ):
+            print(node.name)
             st.session_state.selected_node = node
 
     if is_expanded and node.children:

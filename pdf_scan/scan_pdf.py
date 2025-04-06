@@ -587,7 +587,7 @@ def extract_paper_info_from_pdf(pdf_path: str, output_base_dir: str, dpi: int = 
                             print(f"罗马-当前标题: {title_text}, 父节点: {parent.name if parent else '无'}")
                             parent_rome = Node(title_text, parent=parent, content=section_content)
                         else:
-                            print(f"字母-当前标题: {title_text}, 父节点: {parent_rome.name if parent else '无'}")
+                            print(f"字母-当前标题: {title_text}, 父节点: {parent_rome.name if parent_rome else '无'}")
                             Node(title_text, parent=parent_rome, content=section_content)
             
             current_groups.append({
