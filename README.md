@@ -79,6 +79,10 @@ pip install matplotlib -i https://pypi.tuna.tsinghua.edu.cn/simple
 4. 启动streamlit后，浏览器无法访问8501端口
 需要在docker desktop的设置中，选择resouce/network，勾选enable host networking即可
 
+## 由于要和大模型进行频繁互动，上传ppt后，进行信息提取的过程比较缓慢（10分钟以上），请耐心等待
+## 数据库中已有test论文数据，可以直接使用
 ## docker容器以外的部署方法，详见部署文档
 ## 其他问题请联系作者
 email：caoyifan0629@sjtu.edu.cn
+## github仓库
+https://github.com/UMR0629/PPTGenerator
