@@ -9,9 +9,9 @@ import pdf_scan.scan_pdf as scan_pdf
 # 展示主页
 def show_home():
     """显示主页内容"""
-    with st.sidebar:
-        pages = ["🏠 主页", "📊 大纲", "⚙️ 设置"]
-        st.session_state.current_page = st.selectbox("导航", pages, index=pages.index(st.session_state.current_page))
+    # with st.sidebar:
+    #     pages = ["🏠 主页", "📊 大纲", "⚙️ 设置"]
+    #     st.session_state.current_page = st.selectbox("导航", pages, index=pages.index(st.session_state.current_page))
         
     st.title("🏠 论文PPT自动生成器")
     st.info("欢迎使用论文PPT自动生成器！")
